@@ -57,7 +57,7 @@ export function ParameterPanel({
   return (
     <div
       className={cn(
-        "rounded-lg border border-hairline/70 bg-surface-band p-4",
+        "border border-hairline/70 bg-surface-band p-4",
         className,
       )}
     >

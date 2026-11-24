@@ -31,7 +31,7 @@ export function EngagementCta({
   return (
     <div
       className={cn(
-        "flex flex-col items-start justify-between gap-6 rounded-lg border p-6 md:flex-row md:items-center lg:p-8",
+        "flex flex-col items-start justify-between gap-6 border p-6 md:flex-row md:items-center lg:p-8",
         dark
           ? "border-white/10 bg-charcoal text-white"
           : "border-hairline bg-card",

@@ -53,7 +53,7 @@ export function CarbonValueChain() {
     >
       <div className="shell section-y">
         <div className="mb-10 max-w-3xl">
-          <Eyebrow dot={false} className="text-brand-deep">
+          <Eyebrow className="text-brand-deep">
             02 / Integrated Value Chain
           </Eyebrow>
           <h2
@@ -73,7 +73,7 @@ export function CarbonValueChain() {
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {steps.map((step, index) => (
             <div key={step.step} className="flex flex-col">
-              <article className="flex flex-1 flex-col justify-between rounded-lg border border-hairline/70 bg-background p-6 lg:p-8">
+              <article className="flex flex-1 flex-col justify-between border border-hairline/70 bg-background p-6 lg:p-8">
                 <div>
                   <div className="flex flex-wrap items-center justify-between gap-2">
                     <span className="type-code font-bold text-brand-deep">
@@ -92,7 +92,7 @@ export function CarbonValueChain() {
                   </p>
                 </div>
 
-                <div className="mt-8 rounded-lg border border-hairline/60 bg-surface-band p-4">
+                <div className="mt-8 border border-hairline/60 bg-surface-band p-4">
                   <span className="type-code block font-medium text-ink">
                     {step.parameterLabel}
                   </span>

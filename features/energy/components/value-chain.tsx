@@ -11,7 +11,6 @@ type ChainStep = {
   metaLabel: string;
   metaValue: string;
   icon: LucideIcon;
-  dot: "brand" | "green";
   active?: boolean;
 };
 
@@ -26,7 +25,6 @@ const steps: ChainStep[] = [
     metaLabel: "Output",
     metaValue: "Grid-Connected Hardware & Substation Assets",
     icon: SunMediumIcon,
-    dot: "brand",
   },
   {
     index: "02",
@@ -38,7 +36,6 @@ const steps: ChainStep[] = [
     metaLabel: "SLA Yield",
     metaValue: ">99.4% Availability Uptime",
     icon: ActivityIcon,
-    dot: "green",
   },
   {
     index: "03",
@@ -50,7 +47,6 @@ const steps: ChainStep[] = [
     metaLabel: "Realization",
     metaValue: "Firm Power Delivery + Verifiable I-RECs",
     icon: CpuIcon,
-    dot: "brand",
     active: true,
   },
 ];
@@ -71,7 +67,7 @@ export function ValueChain() {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-lg border border-hairline bg-hairline lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-3">
           {steps.map((step) => {
             const Icon = step.icon;
 
@@ -103,13 +99,6 @@ export function ValueChain() {
                   </div>
 
                   <div className="flex items-center gap-2">
-                    <span
-                      aria-hidden="true"
-                      className={cn(
-                        "size-1.5 rounded-full",
-                        step.dot === "green" ? "bg-emerald-600" : "bg-brand",
-                      )}
-                    />
                     <span className="type-eyebrow text-caption">
                       {step.entity}
                     </span>

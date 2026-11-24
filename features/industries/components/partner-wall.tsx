@@ -30,7 +30,7 @@ export function PartnerWall() {
       <div className="shell">
         <div className="flex flex-col gap-3 border-b border-hairline/70 pb-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <Eyebrow dot={false} className="text-muted-foreground">
+            <Eyebrow className="text-muted-foreground">
               Hardware Tiering &amp; Distribution
             </Eyebrow>
             <h2 className="type-headline-md mt-2 text-ink">
@@ -47,7 +47,7 @@ export function PartnerWall() {
             <li
               key={partner}
               className={cn(
-                "type-label flex min-h-16 items-center justify-center rounded border border-hairline/80 bg-background px-3 py-4 text-center font-semibold tracking-tight text-ink",
+                "type-label flex min-h-16 items-center justify-center border border-hairline/80 bg-background px-3 py-4 text-center font-semibold tracking-tight text-ink",
                 partner === "LORENTZ" && "text-brand-deep",
                 partner === "REBEL ENERGY" && "col-span-2 sm:col-span-1",
               )}

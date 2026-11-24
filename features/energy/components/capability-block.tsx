@@ -35,13 +35,13 @@ export function CapabilityBlock({
   return (
     <article
       className={cn(
-        "group flex flex-col overflow-hidden rounded-lg border border-hairline bg-background transition-colors duration-150 hover:border-charcoal",
+        "group flex flex-col overflow-hidden border border-hairline bg-background transition-colors duration-150 hover:border-charcoal",
         className,
       )}
     >
       <div className="flex flex-1 flex-col p-6 lg:p-8">
         <div className="mb-6 flex items-start justify-between gap-3">
-          <span className="grid size-11 place-items-center rounded-lg border border-hairline bg-surface-page text-brand-deep">
+          <span className="grid size-11 place-items-center border border-hairline bg-surface-page text-brand-deep">
             <Icon aria-hidden="true" className="size-5" />
           </span>
           <span className="type-code rounded border border-hairline bg-surface-page px-2 py-1 text-caption">

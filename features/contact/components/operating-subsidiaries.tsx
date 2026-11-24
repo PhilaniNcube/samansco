@@ -5,22 +5,18 @@ const subsidiaryChannels = [
   {
     email: "industries@samansco.com",
     scope: "Turnkey Solar EPC & Technical Supply Distribution",
-    dot: "bg-brand",
   },
   {
     email: "energy@samansco.com",
     scope: "Licensed Utility PPAs & Commercial Power Wheeling",
-    dot: "bg-charcoal",
   },
   {
     email: "maintenance@samansco.com",
     scope: "Asset Telemetry, SCADA & Long-term O&M SLAs",
-    dot: "bg-emerald-600",
   },
   {
     email: "carbon@samansco.com",
     scope: "I-REC Certification, Carbon Offsetting & ESG Advisory",
-    dot: "bg-emerald-600",
   },
 ];
 
@@ -32,7 +28,7 @@ export function OperatingSubsidiaries() {
   return (
     <article
       aria-labelledby="operating-subsidiaries-title"
-      className="rounded-lg border border-hairline bg-card p-5 lg:p-6"
+      className="border border-hairline bg-card p-5 lg:p-6"
     >
       <div className="flex items-start justify-between gap-3 border-b border-hairline/80 pb-3">
         <div className="flex min-w-0 items-center gap-2">
@@ -59,14 +55,11 @@ export function OperatingSubsidiaries() {
             <li key={division.href}>
               <a
                 href={`mailto:${channel.email}`}
-                className="group flex flex-col gap-2 rounded-lg bg-surface-band p-3.5 transition-colors hover:bg-surface-sunken sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                className="group flex flex-col gap-2 bg-surface-band p-3.5 transition-colors hover:bg-surface-sunken sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <div className="flex min-w-0 flex-col gap-1">
                   <div className="flex items-center gap-2">
-                    <span
-                      aria-hidden="true"
-                      className={`size-2 shrink-0 rounded-full ${channel.dot}`}
-                    />
+
                     <h3 className="type-headline-sm text-ink transition-colors group-hover:text-brand-deep">
                       {division.name}
                     </h3>

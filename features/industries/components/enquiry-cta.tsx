@@ -223,7 +223,7 @@ export function EnquiryCta() {
                     <div
                       role="status"
                       aria-live="polite"
-                      className="rounded-lg border border-hairline bg-surface-band p-4"
+                      className="border border-hairline bg-surface-band p-4"
                     >
                       <p className="type-label font-semibold text-ink">
                         Enquiry brief prepared

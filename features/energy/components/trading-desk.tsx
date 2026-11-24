@@ -82,7 +82,7 @@ export function TradingDesk() {
       className="scroll-mt-20 border-y border-hairline/60"
     >
       <div className="shell section-y">
-        <div className="overflow-hidden rounded-lg border border-hairline bg-background lg:grid lg:grid-cols-12">
+        <div className="overflow-hidden border border-hairline bg-background lg:grid lg:grid-cols-12">
           <div className="flex flex-col bg-charcoal p-6 text-white lg:col-span-5 lg:p-8">
             <Eyebrow className="text-white/70">Direct Trading Desk</Eyebrow>
 
@@ -106,7 +106,7 @@ export function TradingDesk() {
                   <a
                     key={channel.label}
                     href={channel.href}
-                    className="flex flex-col gap-1 rounded border border-white/10 bg-white/5 px-4 py-3 transition-colors hover:border-white/25 hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between"
+                    className="flex flex-col gap-1 border border-white/10 bg-white/5 px-4 py-3 transition-colors hover:border-white/25 hover:bg-white/10 sm:flex-row sm:items-center sm:justify-between"
                   >
                     <span className="flex items-center gap-2 text-white/70">
                       <Icon

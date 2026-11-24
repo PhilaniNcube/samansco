@@ -53,14 +53,13 @@ export function Footprint() {
       <div className="shell section-y">
         <SectionHeading
           eyebrow="Regional Operations & Governance"
-          dot={false}
           title="Infrastructure Footprint & Global Impact"
           description="Operating across Southern and Eastern Africa, Samansco Group aligns capital deployment and engineering excellence with internationally accredited sustainability frameworks and regional energy ministries."
           className="mb-10 max-w-3xl"
         />
 
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
-          <div className="flex flex-col rounded-lg border border-hairline/70 bg-card p-6 lg:p-8">
+          <div className="flex flex-col border border-hairline/70 bg-card p-6 lg:p-8">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline pb-4">
               <h3 className="type-headline-sm text-ink">Operating Presence</h3>
               <span className="type-eyebrow text-caption">
@@ -72,7 +71,7 @@ export function Footprint() {
               {offices.map((office) => (
                 <div
                   key={office.country}
-                  className="rounded-lg border border-hairline/50 bg-surface-page/60 p-4"
+                  className="border border-hairline/50 bg-surface-page/60 p-4"
                 >
                   <div className="mb-1 flex items-center gap-2">
                     <MapPinIcon
@@ -93,17 +92,13 @@ export function Footprint() {
 
             <div className="type-code mt-5 flex flex-wrap items-center justify-between gap-2 border-t border-hairline pt-4 text-caption">
               <span className="flex items-center gap-1.5">
-                <span
-                  aria-hidden="true"
-                  className="size-2 rounded-full bg-emerald-600"
-                />
                 UN COP Delegation Participant
               </span>
               <span className="uppercase">SADC Licensed Operator</span>
             </div>
           </div>
 
-          <div className="flex flex-col rounded-lg border border-hairline/70 bg-card p-6 lg:p-8">
+          <div className="flex flex-col border border-hairline/70 bg-card p-6 lg:p-8">
             <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline pb-4">
               <h3 className="type-headline-sm text-ink">
                 Sustainable Development Alignment
@@ -122,7 +117,7 @@ export function Footprint() {
               {goals.map((item) => (
                 <li
                   key={item.goal}
-                  className="type-label flex items-center justify-between gap-3 rounded bg-surface-page/60 p-2.5 px-3 text-ink transition-colors hover:bg-surface-page"
+                  className="type-label flex items-center justify-between gap-3 bg-surface-page/60 p-2.5 px-3 text-ink transition-colors hover:bg-surface-page"
                 >
                   <span className="flex min-w-0 items-center gap-3">
                     <span className="type-code w-14 shrink-0 font-bold text-brand-deep">

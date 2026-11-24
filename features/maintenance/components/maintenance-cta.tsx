@@ -28,7 +28,7 @@ export function MaintenanceCta() {
               Dedicated Enterprise Desk
             </span>
 
-            <Eyebrow dot={false} className="mt-5 text-white/65">
+            <Eyebrow className="mt-5 text-white/65">
               Asset Stewardship
             </Eyebrow>
             <h2
@@ -50,13 +50,13 @@ export function MaintenanceCta() {
           </div>
 
           <div className="lg:col-span-5">
-            <div className="rounded-lg border border-white/10 bg-white/5 p-5 lg:p-6">
+            <div className="border border-white/10 bg-white/5 p-5 lg:p-6">
               <p className="type-eyebrow text-white/65">Direct O&amp;M Desk</p>
 
               <div className="mt-3 flex flex-col gap-2">
                 <a
                   href="tel:+263242442645"
-                  className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 p-3 transition-colors hover:bg-white/10"
+                  className="flex items-center justify-between gap-3 border border-white/10 bg-white/5 p-3 transition-colors hover:bg-white/10"
                 >
                   <span className="flex min-w-0 items-center gap-2.5">
                     <PhoneIcon
@@ -74,7 +74,7 @@ export function MaintenanceCta() {
 
                 <a
                   href="mailto:maintenance@samansco.com"
-                  className="flex items-center justify-between gap-3 rounded-lg border border-white/10 bg-white/5 p-3 transition-colors hover:bg-white/10"
+                  className="flex items-center justify-between gap-3 border border-white/10 bg-white/5 p-3 transition-colors hover:bg-white/10"
                 >
                   <span className="flex min-w-0 items-center gap-2.5">
                     <MailIcon
@@ -106,7 +106,6 @@ export function MaintenanceCta() {
         <div className="type-code mt-12 flex flex-col gap-2 border-t border-white/10 pt-5 text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <span className="uppercase">Samansco Maintenance Ltd</span>
           <span className="inline-flex items-center gap-2 uppercase">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-brand" />
             ISO 9001 Compliant
           </span>
         </div>

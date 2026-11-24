@@ -42,7 +42,7 @@ export function ExecutiveHeadOffice() {
   return (
     <article
       aria-labelledby="head-office-title"
-      className="rounded-lg border border-hairline bg-card p-5 lg:p-6"
+      className="border border-hairline bg-card p-5 lg:p-6"
     >
       <div className="flex items-start justify-between gap-3 border-b border-hairline/80 pb-3">
         <div className="flex min-w-0 items-center gap-2">
@@ -115,7 +115,7 @@ export function ExecutiveHeadOffice() {
           </a>
         </ContactRow>
 
-        <div className="rounded-lg bg-surface-band p-4">
+        <div className="bg-surface-band p-4">
           <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
             <span className="type-body-sm flex items-center gap-1.5 text-muted-foreground">
               <ClockIcon aria-hidden="true" className="size-4" />

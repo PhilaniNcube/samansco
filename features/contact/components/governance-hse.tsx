@@ -72,7 +72,7 @@ export function GovernanceHse() {
               </p>
             </div>
 
-            <div className="flex shrink-0 flex-col gap-2 rounded-lg border border-hairline bg-card px-4 py-3">
+            <div className="flex shrink-0 flex-col gap-2 rounded-none border border-hairline bg-card px-4 py-3">
               <span className="type-eyebrow text-caption">
                 Statutory Framework
               </span>
@@ -94,20 +94,12 @@ export function GovernanceHse() {
                   key={pillar.index}
                   id={pillar.anchor}
                   className={cn(
-                    "flex flex-col justify-between rounded-lg border border-hairline bg-background p-6",
+                    "flex flex-col justify-between rounded-none border border-hairline bg-background p-6",
                     pillar.anchor && "scroll-mt-24",
                   )}
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="type-eyebrow text-brand-deep">
-                        {pillar.index}
-                      </span>
-                      <Icon
-                        aria-hidden="true"
-                        className="size-5 shrink-0 text-caption"
-                      />
-                    </div>
+
                     <h3 className="type-headline-sm mt-4 text-ink">
                       {pillar.title}
                     </h3>
@@ -116,7 +108,7 @@ export function GovernanceHse() {
                     </p>
                   </div>
 
-                  <div className="type-code mt-6 flex flex-wrap items-center justify-between gap-2 rounded bg-surface-band px-3 py-2 text-caption">
+                  <div className="type-code mt-6 flex flex-wrap items-center justify-between gap-2 bg-surface-band px-3 py-2 text-caption">
                     <span>{pillar.statLabel}</span>
                     <span className="font-medium text-ink">
                       {pillar.statValue}

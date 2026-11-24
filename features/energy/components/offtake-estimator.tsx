@@ -37,7 +37,7 @@ export function OfftakeEstimator() {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="rounded-lg border border-hairline bg-background">
+            <div className="border border-hairline bg-background">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline px-5 py-3">
                 <span className="type-code tracking-wider text-caption uppercase">
                   Connected Demand

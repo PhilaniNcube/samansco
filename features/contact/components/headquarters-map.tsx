@@ -32,7 +32,7 @@ export function HeadquartersMap() {
   return (
     <Section tone="white">
       <div className="shell section-y">
-        <div className="overflow-hidden rounded-lg border border-hairline bg-ink text-white">
+        <div className="overflow-hidden border border-hairline bg-ink text-white">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="flex flex-col justify-between gap-8 p-6 lg:col-span-6 lg:p-10">
               <div>
@@ -62,7 +62,7 @@ export function HeadquartersMap() {
                     return (
                       <li
                         key={direction.title}
-                        className="flex items-start gap-3 rounded-lg bg-white/5 p-3"
+                        className="flex items-start gap-3 bg-white/5 p-3"
                       >
                         <Icon
                           aria-hidden="true"
@@ -122,10 +122,6 @@ export function HeadquartersMap() {
               />
 
               <span className="type-code absolute top-4 left-4 flex items-center gap-2 rounded bg-ink/90 px-3 py-1.5 text-white">
-                <span
-                  aria-hidden="true"
-                  className="size-2 rounded-full bg-emerald-600"
-                />
                 SAMANSCO HQ HUB • EASTLEA
               </span>
 

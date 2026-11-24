@@ -74,7 +74,7 @@ export function CoreCapabilities() {
       <div className="shell section-y">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-7">
-            <Eyebrow dot={false} className="text-brand-deep">
+            <Eyebrow className="text-brand-deep">
               01 / Core Capabilities
             </Eyebrow>
             <h2
@@ -98,10 +98,10 @@ export function CoreCapabilities() {
             return (
               <Card
                 key={service.code}
-                className="h-full gap-0 rounded-lg border-hairline bg-card p-6 shadow-none lg:p-8"
+                className="h-full gap-0 border-hairline bg-card p-6 shadow-none lg:p-8"
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="grid size-12 place-items-center rounded-lg bg-surface-band text-brand-deep">
+                  <span className="grid size-12 place-items-center bg-surface-band text-brand-deep">
                     <Icon aria-hidden="true" className="size-6" />
                   </span>
                   <span className="type-code text-caption">{service.code}</span>
@@ -115,7 +115,7 @@ export function CoreCapabilities() {
                 </p>
 
                 <div className="mt-auto pt-6">
-                  <ul className="space-y-2.5 rounded-lg border border-hairline/60 bg-surface-page p-4">
+                  <ul className="space-y-2.5 border border-hairline/60 bg-surface-page p-4">
                     {service.scope.map((item) => (
                       <li
                         key={item}
@@ -136,16 +136,16 @@ export function CoreCapabilities() {
         </div>
 
         <div className="mt-6 grid gap-6 lg:grid-cols-12">
-          <Card className="gap-0 rounded-lg border-hairline bg-card p-6 shadow-none lg:col-span-7 lg:p-8">
+          <Card className="gap-0 border-hairline bg-card p-6 shadow-none lg:col-span-7 lg:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <Eyebrow dot={false} className="text-brand-deep">
+              <Eyebrow className="text-brand-deep">
                 Field Precision Tooling
               </Eyebrow>
               <span className="type-code text-caption">AIR &amp; GROUND</span>
             </div>
 
             <div className="mt-5 flex flex-col gap-5 sm:flex-row sm:items-start">
-              <span className="grid size-12 shrink-0 place-items-center rounded-lg bg-surface-band text-brand-deep">
+              <span className="grid size-12 shrink-0 place-items-center bg-surface-band text-brand-deep">
                 <ScanSearchIcon aria-hidden="true" className="size-6" />
               </span>
               <div>
@@ -164,7 +164,7 @@ export function CoreCapabilities() {
             </div>
           </Card>
 
-          <div className="flex flex-col rounded-lg border border-white/10 bg-charcoal p-6 text-white lg:col-span-5 lg:p-8">
+          <div className="flex flex-col border border-white/10 bg-charcoal p-6 text-white lg:col-span-5 lg:p-8">
             <h3 className="type-headline-sm text-white">
               Engineered Lifecycle Assurance
             </h3>

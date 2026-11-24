@@ -40,10 +40,10 @@ export function CarbonCta() {
       aria-labelledby="carbon-cta-title"
     >
       <div className="shell py-12 lg:py-16">
-        <div className="rounded-lg border border-white/10 bg-charcoal px-6 py-10 text-white lg:px-10 lg:py-12">
+        <div className="border border-white/10 bg-charcoal px-6 py-10 text-white lg:px-10 lg:py-12">
           <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-8">
-              <Eyebrow dot={false} className="text-brand-soft">
+              <Eyebrow className="text-brand-soft">
                 Direct Desk Engagement
               </Eyebrow>
               <h2
@@ -83,7 +83,7 @@ export function CarbonCta() {
                       return (
                         <li
                           key={contact.label}
-                          className="flex items-start gap-3 rounded-lg border border-hairline bg-surface-page p-3"
+                          className="flex items-start gap-3 border border-hairline bg-surface-page p-3"
                         >
                           <Icon
                             aria-hidden="true"
@@ -124,10 +124,6 @@ export function CarbonCta() {
               </Dialog>
 
               <p className="type-code flex items-center gap-2 text-[11px] text-white/80">
-                <span
-                  aria-hidden="true"
-                  className="size-2 shrink-0 rounded-full bg-brand"
-                />
                 DESK RESPONSE: &lt; 24H SLA • CONFIDENTIAL INQUIRIES
               </p>
             </div>

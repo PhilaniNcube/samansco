@@ -77,7 +77,7 @@ export function CarbonCapabilities() {
       <div className="shell section-y">
         <div className="mb-10 flex flex-col gap-6 border-b border-hairline/60 pb-8 md:flex-row md:items-end md:justify-between">
           <div className="flex flex-col gap-3">
-            <Eyebrow dot={false} className="text-brand-deep">
+            <Eyebrow className="text-brand-deep">
               01 / Operating Solutions
             </Eyebrow>
             <h2
@@ -101,7 +101,7 @@ export function CarbonCapabilities() {
             return (
               <article
                 key={capability.scope}
-                className="flex flex-col rounded-lg border border-hairline/70 bg-surface-band p-6 transition-colors duration-150 hover:border-charcoal lg:p-8"
+                className="flex flex-col border border-hairline/70 bg-surface-band p-6 transition-colors duration-150 hover:border-charcoal lg:p-8"
               >
                 <div className="flex items-start justify-between gap-3">
                   <span className="type-code text-caption uppercase">

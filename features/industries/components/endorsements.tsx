@@ -50,7 +50,7 @@ export function Endorsements() {
           {endorsements.map((endorsement) => (
             <figure
               key={endorsement.name}
-              className="flex flex-col justify-between rounded-lg border border-hairline bg-background p-6 lg:p-8"
+              className="flex flex-col justify-between border border-hairline bg-background p-6 lg:p-8"
             >
               <div>
                 <QuoteIcon

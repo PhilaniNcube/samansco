@@ -123,10 +123,6 @@ export function ProjectGallery() {
         <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between lg:mb-12">
           <div>
             <p className="type-eyebrow flex items-center gap-2 text-brand-deep">
-              <span
-                aria-hidden="true"
-                className="size-1.5 rounded-full bg-brand"
-              />
               Engineering Track Record
             </p>
             <h2 className="type-headline-xl mt-3 text-balance text-ink">
@@ -142,7 +138,7 @@ export function ProjectGallery() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="flex flex-col overflow-hidden rounded-lg border border-hairline bg-surface-band"
+              className="flex flex-col overflow-hidden border border-hairline bg-surface-band"
             >
               <div className="relative h-52 w-full overflow-hidden bg-surface-sunken lg:h-56">
                 <Image
@@ -172,7 +168,7 @@ export function ProjectGallery() {
                   {project.cases.map((projectCase) => (
                     <li
                       key={projectCase.title}
-                      className="rounded border border-hairline/60 bg-background p-4"
+                      className="border border-hairline/60 bg-background p-4"
                     >
                       <p className="type-label font-semibold text-ink">
                         {projectCase.title}

@@ -44,7 +44,7 @@ export function TechnologyCollaborators() {
       <div className="shell section-y">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <Eyebrow dot={false} className="text-brand-deep">
+            <Eyebrow className="text-brand-deep">
               Authorized Technical Ecosystem
             </Eyebrow>
             <h2
@@ -67,7 +67,7 @@ export function TechnologyCollaborators() {
           {collaborators.map((collaborator) => (
             <li
               key={collaborator.name}
-              className="flex items-center gap-3 rounded-lg border border-hairline bg-surface-page/60 p-4"
+              className="flex items-center gap-3 border border-hairline bg-surface-page/60 p-4"
             >
               <span
                 aria-hidden="true"

@@ -26,7 +26,7 @@ export function RegulatoryFramework() {
           </span>
         </div>
 
-        <ul className="grid grid-cols-2 gap-px overflow-hidden rounded-lg border border-hairline bg-hairline md:grid-cols-3 lg:grid-cols-6">
+        <ul className="grid grid-cols-2 gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-3 lg:grid-cols-6">
           {marketBodies.map((body) => (
             <li
               key={body.short}

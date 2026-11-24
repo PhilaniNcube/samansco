@@ -13,12 +13,6 @@ const accentText: Record<Accent, string> = {
   emerald: "text-emerald-600",
 };
 
-const chipDot: Record<Accent, "red" | "ink" | "green"> = {
-  brand: "red",
-  charcoal: "ink",
-  emerald: "green",
-};
-
 export type DivisionCardProps = {
   index: string;
   established?: string;
@@ -53,7 +47,7 @@ export function DivisionCard({
   return (
     <Card
       className={cn(
-        "group gap-0 rounded-lg border-hairline bg-card p-6 shadow-none transition-colors duration-150 hover:border-secondary lg:p-8",
+        "group gap-0 border-hairline bg-card p-6 shadow-none transition-colors duration-150 hover:border-secondary lg:p-8",
         className,
       )}
     >
@@ -61,7 +55,7 @@ export function DivisionCard({
         <span>
           DIVISION {index} · {established}
         </span>
-        <DivisionChip dot={chipDot[accent]}>{chipLabel}</DivisionChip>
+        <DivisionChip>{chipLabel}</DivisionChip>
       </div>
 
       <h3 className="type-headline-md text-ink transition-colors group-hover:text-brand">

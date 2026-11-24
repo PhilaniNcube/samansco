@@ -32,7 +32,7 @@ export function CarbonRegistry() {
           {registries.map((registry) => (
             <li
               key={registry.name}
-              className="flex flex-col items-center justify-center rounded-lg border border-hairline/70 bg-surface-band px-4 py-5 text-center transition-colors duration-150 hover:border-charcoal"
+              className="flex flex-col items-center justify-center border border-hairline/70 bg-surface-band px-4 py-5 text-center transition-colors duration-150 hover:border-charcoal"
             >
               <span className="type-headline-sm text-sm font-bold tracking-tight text-ink md:text-xl">
                 {registry.name}

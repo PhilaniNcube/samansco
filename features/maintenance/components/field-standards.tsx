@@ -78,8 +78,8 @@ export function FieldStandards() {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6">
             <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <DivisionChip dot="green">ZERO HARM COMMITMENT</DivisionChip>
-              <Eyebrow dot={false} className="text-brand-deep">
+              <DivisionChip>ZERO HARM COMMITMENT</DivisionChip>
+              <Eyebrow className="text-brand-deep">
                 02 / Field Governance
               </Eyebrow>
             </div>
@@ -104,7 +104,7 @@ export function FieldStandards() {
                 return (
                   <Card
                     key={standard.title}
-                    className="gap-0 rounded-lg border-hairline bg-card p-5 shadow-none"
+                    className="gap-0 border-hairline bg-card p-5 shadow-none"
                   >
                     <Icon
                       aria-hidden="true"
@@ -121,7 +121,7 @@ export function FieldStandards() {
               })}
             </div>
 
-            <div className="mt-6 rounded-lg border border-hairline bg-card">
+            <div className="mt-6 border border-hairline bg-card">
               <Accordion>
                 <AccordionSection value="policy" className="border-0">
                   <AccordionSectionTrigger className="type-label px-5 py-4 font-semibold text-ink">
@@ -149,7 +149,7 @@ export function FieldStandards() {
             </div>
           </div>
 
-          <figure className="relative min-h-[360px] overflow-hidden rounded-lg border border-hairline bg-surface-sunken sm:min-h-[420px] lg:col-span-6 lg:h-full lg:min-h-[560px]">
+          <figure className="relative min-h-[360px] overflow-hidden border border-hairline bg-surface-sunken sm:min-h-[420px] lg:col-span-6 lg:h-full lg:min-h-[560px]">
             <Image
               src="/images/maintenance-technicians.jpg"
               alt="Two certified solar field technicians in high-visibility vests, hard hats, and insulated gloves inspecting a commercial solar array and inverter combiner box."

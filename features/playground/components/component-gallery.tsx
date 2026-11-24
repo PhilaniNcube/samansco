@@ -172,7 +172,7 @@ export function ComponentGallery() {
               </FieldDescription>
             </Field>
 
-            <Field className="gap-0 rounded-lg border p-3">
+            <Field className="gap-0 border p-3">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex flex-col gap-1">
                   <FieldLabel>Email notifications</FieldLabel>
@@ -270,7 +270,7 @@ export function ComponentGallery() {
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="preview" className="mt-4">
-                <div className="rounded-lg border bg-muted/40 p-4 font-mono text-xs leading-relaxed">
+                <div className="border bg-muted/40 p-4 font-mono text-xs leading-relaxed">
                   <p className="text-muted-foreground">$ next dev</p>
                   <p>▲ Next.js 16.4.6 (Turbopack)</p>
                   <p>✓ Ready in 840ms</p>

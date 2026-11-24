@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ComponentsPage() {
   return (
-    <div className="mx-auto w-full max-w-5xl px-6 py-12 lg:py-16">
+    <div className="mx-auto w-full max-w-5xl px-6 pb-12 pt-[calc(var(--header-height)+3rem)] lg:pb-16 lg:pt-[calc(var(--header-height)+4rem)]">
       <div className="mb-10 flex max-w-2xl flex-col gap-3">
         <Badge variant="secondary" className="w-fit font-mono text-[11px]">
           components/ui

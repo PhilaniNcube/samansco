@@ -36,7 +36,7 @@ export async function RequestTimeCard() {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div className="rounded-lg border bg-muted/40 p-4">
+        <div className="border bg-muted/40 p-4">
           <p className="text-xs text-muted-foreground">Server time (UTC)</p>
           <p className="font-mono text-2xl tracking-tight tabular-nums">
             {renderedAt}
@@ -57,7 +57,7 @@ export function RequestTimeCardSkeleton() {
         <div className="h-3.5 w-2/3 animate-pulse rounded bg-muted" />
       </CardHeader>
       <CardContent>
-        <div className="h-[4.75rem] animate-pulse rounded-lg bg-muted/60" />
+        <div className="h-[4.75rem] animate-pulse bg-muted/60" />
       </CardContent>
     </Card>
   );

@@ -27,7 +27,7 @@ export function RegionalPresence() {
   return (
     <article
       aria-labelledby="regional-presence-title"
-      className="rounded-lg border border-hairline bg-card p-5 lg:p-6"
+      className="border border-hairline bg-card p-5 lg:p-6"
     >
       <div className="flex items-start justify-between gap-3 border-b border-hairline/80 pb-3">
         <div className="flex min-w-0 items-center gap-2">
@@ -49,7 +49,7 @@ export function RegionalPresence() {
         {regions.map((region) => (
           <li
             key={region.country}
-            className="rounded-lg bg-surface-band p-3.5"
+            className="bg-surface-band p-3.5"
           >
             <h3 className="type-label flex items-center gap-1.5 font-semibold text-ink">
               <FlagIcon

@@ -94,7 +94,6 @@ export function SiteFooter() {
         <div className="type-code flex flex-col gap-3 pt-6 text-white/50 sm:flex-row sm:items-center sm:justify-between">
           <p>© 1982–2025 Samansco Group. All rights reserved.</p>
           <p className="flex items-center gap-2 uppercase">
-            <span aria-hidden="true" className="size-1.5 rounded-full bg-brand" />
             Regional Utility Licensed Operator
           </p>
         </div>

@@ -31,7 +31,7 @@ export function CarbonYieldModel() {
       aria-labelledby="carbon-yield-title"
     >
       <div className="shell section-y">
-        <div className="rounded-lg border border-hairline bg-surface-band p-6 lg:p-8">
+        <div className="border border-hairline bg-surface-band p-6 lg:p-8">
           <div className="flex flex-wrap items-start justify-between gap-3">
             <div>
               <h2 id="carbon-yield-title" className="type-headline-md text-ink">
@@ -89,7 +89,7 @@ export function CarbonYieldModel() {
             </div>
 
             <div className="grid grid-cols-2 gap-3 lg:col-span-5">
-              <div className="rounded-lg border border-hairline/70 bg-background p-4">
+              <div className="border border-hairline/70 bg-background p-4">
                 <span className="type-eyebrow block text-caption">
                   Annual I-RECs
                 </span>
@@ -97,7 +97,7 @@ export function CarbonYieldModel() {
                   {numberFormat.format(annualMWh)} Units
                 </span>
               </div>
-              <div className="rounded-lg border border-hairline/70 bg-background p-4">
+              <div className="border border-hairline/70 bg-background p-4">
                 <span className="type-eyebrow block text-caption">
                   CO₂e Offset
                 </span>

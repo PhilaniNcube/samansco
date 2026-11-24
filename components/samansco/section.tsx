@@ -30,7 +30,6 @@ type SectionHeadingProps = {
   actions?: React.ReactNode;
   className?: string;
   titleClassName?: string;
-  dot?: boolean;
   as?: "h1" | "h2" | "h3";
 };
 
@@ -41,13 +40,12 @@ export function SectionHeading({
   actions,
   className,
   titleClassName,
-  dot = true,
   as: Heading = "h2",
 }: SectionHeadingProps) {
   return (
     <div className={cn("flex flex-col gap-4", className)}>
       <div className="flex flex-col gap-3">
-        {eyebrow ? <Eyebrow dot={dot}>{eyebrow}</Eyebrow> : null}
+        {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
         <Heading
           className={cn("type-headline-xl text-balance text-ink", titleClassName)}
         >
@@ -66,11 +64,9 @@ export function SectionHeading({
 
 export function Eyebrow({
   children,
-  dot = true,
   className,
 }: {
   children: React.ReactNode;
-  dot?: boolean;
   className?: string;
 }) {
   return (
@@ -80,9 +76,6 @@ export function Eyebrow({
         className,
       )}
     >
-      {dot ? (
-        <span aria-hidden="true" className="size-1.5 rounded-full bg-brand" />
-      ) : null}
       {children}
     </p>
   );

@@ -20,11 +20,17 @@ function Dialog(props: React.ComponentProps<typeof UiDialog>) {
 
 function DialogTrigger({
   className,
+  unstyled = false,
   ...props
-}: React.ComponentProps<typeof UiDialogTrigger> & ClassName) {
+}: React.ComponentProps<typeof UiDialogTrigger> &
+  ClassName & { unstyled?: boolean }) {
   return (
     <UiDialogTrigger
-      className={cn(buttonVariants({ variant: "outline" }), className)}
+      className={
+        unstyled
+          ? className
+          : cn(buttonVariants({ variant: "outline" }), className)
+      }
       {...props}
     />
   );

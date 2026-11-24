@@ -11,14 +11,10 @@ export function EnergyEngagement() {
   return (
     <Section tone="white" className="border-t border-hairline/60">
       <div className="shell py-12 lg:py-16">
-        <div className="rounded-lg border border-white/10 bg-charcoal p-6 text-white lg:p-10">
+        <div className="border border-white/10 bg-charcoal p-6 text-white lg:p-10">
           <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-8">
               <div className="flex items-center gap-2">
-                <span
-                  aria-hidden="true"
-                  className="size-2.5 rounded-full bg-brand"
-                />
                 <span className="type-eyebrow text-white/70">
                   Corporate Energy Desk Engagement
                 </span>

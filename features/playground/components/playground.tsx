@@ -102,7 +102,7 @@ export function Playground() {
               </Select>
             </Field>
 
-            <div className="flex items-center justify-between gap-4 rounded-lg border p-3">
+            <div className="flex items-center justify-between gap-4 border p-3">
               <div className="flex items-center gap-2">
                 <span className="text-sm font-medium">Auto-deploy</span>
                 <Tooltip>
@@ -151,7 +151,7 @@ export function Playground() {
               </FieldDescription>
             </Field>
 
-            <Field className="gap-0 rounded-lg border p-3">
+            <Field className="gap-0 border p-3">
               <div className="flex items-center justify-between gap-4">
                 <div className="flex flex-col gap-1">
                   <FieldLabel>Analytics</FieldLabel>

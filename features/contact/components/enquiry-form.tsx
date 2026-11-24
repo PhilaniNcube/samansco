@@ -123,7 +123,7 @@ export function EnquiryForm() {
   }
 
   return (
-    <div className="flex h-full flex-col rounded-lg border border-hairline bg-card p-5 lg:p-8">
+    <div className="flex h-full flex-col border border-hairline bg-card p-5 lg:p-8">
       <div className="flex flex-col gap-4 border-b border-hairline/80 pb-5 sm:flex-row sm:items-start sm:justify-between">
         <div className="max-w-xl">
           <h2 className="type-headline-lg text-balance text-ink">
@@ -135,10 +135,7 @@ export function EnquiryForm() {
           </p>
         </div>
 
-        <div className="hidden shrink-0 flex-col items-end sm:flex">
-          <span className="type-code text-caption">PROTOCOL</span>
-          <span className="type-code font-semibold text-ink">ENC-S256</span>
-        </div>
+
       </div>
 
       <form onSubmit={handleSubmit} className="mt-6">
@@ -353,7 +350,7 @@ export function EnquiryForm() {
       <div className="mt-auto">
         <div aria-live="polite" aria-atomic="true" role="status">
           {reference ? (
-            <div className="mt-6 flex items-start gap-3 rounded-lg border border-hairline bg-surface-band p-4">
+            <div className="mt-6 flex items-start gap-3 border border-hairline bg-surface-band p-4">
               <CircleCheckIcon
                 aria-hidden="true"
                 className="mt-0.5 size-5 shrink-0 text-emerald-600"
@@ -375,15 +372,9 @@ export function EnquiryForm() {
           ) : null}
         </div>
 
-        <div className="type-code mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 rounded-lg bg-surface-band px-3 py-2 text-caption">
-          {trustMarkers.map((marker, index) => (
+        <div className="type-code mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 bg-surface-band px-3 py-2 text-caption">
+          {trustMarkers.map((marker) => (
             <span key={marker} className="flex items-center gap-2">
-              {index === 0 ? (
-                <span
-                  aria-hidden="true"
-                  className="size-1.5 rounded-full bg-emerald-600"
-                />
-              ) : null}
               {marker}
             </span>
           ))}

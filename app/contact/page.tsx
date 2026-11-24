@@ -19,7 +19,7 @@ export default function ContactPage() {
     <>
       <ContactHero />
 
-      <Section tone="page">
+      <Section id="enquiry-form" tone="page">
         <div className="shell section-y">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
             <div className="lg:col-span-7 lg:col-start-6 lg:row-start-1">

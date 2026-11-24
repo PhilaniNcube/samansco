@@ -5,6 +5,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/components/ui/tabs";
+import { cn } from "@/lib/utils";
 
 type SparklineProps = {
   viewBox: string;
@@ -39,10 +40,6 @@ function ConsoleStatus() {
     <div className="flex flex-wrap items-center justify-between gap-2">
       <span className="type-eyebrow text-white/65">Fleet Telemetry &bull; Live</span>
       <span className="type-code flex items-center gap-1.5 text-[11px] text-emerald-400">
-        <span
-          aria-hidden="true"
-          className="size-1.5 rounded-full bg-emerald-400"
-        />
         ACTIVE MONITORING
       </span>
     </div>
@@ -53,9 +50,14 @@ function ConsoleStatus() {
  * Live SCADA card from the maintenance hero: availability and generation
  * views share one compact telemetry surface.
  */
-export function TelemetryConsole() {
+export function TelemetryConsole({ className }: { className?: string }) {
   return (
-    <div className="rounded-lg border border-white/10 bg-ink p-5 text-white">
+    <div
+      className={cn(
+        "border border-white/10 bg-ink p-5 text-white",
+        className,
+      )}
+    >
       <Tabs defaultValue="availability">
         <ConsoleStatus />
 

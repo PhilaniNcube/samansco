@@ -66,7 +66,7 @@ export function CarbonMetrics() {
           {metrics.map(({ label, value, title, description, icon: Icon }) => (
             <div
               key={label}
-              className="flex flex-col justify-between rounded-lg border border-hairline/70 bg-background p-4 lg:p-6"
+              className="flex flex-col justify-between border border-hairline/70 bg-background p-4 lg:p-6"
             >
               <dt className="flex items-start justify-between gap-2">
                 <span className="type-eyebrow text-caption">{label}</span>

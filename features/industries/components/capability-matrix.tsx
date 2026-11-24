@@ -82,7 +82,7 @@ function CapabilityCard({ capability }: { capability: Capability }) {
   const isBrand = capability.accent === "brand";
 
   return (
-    <article className="flex h-full flex-col rounded-lg border border-hairline bg-surface-band p-6 lg:p-8">
+    <article className="flex h-full flex-col border border-hairline bg-surface-band p-6 lg:p-8">
       <div className="mb-5 flex items-center justify-between gap-3">
         <span className="type-code text-caption uppercase">
           {capability.division}

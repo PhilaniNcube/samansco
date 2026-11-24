@@ -2,6 +2,8 @@
 
 import { ArrowRightIcon, FileDownIcon } from "lucide-react";
 import Link from "next/link";
+import { heroGhostActionClassName } from "@/components/samansco/page-hero";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -22,12 +24,22 @@ const documentSpecs = [
  * Institutional PPA prospectus: the mobile design opens this brief as a
  * disclosure sheet, so the UI SDK Dialog supplies the modal behaviour.
  */
-export function ProspectusDialog() {
+export function ProspectusDialog({
+  variant = "default",
+}: {
+  variant?: "default" | "hero";
+}) {
   return (
     <Dialog>
       <DialogTrigger
         aria-haspopup="dialog"
-        className="h-12 rounded-lg border-hairline px-5 text-base whitespace-normal"
+        unstyled={variant === "hero"}
+        className={cn(
+          "whitespace-normal",
+          variant === "hero"
+            ? cn(heroGhostActionClassName, "cursor-pointer")
+            : "h-12 rounded-lg border-hairline px-5 text-base",
+        )}
       >
         Download PPA Prospectus
         <FileDownIcon aria-hidden="true" className="size-4" />

@@ -14,7 +14,6 @@ export function ResourceAdvantage() {
           <div className="lg:col-span-7">
             <SectionHeading
               eyebrow="Regional Resource Advantage"
-              dot={false}
               title="Why Africa's Energy Transition Matters"
             />
 
@@ -55,7 +54,7 @@ export function ResourceAdvantage() {
           </div>
 
           <div className="lg:col-span-5">
-            <figure className="relative overflow-hidden rounded-xl bg-charcoal p-8 text-white lg:p-10">
+            <figure className="relative overflow-hidden bg-charcoal p-8 text-white lg:p-10">
               <span
                 aria-hidden="true"
                 className="pointer-events-none absolute -right-6 -bottom-6 size-36 rounded-full bg-white/5 blur-2xl"
