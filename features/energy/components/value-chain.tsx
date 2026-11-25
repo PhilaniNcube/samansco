@@ -32,7 +32,7 @@ const steps: ChainStep[] = [
     entity: "Samansco Maintenance",
     title: "24/7 Availability & Asset Telemetry",
     description:
-      "High-precision SCADA monitoring, thermographic imaging, and preventive servicing keeping generation yield at >99.4%. Live field data feeds directly into the SEPCO dispatch desk for real-time load forecasting.",
+      "High-precision SCADA monitoring, thermographic imaging, and preventive servicing keeping generation yield at >99.4%. Live field data feeds directly into the Samansco Energy dispatch desk for real-time load forecasting.",
     metaLabel: "SLA Yield",
     metaValue: ">99.4% Availability Uptime",
     icon: ActivityIcon,
@@ -43,7 +43,7 @@ const steps: ChainStep[] = [
     entity: "Samansco Energy & Carbon",
     title: "Commercial Dispatch & Environmental Monetization",
     description:
-      "Clean kWh aggregated and wheeled to high-demand corporate off-takers via SEPCO trading, while Samansco Carbon audits, issues, and monetizes certified I-RECs on regional environmental exchanges.",
+      "Clean kWh aggregated and wheeled to high-demand corporate off-takers via Samansco Energy trading, while Samansco Carbon audits, issues, and monetizes certified I-RECs on regional environmental exchanges.",
     metaLabel: "Realization",
     metaValue: "Firm Power Delivery + Verifiable I-RECs",
     icon: CpuIcon,
@@ -52,7 +52,8 @@ const steps: ChainStep[] = [
 ];
 
 /**
- * Group value chain: how engineering, O&M and SEPCO's commercial desk hand off
+ * Group value chain: how engineering, O&M and Samansco Energy's commercial desk
+ * hand off
  * to one another around a single generation asset.
  */
 export function ValueChain() {
@@ -62,7 +63,7 @@ export function ValueChain() {
         <div className="mb-10 max-w-3xl">
           <SectionHeading
             eyebrow="Vertically Integrated Architecture"
-            title="How SEPCO Integrates Across Samansco Group."
+            title="How Samansco Energy Integrates Across Samansco Group."
             description="A seamless operational cycle that bridges physical engineering execution, mission-critical operations, commercial electricity sales, and certified environmental asset trading."
           />
         </div>

@@ -9,7 +9,7 @@ The design system export is [`design.md`](./design.md) — "Infrastructure Moder
 | --- | --- | --- | --- |
 | `/` | Samansco Group — Home (2560×8774) | Home (Mobile) (780×7924) | Photo hero, metric strip, four divisions, resource argument, footprint, CTA |
 | `/industries` | Solar EPC & Supply (2560×9158) | Solar EPC & Supply (Mobile) | Three project photographs |
-| `/energy` | Energy (SEPCO) — Electricity Trading & Utility Retail (2560×7692) | Electricity Trading & Retail (Mobile) | No photography; ink panels and technical grids |
+| `/energy` | Energy — Electricity Trading & Utility Retail (2560×7692) | Electricity Trading & Retail (Mobile) | No photography; ink panels and technical grids |
 | `/maintenance` | Solar O&M & Asset Monitoring (2560×6544) | Solar O&M & Telemetry (Mobile) | Field photography |
 | `/carbon` | Environmental Markets, I-RECs & ESG Advisory (2560×7668) | I-RECs & ESG Advisory (Mobile) | No photography |
 | `/contact` | Group — Contact & Governance (2560×7336) | Contact & Governance (Mobile) | Map image, enquiry form, governance anchors |

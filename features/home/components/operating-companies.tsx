@@ -19,6 +19,10 @@ const companies = [
     href: "/industries",
     ctaLabel: "View Samansco Industries",
     icon: undefined,
+    image: "/images/panels.webp",
+    imageAlt:
+      "Samansco field engineers servicing a large commercial rooftop solar array.",
+    imageClassName: "object-top",
   },
   {
     index: "02",
@@ -35,6 +39,9 @@ const companies = [
     href: "/energy",
     ctaLabel: "View Samansco Energy",
     icon: BoltIcon,
+    image: "/images/energy-hero-substation.jpg",
+    imageAlt:
+      "High-voltage regional transmission substation and power corridors at twilight.",
   },
   {
     index: "03",
@@ -51,6 +58,10 @@ const companies = [
     href: "/maintenance",
     ctaLabel: "View Samansco Maintenance",
     icon: WrenchIcon,
+    image: "/images/maintenance-technicians.jpg",
+    imageAlt:
+      "Certified Samansco Maintenance technicians inspecting a solar combiner enclosure.",
+    imageClassName: "object-top",
   },
   {
     index: "04",
@@ -67,6 +78,9 @@ const companies = [
     href: "/carbon",
     ctaLabel: "View Samansco Carbon",
     icon: LeafIcon,
+    image: "/images/carbon-hero-landscape.jpg",
+    imageAlt:
+      "Utility-scale solar array across Southern African savanna at dawn.",
   },
 ];
 

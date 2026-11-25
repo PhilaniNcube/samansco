@@ -29,6 +29,9 @@ const capabilities: CapabilityBlockProps[] = [
     metaValue: "5 to 20 years",
     status: "Tier-1 Offtake",
     statusIcon: TrendingUpIcon,
+    image: "/images/home-hero-source.webp",
+    imageAlt:
+      "Large commercial and industrial rooftop solar installation supplying long-term PPA baseload power.",
   },
   {
     icon: ArrowLeftRightIcon,
@@ -47,6 +50,9 @@ const capabilities: CapabilityBlockProps[] = [
     metaValue: "33kV to 400kV",
     status: "SAPP Member",
     statusIcon: BadgeCheckIcon,
+    image: "/images/energy-hero-substation.jpg",
+    imageAlt:
+      "High-voltage transmission substation and power corridors interconnecting the Southern African Power Pool.",
   },
   {
     icon: CpuIcon,
@@ -65,12 +71,15 @@ const capabilities: CapabilityBlockProps[] = [
     metaValue: "NeedEnergy",
     status: "Digital Dispatch",
     statusIcon: CpuIcon,
+    image: "/images/installation.webp",
+    imageAlt:
+      "Grid-synchronized battery energy storage stacks and switchgear inside a commercial plant room.",
   },
 ];
 
 /**
  * Commercial utility framework: the three contractual and dispatch scopes that
- * define SEPCO's revenue engine.
+ * define Samansco Energy's revenue engine.
  */
 export function CommercialFramework() {
   return (

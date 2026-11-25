@@ -1,4 +1,5 @@
 import { MapPinIcon } from "lucide-react";
+import Image from "next/image";
 import { Section, SectionHeading } from "@/components/samansco/section";
 
 const offices = [
@@ -6,21 +7,6 @@ const offices = [
     country: "Zimbabwe",
     role: "Group HQ • Harare",
     detail: "331 Samora Machel Avenue, Eastlea",
-  },
-  {
-    country: "South Africa",
-    role: "Trading • Johannesburg",
-    detail: "Regional Power Desk & SAPP Trading",
-  },
-  {
-    country: "Zambia",
-    role: "Operations • Lusaka",
-    detail: "Commercial C&I Solar & Microgrid Hub",
-  },
-  {
-    country: "Tanzania",
-    role: "East Africa • Dar es Salaam",
-    detail: "Industrial Solar & Water Pumping Hub",
   },
 ];
 
@@ -54,20 +40,37 @@ export function Footprint() {
         <SectionHeading
           eyebrow="Regional Operations & Governance"
           title="Infrastructure Footprint & Global Impact"
-          description="Operating across Southern and Eastern Africa, Samansco Group aligns capital deployment and engineering excellence with internationally accredited sustainability frameworks and regional energy ministries."
+          description="Headquartered in Harare, Zimbabwe, Samansco Group aligns capital deployment and engineering excellence with internationally accredited sustainability frameworks and regional energy ministries."
           className="mb-10 max-w-3xl"
         />
 
         <div className="grid grid-cols-1 items-start gap-6 lg:grid-cols-2">
           <div className="flex flex-col border border-hairline/70 bg-card p-6 lg:p-8">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline pb-4">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline pbe-4">
               <h3 className="type-headline-sm text-ink">Operating Presence</h3>
               <span className="type-eyebrow text-caption">
-                SADC Headquarters & Hubs
+                Harare Headquarters
               </span>
             </div>
 
-            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <div className="relative mbs-5 aspect-[16/9] is-full overflow-clip border border-hairline/60 bg-ink">
+              <Image
+                src="/images/office-building-exterior-alt.jpg"
+                alt="Samansco Group executive headquarters in Harare, Zimbabwe."
+                fill
+                sizes="(min-width: 1024px) 44vw, 100vw"
+                className="object-cover"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,oklch(0.14_0.025_264/0.86)_0%,transparent_55%)]"
+              />
+              <span className="type-code absolute pl-2 inset-be-3 inset-is-3 text-[11px] tracking-[0.08em] text-white uppercase">
+                HARARE EXECUTIVE HQ
+              </span>
+            </div>
+
+            <div className="mbs-5 grid grid-cols-1 gap-3">
               {offices.map((office) => (
                 <div
                   key={office.country}

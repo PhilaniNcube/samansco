@@ -10,9 +10,9 @@ import { TradingDesk } from "@/features/energy/components/trading-desk";
 import { ValueChain } from "@/features/energy/components/value-chain";
 
 export const metadata: Metadata = {
-  title: "Samansco Energy (SEPCO)",
+  title: "Samansco Energy",
   description:
-    "SEPCO is the commercial utility layer of Samansco Group: institutional long-term PPAs, cross-border SAPP wheeling, and Virtual Power Plant aggregation.",
+    "Samansco Energy is the commercial utility layer of Samansco Group: institutional long-term PPAs, cross-border SAPP wheeling, and Virtual Power Plant aggregation.",
 };
 
 export default function EnergyPage() {

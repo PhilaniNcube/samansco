@@ -9,6 +9,7 @@ type ProjectCase = {
 type Project = {
   image: string;
   imageAlt: string;
+  imageClassName?: string;
   badge: string;
   category: string;
   title: string;
@@ -20,9 +21,10 @@ type Project = {
 
 const projects: Project[] = [
   {
-    image: "/images/industries-water-pumping.jpg",
+    image: "/images/food-security.jpg",
     imageAlt:
-      "Solar-powered water pumping station with elevated steel reservoirs and ground-mounted PV arrays in rural Zimbabwe.",
+      "Utility-scale ground-mounted solar photovoltaic array across Southern African savanna.",
+    imageClassName: "object-top",
     badge: "500,000+ People Reached",
     category: "Piped Water & Irrigation Schemes",
     title: "Clean Water & Food Security Infrastructure",
@@ -49,9 +51,9 @@ const projects: Project[] = [
     statusValue: "Operating Continuously",
   },
   {
-    image: "/images/industries-hospital-solar.jpg",
+    image: "/images/livotek-installation.jpeg",
     imageAlt:
-      "Rooftop solar installation on a rural district hospital with battery backup infrastructure.",
+      "Commercial hybrid inverter bank and lithium battery storage wall installed for continuous facility backup power.",
     badge: "30+ District Hospitals",
     category: "Critical Medical Continuity",
     title: "Healthcare & Clinic Power Infrastructure",
@@ -78,9 +80,9 @@ const projects: Project[] = [
     statusValue: "99.8% Recorded",
   },
   {
-    image: "/images/industries-campus-solar.jpg",
+    image: "/images/varsity.webp",
     imageAlt:
-      "Rooftop solar installation across the 151 kWp Chinhoyi student housing campus.",
+      "Varsity Heights student housing complex with Samansco field service vans parked outside.",
     badge: "Utility & Commercial",
     category: "Urban & Institutional Scale",
     title: "Civic & Commercial Infrastructure",
@@ -138,17 +140,25 @@ export function ProjectGallery() {
           {projects.map((project) => (
             <article
               key={project.title}
-              className="flex flex-col overflow-hidden border border-hairline bg-surface-band"
+              className="flex flex-col overflow-clip border border-hairline bg-surface-band"
             >
-              <div className="relative h-52 w-full overflow-hidden bg-surface-sunken lg:h-56">
+              <div className="relative aspect-[16/10] is-full overflow-clip bg-ink">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
                   sizes="(min-width: 1024px) 33vw, 100vw"
-                  className="object-cover"
+                  className={
+                    project.imageClassName
+                      ? `object-cover ${project.imageClassName}`
+                      : "object-cover"
+                  }
                 />
-                <span className="type-eyebrow absolute top-4 left-4 rounded bg-ink/90 px-2.5 py-1 text-white">
+                <div
+                  aria-hidden="true"
+                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,oklch(0.14_0.025_264/0.55)_0%,transparent_55%)]"
+                />
+                <span className="type-eyebrow absolute inset-bs-4 inset-is-4 rounded bg-ink/90 px-2.5 py-1 text-white backdrop-blur-sm">
                   {project.badge}
                 </span>
               </div>

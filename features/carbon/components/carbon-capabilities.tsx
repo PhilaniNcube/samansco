@@ -5,6 +5,7 @@ import {
   VerifiedIcon,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { ImageBackdropCard } from "@/components/samansco/image-backdrop-card";
 import { Eyebrow, Section } from "@/components/samansco/section";
 
 type Capability = {
@@ -15,6 +16,9 @@ type Capability = {
   standard: string;
   tag: string;
   icon: LucideIcon;
+  image: string;
+  imageAlt: string;
+  imageClassName?: string;
 };
 
 const capabilities: Capability[] = [
@@ -31,6 +35,9 @@ const capabilities: Capability[] = [
     standard: "STANDARD: I-REC // EVIDENT",
     tag: "SCOPE 2 COMPLIANCE",
     icon: VerifiedIcon,
+    image: "/images/home-hero-source.webp",
+    imageAlt:
+      "Commercial rooftop solar array generating traceable renewable electricity for I-REC issuance.",
   },
   {
     scope: "SCOPE 02 // CARBON CREDITS",
@@ -45,6 +52,10 @@ const capabilities: Capability[] = [
     standard: "METHODOLOGY: ARTICLE 6 ALIGNED",
     tag: "HIGH-ADDITIONALITY",
     icon: LeafIcon,
+    image: "/images/maintenance-plant-dusk.jpg",
+    imageAlt:
+      "Utility solar array operating across rural Southern Africa.",
+    imageClassName: "object-top",
   },
   {
     scope: "SCOPE 03 // ADVISORY",
@@ -59,6 +70,9 @@ const capabilities: Capability[] = [
     standard: "FRAMEWORK: GHG / IFRS S1-S2",
     tag: "ESG REPORTING",
     icon: ChartColumnIcon,
+    image: "/images/contact-hero-hq.jpg",
+    imageAlt:
+      "Executive headquarters architecture representing corporate ESG governance and advisory.",
   },
 ];
 
@@ -99,52 +113,59 @@ export function CarbonCapabilities() {
             const Icon = capability.icon;
 
             return (
-              <article
+              <ImageBackdropCard
                 key={capability.scope}
-                className="flex flex-col border border-hairline/70 bg-surface-band p-6 transition-colors duration-150 hover:border-charcoal lg:p-8"
+                image={capability.image}
+                imageAlt={capability.imageAlt}
+                imageClassName={capability.imageClassName}
+                sizes="(min-width: 1024px) 33vw, 100vw"
+                scrim="emerald"
+                className="min-bs-[28rem] p-6 lg:p-8"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <span className="type-code text-caption uppercase">
+                  <span className="type-code text-white/75 uppercase">
                     {capability.scope}
                   </span>
-                  <Icon
-                    aria-hidden="true"
-                    className="size-5 shrink-0 text-brand"
-                  />
+                  <span className="grid size-9 shrink-0 place-items-center border border-white/20 bg-ink/60 backdrop-blur-sm">
+                    <Icon
+                      aria-hidden="true"
+                      className="size-4 text-brand-soft"
+                    />
+                  </span>
                 </div>
 
-                <h3 className="type-headline-md mt-3 text-ink">
+                <h3 className="type-headline-md mbs-3 text-white">
                   {capability.title}
                 </h3>
 
-                <p className="type-body-md mt-3 leading-relaxed text-muted-foreground">
+                <p className="type-body-md mbs-3 leading-relaxed text-white/80">
                   {capability.description}
                 </p>
 
-                <ul className="mt-6 mb-8 space-y-2.5">
+                <ul className="mbs-6 mbe-8 space-y-2.5">
                   {capability.points.map((point) => (
                     <li
                       key={point}
-                      className="type-body-sm flex items-start gap-2 leading-relaxed text-ink"
+                      className="type-body-sm flex items-start gap-2 leading-relaxed text-white/90"
                     >
                       <CheckCircle2Icon
                         aria-hidden="true"
-                        className="mt-0.5 size-4 shrink-0 text-brand"
+                        className="mbs-0.5 size-4 shrink-0 text-brand-soft"
                       />
                       {point}
                     </li>
                   ))}
                 </ul>
 
-                <div className="mt-auto flex flex-wrap items-center justify-between gap-3 border-t border-hairline pt-5">
-                  <span className="type-code text-caption uppercase">
+                <div className="mbs-auto flex flex-wrap items-center justify-between gap-3 border-t border-white/15 pbs-5">
+                  <span className="type-code text-white/75 uppercase">
                     {capability.standard}
                   </span>
-                  <span className="type-code rounded bg-background px-2 py-1 text-ink">
+                  <span className="type-code rounded border border-white/20 bg-ink/65 px-2 py-1 text-white backdrop-blur-sm">
                     {capability.tag}
                   </span>
                 </div>
-              </article>
+              </ImageBackdropCard>
             );
           })}
         </div>

@@ -3,6 +3,7 @@ import { CapabilityMatrix } from "@/features/industries/components/capability-ma
 import { CredentialStrip } from "@/features/industries/components/credential-strip";
 import { Endorsements } from "@/features/industries/components/endorsements";
 import { EnquiryCta } from "@/features/industries/components/enquiry-cta";
+import { HardwareShowcase } from "@/features/industries/components/hardware-showcase";
 import { IndustriesHero } from "@/features/industries/components/industries-hero";
 import { PartnerWall } from "@/features/industries/components/partner-wall";
 import { ProjectGallery } from "@/features/industries/components/project-gallery";
@@ -20,6 +21,7 @@ export default function IndustriesPage() {
       <CredentialStrip />
       <CapabilityMatrix />
       <PartnerWall />
+      <HardwareShowcase />
       <ProjectGallery />
       <Endorsements />
       <EnquiryCta />

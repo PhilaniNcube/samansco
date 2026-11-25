@@ -93,7 +93,7 @@ export function TradingDesk() {
               Institutional Offtake Enquiry
             </h2>
             <p className="type-body-sm mt-3 leading-relaxed text-white/75">
-              Engage directly with SEPCO energy trading officers regarding
+              Engage directly with Samansco Energy trading officers regarding
               transmission allocations, bespoke multi-year tariffs, and
               commercial utility structuring.
             </p>
@@ -123,8 +123,7 @@ export function TradingDesk() {
 
             <div className="type-code mt-auto space-y-1 border-t border-white/10 pt-6 text-[10px] leading-relaxed text-white/60">
               <p>
-                © 2025 Samansco Electric Power Company (SEPCO). All Rights
-                Reserved.
+                © 2025 Samansco Energy. All Rights Reserved.
               </p>
               <p>
                 Licensed under Zimbabwe Energy Regulatory Authority (ZERA)

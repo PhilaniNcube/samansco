@@ -159,7 +159,7 @@ This design system expresses the institutional authority, technical precision, a
 ### Operating Pillar Architecture
 The UI reflects a group structure consisting of four operating companies, each mapped to a shared corporate spine:
 1. **Industries**: The foundation (EPC, distribution, engineering utility).
-2. **Energy (SEPCO)**: The commercial utility layer (energy trading, Virtual Power Plants, grid services).
+2. **Energy**: The commercial utility layer (energy trading, Virtual Power Plants, grid services).
 3. **Maintenance**: Operational longevity (asset monitoring, preventive maintenance, uptime).
 4. **Carbon**: The environmental commodity arm (I-RECs, carbon offset integrity, certification).
 
@@ -227,7 +227,7 @@ The geometric framework is grounded in structured modernism:
 - **Corporate Legacy Pill**: Background `#2B303A`, foreground white, font `JetBrains Mono`, size 12px, tracking `0.04em`. Denotes foundational heritage (`SINCE 1982`).
 - **Operating Division Chips**:
   - *Industries*: Neutral grey band with red indicator dot.
-  - *Energy (SEPCO)*: Dark charcoal band with white typography.
+  - *Energy*: Dark charcoal band with white typography.
   - *Maintenance*: Neutral grey band with status green dot (`#10B981`) for uptime monitoring.
   - *Carbon*: Neutral grey band with verification emerald indicator.
 - **Specification Chip**: Light background (`#F6F7F9`), border `1px solid #E5E7EB`, text `JetBrains Mono` (`#4B5563`).

@@ -7,6 +7,7 @@ import {
   PackageIcon,
   type LucideIcon,
 } from "lucide-react";
+import { ImageBackdropCard } from "@/components/samansco/image-backdrop-card";
 import { Section, SectionHeading } from "@/components/samansco/section";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { cn } from "@/lib/utils";
@@ -21,6 +22,9 @@ type Capability = {
   assurance: string;
   icon: LucideIcon;
   accent: "brand" | "charcoal";
+  image: string;
+  imageAlt: string;
+  imageClassName?: string;
 };
 
 const capabilities: Capability[] = [
@@ -40,6 +44,9 @@ const capabilities: Capability[] = [
     assurance: "Tier-1 Supply Chain Assurance",
     icon: PackageIcon,
     accent: "brand",
+    image: "/images/installation.webp",
+    imageAlt:
+      "Commercial Sigenergy battery energy storage room with switchgear and grid gateway.",
   },
   {
     value: "epc",
@@ -57,6 +64,9 @@ const capabilities: Capability[] = [
     assurance: "Engineered to IEC & ZWS Standards",
     icon: FactoryIcon,
     accent: "charcoal",
+    image: "/images/home-hero-source.webp",
+    imageAlt:
+      "Aerial view of a large commercial rooftop solar photovoltaic plant.",
   },
   {
     value: "water",
@@ -74,6 +84,9 @@ const capabilities: Capability[] = [
     assurance: "Official LORENTZ Distribution Partner",
     icon: DropletsIcon,
     accent: "brand",
+    image: "/images/carbon-hero-landscape.jpg",
+    imageAlt:
+      "Ground-mounted solar array deployed across rural Southern African terrain.",
   },
 ];
 
@@ -82,46 +95,55 @@ function CapabilityCard({ capability }: { capability: Capability }) {
   const isBrand = capability.accent === "brand";
 
   return (
-    <article className="flex h-full flex-col border border-hairline bg-surface-band p-6 lg:p-8">
-      <div className="mb-5 flex items-center justify-between gap-3">
-        <span className="type-code text-caption uppercase">
+    <ImageBackdropCard
+      image={capability.image}
+      imageAlt={capability.imageAlt}
+      imageClassName={capability.imageClassName}
+      sizes="(min-width: 1024px) 33vw, 100vw"
+      scrim="deep"
+      className="bs-full min-bs-[28rem] p-6 lg:p-8"
+    >
+      <div className="mbe-5 flex items-center justify-between gap-3">
+        <span className="type-code text-white/75 uppercase">
           {capability.division}
         </span>
-        <Icon
-          aria-hidden="true"
-          className={cn(
-            "size-7 shrink-0",
-            isBrand ? "text-brand-deep" : "text-charcoal",
-          )}
-        />
+        <span className="grid size-10 shrink-0 place-items-center border border-white/20 bg-ink/60 backdrop-blur-sm">
+          <Icon
+            aria-hidden="true"
+            className={cn(
+              "size-5",
+              isBrand ? "text-brand-soft" : "text-white",
+            )}
+          />
+        </span>
       </div>
 
-      <h3 className="type-headline-md text-ink">{capability.title}</h3>
-      <p className="type-body-md mt-3 leading-relaxed text-muted-foreground">
+      <h3 className="type-headline-md text-white">{capability.title}</h3>
+      <p className="type-body-md mbs-3 leading-relaxed text-white/80">
         {capability.description}
       </p>
 
-      <ul className="mt-5 mb-8 space-y-2.5">
+      <ul className="mbs-5 mbe-8 space-y-2.5">
         {capability.bullets.map((bullet) => (
           <li
             key={bullet}
-            className="type-body-sm flex items-start gap-2 text-charcoal"
+            className="type-body-sm flex items-start gap-2 text-white/90"
           >
             <CheckCircle2Icon
               aria-hidden="true"
-              className="mt-0.5 size-4 shrink-0 text-brand"
+              className="mbs-0.5 size-4 shrink-0 text-brand-soft"
             />
             <span>{bullet}</span>
           </li>
         ))}
       </ul>
 
-      <div className="mt-auto border-t border-hairline/80 pt-4">
-        <span className="type-eyebrow text-caption">
+      <div className="mbs-auto border-t border-white/15 pbs-4">
+        <span className="type-eyebrow text-white/75">
           {capability.assurance}
         </span>
       </div>
-    </article>
+    </ImageBackdropCard>
   );
 }
 

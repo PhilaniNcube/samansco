@@ -11,9 +11,12 @@ export function HomeEngagement() {
         <EngagementCta
           eyebrow="Corporate & Institutional Engagement"
           title="Initiate a Strategic Partnership or PPA Consultation"
-          description="Connect with Samansco Holdings executive leadership and technical division engineers."
+          description="Connect with Samansco Group executive leadership and technical division engineers."
           actionLabel="Contact Group Headquarters"
           actionHref="/contact"
+          image="/images/maintenance-plant-dusk.jpg"
+          imageAlt="Aerial view of a utility-scale solar farm at golden hour across Southern Africa."
+          imageClassName="object-top"
         />
       </div>
     </Section>

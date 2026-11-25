@@ -1,4 +1,5 @@
 import { ArrowUpRightIcon, MailIcon, PhoneIcon } from "lucide-react";
+import Image from "next/image";
 import { Eyebrow, Section } from "@/components/samansco/section";
 import { Button } from "@/components/ui/button";
 import {
@@ -40,19 +41,31 @@ export function CarbonCta() {
       aria-labelledby="carbon-cta-title"
     >
       <div className="shell py-12 lg:py-16">
-        <div className="border border-white/10 bg-charcoal px-6 py-10 text-white lg:px-10 lg:py-12">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
+        <div className="relative overflow-clip border border-white/15 bg-ink px-6 py-10 text-white lg:px-10 lg:py-12">
+          <Image
+            src="/images/carbon-hero-landscape.jpg"
+            alt="Utility-scale solar array across Southern African savanna at dawn."
+            fill
+            sizes="(min-width: 1024px) 90vw, 100vw"
+            className="object-cover"
+          />
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,oklch(0.15_0.03_200/0.95)_0%,oklch(0.18_0.035_185/0.82)_55%,oklch(0.16_0.03_220/0.68)_100%)]"
+          />
+
+          <div className="relative z-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-8">
               <Eyebrow className="text-brand-soft">
                 Direct Desk Engagement
               </Eyebrow>
               <h2
                 id="carbon-cta-title"
-                className="type-headline-xl mt-3 text-balance text-white"
+                className="type-headline-xl mbs-3 text-balance text-white"
               >
                 Structure Your Corporate Decarbonization or I-REC Strategy.
               </h2>
-              <p className="type-body-lg mt-4 max-w-2xl leading-relaxed text-white/70">
+              <p className="type-body-lg mbs-4 max-w-2xl leading-relaxed text-white/80">
                 Partner with Samansco Carbon to monetize your solar asset
                 attributes, secure long-term renewable certificates, or audit
                 corporate emissions with our Harare and regional advisory teams.

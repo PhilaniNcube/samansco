@@ -151,7 +151,7 @@ export function FieldStandards() {
 
           <figure className="relative min-h-[360px] overflow-hidden border border-hairline bg-surface-sunken sm:min-h-[420px] lg:col-span-6 lg:h-full lg:min-h-[560px]">
             <Image
-              src="/images/maintenance-technicians.jpg"
+              src="/images/maintenance.jpg"
               alt="Two certified solar field technicians in high-visibility vests, hard hats, and insulated gloves inspecting a commercial solar array and inverter combiner box."
               fill
               sizes="(min-width: 1024px) 48vw, 100vw"

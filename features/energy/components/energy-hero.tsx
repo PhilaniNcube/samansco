@@ -10,7 +10,7 @@ import { ProspectusDialog } from "@/features/energy/components/prospectus-dialog
 const charterRows = [
   {
     label: "Corporate Entity",
-    value: "Samansco Electric Power Company (SEPCO)",
+    value: "Samansco Energy",
     accent: true,
   },
   {
@@ -28,7 +28,7 @@ const charterRows = [
 ];
 
 /**
- * Subsidiary hero for SEPCO: high-voltage substation twilight photography
+ * Subsidiary hero for Samansco Energy: high-voltage substation twilight photography
  * paired with bottom-anchored mandate and operating charter proof band.
  */
 export function EnergyHero() {
@@ -44,7 +44,7 @@ export function EnergyHero() {
       titleScale="compact"
       breadcrumb={[
         { label: "Samansco Group", href: "/" },
-        { label: "Samansco Energy (SEPCO)" },
+        { label: "Samansco Energy" },
       ]}
       // statusPill={
       //   <>
@@ -54,7 +54,7 @@ export function EnergyHero() {
       // }
       // eyebrow="Autonomous Power Operating Arm"
       title="Energy Trading, Electricity Retail & Virtual Power Plants."
-      description="Samansco Electric Power Company (SEPCO) executes the Group's commercial electricity layer—structuring institutional PPAs, cross-border SAPP transmission wheeling, and smart-grid capacity via next-generation Virtual Power Plants."
+      description="Samansco Energy executes the Group's commercial electricity layer—structuring institutional PPAs, cross-border SAPP transmission wheeling, and smart-grid capacity via next-generation Virtual Power Plants."
       meta={
         <p className="type-code flex items-center gap-2 text-xs text-white/80">
           <ShieldCheckIcon

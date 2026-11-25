@@ -4,6 +4,7 @@ import {
   ShieldCheckIcon,
   type LucideIcon,
 } from "lucide-react";
+import { ImageBackdropCard } from "@/components/samansco/image-backdrop-card";
 import { Eyebrow, Section } from "@/components/samansco/section";
 import { cn } from "@/lib/utils";
 
@@ -14,6 +15,9 @@ type Pillar = {
   statLabel: string;
   statValue: string;
   icon: LucideIcon;
+  image: string;
+  imageAlt: string;
+  imageClassName?: string;
   anchor?: string;
 };
 
@@ -25,6 +29,9 @@ const pillars: Pillar[] = [
     statLabel: "Statutory Audit",
     statValue: "100% Verified",
     icon: GavelIcon,
+    image: "/images/energy-hero-substation.jpg",
+    imageAlt:
+      "High-voltage electrical substation operated under statutory regulatory compliance.",
   },
   {
     index: "PILLAR 02",
@@ -33,6 +40,10 @@ const pillars: Pillar[] = [
     statLabel: "Zero Harm Metric",
     statValue: "> 1.8M Safe Hours",
     icon: ShieldCheckIcon,
+    image: "/images/maintenance-technicians.jpg",
+    imageAlt:
+      "Field engineers wearing insulated PPE and executing LOTO safety protocols.",
+    imageClassName: "object-top",
   },
   {
     index: "PILLAR 03",
@@ -41,6 +52,9 @@ const pillars: Pillar[] = [
     statLabel: "Environmental ISO",
     statValue: "ISO 14001 / 9001",
     icon: LeafIcon,
+    image: "/images/carbon-hero-landscape.jpg",
+    imageAlt:
+      "Clean solar generation integrated with the Southern African landscape.",
     anchor: "quality",
   },
 ];
@@ -85,36 +99,52 @@ export function GovernanceHse() {
             </div>
           </div>
 
-          <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          <div className="mbs-10 grid grid-cols-1 gap-6 md:grid-cols-3">
             {pillars.map((pillar) => {
               const Icon = pillar.icon;
 
               return (
-                <article
+                <ImageBackdropCard
                   key={pillar.index}
                   id={pillar.anchor}
+                  image={pillar.image}
+                  imageAlt={pillar.imageAlt}
+                  imageClassName={pillar.imageClassName}
+                  sizes="(min-width: 768px) 33vw, 100vw"
+                  scrim="deep"
                   className={cn(
-                    "flex flex-col justify-between rounded-none border border-hairline bg-background p-6",
+                    "min-bs-[23rem] justify-between p-6",
                     pillar.anchor && "scroll-mt-24",
                   )}
                 >
                   <div>
+                    <div className="flex items-center justify-between gap-3">
+                      <span className="type-code text-white/75 uppercase">
+                        {pillar.index}
+                      </span>
+                      <span className="grid size-9 shrink-0 place-items-center border border-white/20 bg-ink/60 backdrop-blur-sm">
+                        <Icon
+                          aria-hidden="true"
+                          className="size-4 text-brand-soft"
+                        />
+                      </span>
+                    </div>
 
-                    <h3 className="type-headline-sm mt-4 text-ink">
+                    <h3 className="type-headline-sm mbs-4 text-white">
                       {pillar.title}
                     </h3>
-                    <p className="type-body-md mt-2 leading-relaxed text-muted-foreground">
+                    <p className="type-body-md mbs-2 leading-relaxed text-white/80">
                       {pillar.body}
                     </p>
                   </div>
 
-                  <div className="type-code mt-6 flex flex-wrap items-center justify-between gap-2 bg-surface-band px-3 py-2 text-caption">
+                  <div className="type-code mbs-6 flex flex-wrap items-center justify-between gap-2 border-t border-white/15 bg-ink/70 px-4 py-2.5 text-white/75 backdrop-blur-sm">
                     <span>{pillar.statLabel}</span>
-                    <span className="font-medium text-ink">
+                    <span className="font-medium text-white">
                       {pillar.statValue}
                     </span>
                   </div>
-                </article>
+                </ImageBackdropCard>
               );
             })}
           </div>

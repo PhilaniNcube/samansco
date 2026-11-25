@@ -79,9 +79,6 @@ export function ExecutiveHeadOffice() {
           <span className="type-code font-medium text-ink">
             {headOffice.phone}
           </span>
-          <span className="type-code text-muted-foreground">
-            +263 242 480484
-          </span>
         </ContactRow>
 
         <ContactRow
@@ -89,18 +86,10 @@ export function ExecutiveHeadOffice() {
           label="Direct Mobile & WhatsApp Commercial Desk"
         >
           <a
-            href="https://wa.me/263778377055"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="type-code inline-block py-1 font-medium text-brand-deep transition-colors hover:text-brand-strong hover:underline"
-          >
-            +263 778 377 055
-          </a>
-          <a
             href="https://wa.me/263712600245"
             target="_blank"
             rel="noopener noreferrer"
-            className="type-code inline-block py-1 text-ink transition-colors hover:text-brand-deep"
+            className="type-code inline-block py-1 font-medium text-brand-deep transition-colors hover:text-brand-strong hover:underline"
           >
             +263 712 600 245
           </a>
@@ -135,7 +124,7 @@ export function ExecutiveHeadOffice() {
                 @samansco
               </span>
               <span className="type-body-sm text-caption">
-                LinkedIn • X • Meta
+                LinkedIn • Facebook • Instagram
               </span>
             </span>
           </div>

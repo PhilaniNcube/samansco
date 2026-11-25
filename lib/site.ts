@@ -16,7 +16,7 @@ export const divisions: Division[] = [
   },
   {
     href: "/energy",
-    name: "Samansco Energy (SEPCO)",
+    name: "Samansco Energy",
     shortName: "Energy",
     chip: "UTILITY & TRADING",
     summary: "PPAs, SAPP wholesale trading and Virtual Power Plants.",

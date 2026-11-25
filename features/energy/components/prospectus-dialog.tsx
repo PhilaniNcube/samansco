@@ -52,7 +52,7 @@ export function ProspectusDialog({
             Institutional PPA Prospectus 2025
           </DialogTitle>
           <DialogDescription className="type-body-sm leading-relaxed text-muted-foreground">
-            Comprehensive breakdown of SEPCO’s wheeling tariffs, grid intertie
+            Comprehensive breakdown of Samansco Energy’s wheeling tariffs, grid intertie
             technical specifications, dispatch security, and SAPP market
             liquidity frameworks.
           </DialogDescription>

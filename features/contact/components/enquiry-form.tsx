@@ -28,9 +28,8 @@ import { cn } from "@/lib/utils";
 
 const routingOptions = [
   {
-    value: "holdings",
-    label:
-      "Samansco Group Holdings (General / Governance / Executive Office)",
+    value: "group",
+    label: "Samansco Group (General / Governance / Executive Office)",
   },
   {
     value: "industries",
@@ -40,7 +39,7 @@ const routingOptions = [
   {
     value: "energy",
     label:
-      "Samansco Energy / SEPCO (Utility PPAs, Electricity Wheeling & Retail)",
+      "Samansco Energy (Utility PPAs, Electricity Wheeling & Retail)",
   },
   {
     value: "maintenance",
@@ -232,7 +231,7 @@ export function EnquiryForm() {
 
           <Field name="division">
             <FieldLabel>Direct Enquiry To Operating Entity</FieldLabel>
-            <Select items={routingOptions} defaultValue="holdings">
+            <Select items={routingOptions} defaultValue="group">
               <SelectTrigger className="h-12 rounded-lg border-input bg-surface-band px-3.5 text-base text-ink shadow-none">
                 <SelectValue />
               </SelectTrigger>
