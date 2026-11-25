@@ -10,12 +10,12 @@ const description =
 
 export const metadata: Metadata = {
   title: {
-    absolute: "Samansco Maintenance — O&M & Asset Monitoring",
+    absolute: "Samansco Maintenance · O&M & Asset Monitoring",
   },
   description,
   openGraph: {
     title:
-      "Samansco Maintenance — Protecting Asset Uptime, Yield & Long-Term Performance",
+      "Samansco Maintenance · Protecting Asset Uptime, Yield & Long-Term Performance",
     description,
     siteName: "Samansco Group",
     type: "website",

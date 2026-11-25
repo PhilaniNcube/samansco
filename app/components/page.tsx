@@ -21,7 +21,7 @@ export default function ComponentsPage() {
         <p className="text-sm leading-relaxed text-muted-foreground sm:text-base">
           Each file wraps UI SDK parts with Tailwind classes built from the
           shadcn tokens. Copy a wrapper, change its classes, or use the parts
-          directly — the behavior stays the same.
+          directly, and the behavior stays the same.
         </p>
       </div>
 

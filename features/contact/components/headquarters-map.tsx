@@ -1,7 +1,6 @@
 import {
   ArrowUpRightIcon,
   Building2Icon,
-  NavigationIcon,
   PlaneIcon,
   SolarPanelIcon,
 } from "lucide-react";
@@ -25,54 +24,45 @@ const directions = [
 ];
 
 /**
- * Eastlea headquarters map and navigation banner. The map artwork is a real
- * image asset; the location pill and pin are reproduced with design tokens.
+ * Eastlea headquarters map and navigation banner.
  */
 export function HeadquartersMap() {
   return (
     <Section tone="white">
       <div className="shell section-y">
-        <div className="overflow-hidden border border-hairline bg-ink text-white">
+        <div className="overflow-clip border border-hairline bg-ink text-white">
           <div className="grid grid-cols-1 lg:grid-cols-12">
             <div className="flex flex-col justify-between gap-8 p-6 lg:col-span-6 lg:p-10">
               <div>
-                <span className="type-eyebrow inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1.5 text-white/80">
-                  <NavigationIcon
-                    aria-hidden="true"
-                    className="size-3.5 text-brand-tint"
-                  />
-                  Strategic Transport Corridor
-                </span>
-
-                <h2 className="type-headline-xl mt-5 text-balance text-white">
+                <h2 className="type-headline-xl text-balance text-white">
                   Eastlea Headquarters &amp; Central Depot
                 </h2>
 
-                <p className="type-body-md mt-4 max-w-md leading-relaxed text-white/70">
+                <p className="type-body-md mbs-4 max-w-[48ch] leading-relaxed text-white/80">
                   Located directly along the main arterial Samora Machel Avenue
                   (A2), providing rapid logistical access between Harare Central
                   Business District and Robert Gabriel Mugabe International
                   Airport.
                 </p>
 
-                <ul className="mt-6 flex flex-col gap-3">
+                <ul className="mbs-6 divide-y divide-white/10 border-y border-white/10">
                   {directions.map((direction) => {
                     const Icon = direction.icon;
 
                     return (
                       <li
                         key={direction.title}
-                        className="flex items-start gap-3 bg-white/5 p-3"
+                        className="flex items-start gap-3 py-3.5"
                       >
                         <Icon
                           aria-hidden="true"
-                          className="mt-0.5 size-4 shrink-0 text-brand-tint"
+                          className="mbs-0.5 size-4 shrink-0 text-brand-tint"
                         />
                         <span className="flex min-w-0 flex-col gap-0.5">
                           <span className="type-label font-semibold text-white">
                             {direction.title}
                           </span>
-                          <span className="type-body-sm text-white/60">
+                          <span className="type-body-sm text-white/75">
                             {direction.detail}
                           </span>
                         </span>
@@ -82,12 +72,12 @@ export function HeadquartersMap() {
                 </ul>
               </div>
 
-              <div className="flex flex-col gap-4 border-t border-white/10 pt-5 sm:flex-row sm:items-end sm:justify-between">
+              <div className="flex flex-col gap-4 border-t border-white/10 pbs-5 sm:flex-row sm:items-end sm:justify-between">
                 <div className="flex flex-col gap-1">
-                  <span className="type-eyebrow text-white/50">
-                    GPS Coordinates
+                  <span className="type-body-sm text-white/75">
+                    GPS coordinates
                   </span>
-                  <span className="type-code text-white">
+                  <span className="type-body-sm font-medium text-white tabular-nums">
                     {gpsCoordinates}
                   </span>
                 </div>
@@ -108,7 +98,7 @@ export function HeadquartersMap() {
               </div>
             </div>
 
-            <div className="relative min-h-[320px] lg:col-span-6 lg:min-h-[480px]">
+            <div className="relative min-bs-[320px] lg:col-span-6 lg:min-bs-[480px]">
               <Image
                 src="/images/contact-map.jpg"
                 alt="Street map of Eastlea, Harare, showing the Samansco Group headquarters at 331 Samora Machel Avenue on the A2 arterial, with the surrounding city and airport corridor."
@@ -121,16 +111,12 @@ export function HeadquartersMap() {
                 className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
               />
 
-              <span className="type-code absolute top-4 left-4 flex items-center gap-2 rounded bg-ink/90 px-3 py-1.5 text-white">
-                SAMANSCO HQ HUB • EASTLEA
-              </span>
-
               <div className="absolute inset-0 grid place-items-center">
                 <div className="flex flex-col items-center">
                   <span className="grid size-12 place-items-center rounded-full bg-brand text-white">
                     <SolarPanelIcon aria-hidden="true" className="size-6" />
                   </span>
-                  <span className="type-code mt-2 rounded bg-background px-3 py-1 text-ink">
+                  <span className="type-body-sm mbs-2 rounded bg-background px-3 py-1 font-medium text-ink">
                     331 Samora Machel Ave
                   </span>
                 </div>

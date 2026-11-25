@@ -2,11 +2,11 @@ import { Section } from "@/components/samansco/section";
 
 const registries = [
   { name: "UNFCCC", detail: "Article 6 Paris Accord" },
-  { name: "VERRA", detail: "VCS Standard Protocol" },
-  { name: "GOLD STD", detail: "SDG Impact Certifications" },
-  { name: "I-REC STD", detail: "Tracking Standard Foundation" },
-  { name: "EVIDENT", detail: "Attribute Registry Platform" },
-  { name: "CARBONTRICITY", detail: "Environmental Commodity Systems" },
+  { name: "Verra", detail: "VCS Standard Protocol" },
+  { name: "Gold Standard", detail: "SDG Impact Certifications" },
+  { name: "I-REC Standard", detail: "Tracking Standard Foundation" },
+  { name: "Evident", detail: "Attribute Registry Platform" },
+  { name: "Carbontricity", detail: "Environmental Commodity Systems" },
 ];
 
 /**
@@ -20,24 +20,24 @@ export function CarbonRegistry() {
       aria-labelledby="carbon-registry-title"
       className="border-t border-hairline/60"
     >
-      <div className="shell py-12 lg:py-14">
+      <div className="shell py-12 lg:py-16">
         <h2
           id="carbon-registry-title"
-          className="type-eyebrow text-center text-caption"
+          className="type-headline-lg text-center text-ink"
         >
           Registry Architecture &amp; Accreditation Partners
         </h2>
 
-        <ul className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
+        <ul className="mbs-8 grid grid-cols-2 gap-px overflow-clip border border-hairline bg-hairline md:grid-cols-3 xl:grid-cols-6">
           {registries.map((registry) => (
             <li
               key={registry.name}
-              className="flex flex-col items-center justify-center border border-hairline/70 bg-surface-band px-4 py-5 text-center transition-colors duration-150 hover:border-charcoal"
+              className="flex flex-col items-center justify-center bg-surface-band px-4 py-5 text-center transition-colors duration-150 hover:bg-background"
             >
-              <span className="type-headline-sm text-sm font-bold tracking-tight text-ink md:text-xl">
+              <span className="type-headline-sm font-bold tracking-tight text-ink">
                 {registry.name}
               </span>
-              <span className="type-code mt-1 text-center text-caption">
+              <span className="type-body-sm mbs-1 text-center text-muted-foreground">
                 {registry.detail}
               </span>
             </li>

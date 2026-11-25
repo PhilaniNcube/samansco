@@ -27,24 +27,18 @@ export function EnergyEngagement() {
 
           <div className="relative z-10 grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-8">
-              <div className="flex items-center gap-2">
-                <span className="type-eyebrow text-brand-soft">
-                  Corporate Energy Desk Engagement
-                </span>
-              </div>
-
-              <h2 className="type-headline-xl mbs-4 max-w-2xl text-balance text-white">
+              <h2 className="type-headline-xl max-w-2xl text-balance text-white">
                 Structure an Institutional PPA or Explore Power Wheeling
               </h2>
 
-              <p className="type-body-lg mbs-4 max-w-2xl leading-relaxed text-white/80">
+              <p className="type-body-md mbs-4 max-w-[65ch] leading-relaxed text-white/85">
                 Connect with our power trading desk and commercial PPA
                 structuring directors in Harare and Johannesburg to evaluate
                 your grid connection, off-take profile, or dispatchable
                 capacity.
               </p>
 
-              <p className="type-code mbs-5 flex items-start gap-2 text-white/75">
+              <p className="type-body-sm mbs-5 flex items-start gap-2 text-white/80">
                 <InfoIcon
                   aria-hidden="true"
                   className="mbs-0.5 size-4 shrink-0 text-brand-soft"
@@ -64,11 +58,9 @@ export function EnergyEngagement() {
                 <ArrowRightIcon aria-hidden="true" />
               </Button>
 
-              <div className="type-code mbs-4 flex flex-wrap items-center justify-center gap-2 text-white/75 lg:justify-start">
-                <span>DESK RESPONSE: &lt; 24H SLA</span>
-                <span aria-hidden="true">•</span>
-                <span>DIRECT EXECUTIVE ACCESS</span>
-              </div>
+              <p className="type-body-sm mbs-4 text-center text-white/80 lg:text-start">
+                Desk response under 24 hours · Direct executive access
+              </p>
             </div>
           </div>
         </div>

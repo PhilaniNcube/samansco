@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { QuoteIcon } from "lucide-react";
 import { Section, SectionHeading } from "@/components/samansco/section";
-import { ParameterPanel } from "@/components/samansco/spec-list";
 
 /**
  * Editorial resource argument, paired with an executive pull quote.
@@ -12,13 +11,10 @@ export function ResourceAdvantage() {
       <div className="shell section-y">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <SectionHeading
-              eyebrow="Regional Resource Advantage"
-              title="Why Africa's Energy Transition Matters"
-            />
+            <SectionHeading title="Why Africa's Energy Transition Matters" />
 
-            <div className="mt-6 flex flex-col gap-4">
-              <p className="type-body-lg leading-relaxed text-muted-foreground">
+            <div className="mbs-6 flex max-w-[65ch] flex-col gap-4">
+              <p className="type-body-md leading-relaxed text-muted-foreground">
                 Southern Africa boasts some of the most concentrated solar
                 irradiance levels globally. According to World Bank and ESMAP
                 Global Solar Atlas metrics, Zimbabwe registers an average
@@ -39,36 +35,44 @@ export function ResourceAdvantage() {
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
-              <ParameterPanel
-                label="Resource Metric (ESMAP)"
-                value="5.78 kWh/m²/day"
-                note="Specific Photovoltaic Yield Index"
-              />
-              <ParameterPanel
-                label="Interconnection"
-                value="SAPP Synchronized"
-                note="Cross-Border Power Trading Alignment"
-              />
-            </div>
+            <dl className="mbs-8 grid grid-cols-1 gap-6 border-t border-hairline pbs-6 sm:grid-cols-2 sm:divide-x sm:divide-hairline">
+              <div className="flex flex-col gap-1">
+                <dt className="type-label text-muted-foreground">
+                  Resource metric (ESMAP)
+                </dt>
+                <dd className="type-headline-lg text-ink tabular-nums">
+                  5.78 kWh/m²/day
+                </dd>
+                <dd className="type-body-sm text-muted-foreground">
+                  Specific photovoltaic yield index
+                </dd>
+              </div>
+              <div className="flex flex-col gap-1 sm:pis-6">
+                <dt className="type-label text-muted-foreground">
+                  Interconnection
+                </dt>
+                <dd className="type-headline-lg text-ink">
+                  SAPP Synchronized
+                </dd>
+                <dd className="type-body-sm text-muted-foreground">
+                  Cross-border power trading alignment
+                </dd>
+              </div>
+            </dl>
           </div>
 
           <div className="lg:col-span-5">
-            <figure className="relative overflow-hidden bg-charcoal p-8 text-white lg:p-10">
-              <span
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-6 -bottom-6 size-36 rounded-full bg-white/5 blur-2xl"
-              />
+            <figure className="bg-charcoal p-8 text-white lg:p-10">
               <QuoteIcon
                 aria-hidden="true"
-                className="mb-6 size-10 text-brand-tint opacity-80"
+                className="mbe-6 size-9 text-brand-tint opacity-90"
               />
-              <blockquote className="type-headline-md leading-snug tracking-tight text-white">
+              <blockquote className="font-display text-[var(--text-heading)] font-medium leading-snug tracking-tight text-white">
                 “Africa is not merely participating in the global energy
                 transition; we are defining its architecture through
                 decentralized, resilient clean power.”
               </blockquote>
-              <figcaption className="mt-8 flex items-center gap-4 border-t border-white/15 pt-5">
+              <figcaption className="mbs-8 flex items-center gap-4 border-t border-white/15 pbs-5">
                 <span className="relative size-12 shrink-0 overflow-hidden rounded-full bg-brand-deep ring-1 ring-white/15">
                   <Image
                     src="/images/group-ceo.jpeg"
@@ -78,11 +82,11 @@ export function ResourceAdvantage() {
                     className="object-cover object-top"
                   />
                 </span>
-                <span className="flex flex-col">
-                  <span className="type-headline-sm font-semibold text-white">
+                <span className="flex flex-col gap-0.5">
+                  <span className="type-headline-sm text-white">
                     Nyasha Bamhare
                   </span>
-                  <span className="type-eyebrow text-white/60">
+                  <span className="type-body-sm text-white/75">
                     Group Chief Executive Officer
                   </span>
                 </span>

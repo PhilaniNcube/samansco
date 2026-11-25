@@ -5,11 +5,10 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { ImageBackdropCard } from "@/components/samansco/image-backdrop-card";
-import { Eyebrow, Section } from "@/components/samansco/section";
+import { Section } from "@/components/samansco/section";
 import { cn } from "@/lib/utils";
 
 type Pillar = {
-  index: string;
   title: string;
   body: string;
   statLabel: string;
@@ -23,22 +22,20 @@ type Pillar = {
 
 const pillars: Pillar[] = [
   {
-    index: "PILLAR 01",
     title: "Legal & Regulatory Compliance",
     body: "Full adherence to national occupational health and safety acts, Zimbabwe Energy Regulatory Authority (ZERA) frameworks, and Engineering Council of Zimbabwe standards across all high-voltage sub-stations, microgrids, and field installations.",
-    statLabel: "Statutory Audit",
-    statValue: "100% Verified",
+    statLabel: "Statutory audit",
+    statValue: "100% verified",
     icon: GavelIcon,
     image: "/images/energy-hero-substation.jpg",
     imageAlt:
       "High-voltage electrical substation operated under statutory regulatory compliance.",
   },
   {
-    index: "PILLAR 02",
     title: "Proactive Safety Culture",
     body: "Mandatory pre-work risk assessments, rigorous Lockout/Tagout (LOTO) protocols for high-voltage DC & AC infrastructure, Working at Heights certification, and continuous technical tooling audits to guarantee zero preventable lost-time injuries.",
-    statLabel: "Zero Harm Metric",
-    statValue: "> 1.8M Safe Hours",
+    statLabel: "Zero harm metric",
+    statValue: "> 1.8M safe hours",
     icon: ShieldCheckIcon,
     image: "/images/maintenance-technicians.jpg",
     imageAlt:
@@ -46,7 +43,6 @@ const pillars: Pillar[] = [
     imageClassName: "object-top",
   },
   {
-    index: "PILLAR 03",
     title: "Quality & Environmental Integrity",
     body: "Strict alignment with ISO 9001 (Quality Management) and ISO 14001 (Environmental Stewardship) global standards. Our end-of-life solar panel and lithium-ion battery lifecycle protocols safeguard workers, host communities, and fragile Southern African ecosystems.",
     statLabel: "Environmental ISO",
@@ -75,26 +71,22 @@ export function GovernanceHse() {
         <div id="hse" className="scroll-mt-24">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <Eyebrow>Institutional Standards &amp; Operational Rigor</Eyebrow>
-              <h2 className="type-headline-xl mt-3 text-balance text-ink">
+              <h2 className="type-headline-xl text-balance text-ink">
                 Corporate Governance &amp; Health, Safety Policy (HSE)
               </h2>
-              <p className="type-body-lg mt-4 leading-relaxed text-muted-foreground">
+              <p className="type-body-md mbs-4 max-w-[65ch] leading-relaxed text-muted-foreground">
                 Samansco Group enforces rigorous statutory compliance,
                 operational ethics, and proactive risk elimination across all
                 subsidiary grid, utility, and field engineering operations.
               </p>
             </div>
 
-            <div className="flex shrink-0 flex-col gap-2 rounded-none border border-hairline bg-card px-4 py-3">
-              <span className="type-eyebrow text-caption">
-                Statutory Framework
+            <div className="flex shrink-0 flex-col gap-1 border-t border-hairline pbs-3 md:border-t-0 md:border-s md:pbs-0 md:pis-6">
+              <span className="type-body-sm font-semibold text-ink">
+                ZERA Licence No. 0422/GEN
               </span>
-              <span className="type-code text-ink">
-                ZERA LICENSE NO. 0422/GEN
-              </span>
-              <span className="type-code text-muted-foreground">
-                ISO 9001 / ISO 14001 COMPLIANT
+              <span className="type-body-sm text-muted-foreground">
+                ISO 9001 &amp; ISO 14001 compliant
               </span>
             </div>
           </div>
@@ -105,7 +97,7 @@ export function GovernanceHse() {
 
               return (
                 <ImageBackdropCard
-                  key={pillar.index}
+                  key={pillar.title}
                   id={pillar.anchor}
                   image={pillar.image}
                   imageAlt={pillar.imageAlt}
@@ -118,10 +110,7 @@ export function GovernanceHse() {
                   )}
                 >
                   <div>
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="type-code text-white/75 uppercase">
-                        {pillar.index}
-                      </span>
+                    <div className="flex justify-end">
                       <span className="grid size-9 shrink-0 place-items-center border border-white/20 bg-ink/60 backdrop-blur-sm">
                         <Icon
                           aria-hidden="true"
@@ -133,14 +122,14 @@ export function GovernanceHse() {
                     <h3 className="type-headline-sm mbs-4 text-white">
                       {pillar.title}
                     </h3>
-                    <p className="type-body-md mbs-2 leading-relaxed text-white/80">
+                    <p className="type-body-md mbs-2 leading-relaxed text-white/85">
                       {pillar.body}
                     </p>
                   </div>
 
-                  <div className="type-code mbs-6 flex flex-wrap items-center justify-between gap-2 border-t border-white/15 bg-ink/70 px-4 py-2.5 text-white/75 backdrop-blur-sm">
+                  <div className="type-body-sm mbs-6 flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pbs-4 text-white/80">
                     <span>{pillar.statLabel}</span>
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-white tabular-nums">
                       {pillar.statValue}
                     </span>
                   </div>

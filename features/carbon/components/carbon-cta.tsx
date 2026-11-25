@@ -1,6 +1,6 @@
 import { ArrowUpRightIcon, MailIcon, PhoneIcon } from "lucide-react";
 import Image from "next/image";
-import { Eyebrow, Section } from "@/components/samansco/section";
+import { Section } from "@/components/samansco/section";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -15,13 +15,13 @@ import {
 
 const contacts = [
   {
-    label: "Direct Trading Line",
+    label: "Direct trading line",
     value: "+263 242 442645-7",
     href: "tel:+263242442645",
     icon: PhoneIcon,
   },
   {
-    label: "Markets & Registry Desk",
+    label: "Markets & registry desk",
     value: "carbon@samansco.com",
     href: "mailto:carbon@samansco.com",
     icon: MailIcon,
@@ -56,16 +56,13 @@ export function CarbonCta() {
 
           <div className="relative z-10 grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-12">
             <div className="lg:col-span-8">
-              <Eyebrow className="text-brand-soft">
-                Direct Desk Engagement
-              </Eyebrow>
               <h2
                 id="carbon-cta-title"
-                className="type-headline-xl mbs-3 text-balance text-white"
+                className="type-headline-xl text-balance text-white"
               >
-                Structure Your Corporate Decarbonization or I-REC Strategy.
+                Structure Your Corporate Decarbonization or I-REC Strategy
               </h2>
-              <p className="type-body-lg mbs-4 max-w-2xl leading-relaxed text-white/80">
+              <p className="type-body-md mbs-4 max-w-[65ch] leading-relaxed text-white/85">
                 Partner with Samansco Carbon to monetize your solar asset
                 attributes, secure long-term renewable certificates, or audit
                 corporate emissions with our Harare and regional advisory teams.
@@ -89,26 +86,26 @@ export function CarbonCta() {
                     </DialogDescription>
                   </DialogHeader>
 
-                  <ul className="flex flex-col gap-3">
+                  <ul className="divide-y divide-hairline border-y border-hairline">
                     {contacts.map((contact) => {
                       const Icon = contact.icon;
 
                       return (
                         <li
                           key={contact.label}
-                          className="flex items-start gap-3 border border-hairline bg-surface-page p-3"
+                          className="flex items-start gap-3 py-3.5"
                         >
                           <Icon
                             aria-hidden="true"
-                            className="mt-0.5 size-5 shrink-0 text-brand-deep"
+                            className="mbs-0.5 size-5 shrink-0 text-brand-deep"
                           />
                           <div className="flex min-w-0 flex-col gap-0.5">
-                            <span className="type-eyebrow text-caption">
+                            <span className="type-label text-muted-foreground">
                               {contact.label}
                             </span>
                             <a
                               href={contact.href}
-                              className="type-code text-ink transition-colors hover:text-brand-deep"
+                              className="type-body-sm font-medium text-ink transition-colors hover:text-brand-deep tabular-nums"
                             >
                               {contact.value}
                             </a>
@@ -118,8 +115,8 @@ export function CarbonCta() {
                     })}
                   </ul>
 
-                  <p className="type-code border-t border-hairline pt-3 text-caption">
-                    DESKS: Harare • Johannesburg
+                  <p className="type-body-sm text-muted-foreground">
+                    Desks: Harare · Johannesburg
                   </p>
 
                   <DialogFooter>
@@ -136,8 +133,8 @@ export function CarbonCta() {
                 </DialogContent>
               </Dialog>
 
-              <p className="type-code flex items-center gap-2 text-[11px] text-white/80">
-                DESK RESPONSE: &lt; 24H SLA • CONFIDENTIAL INQUIRIES
+              <p className="type-body-sm text-white/80">
+                Desk response under 24 hours · Confidential inquiries
               </p>
             </div>
           </div>

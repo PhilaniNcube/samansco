@@ -7,7 +7,7 @@ import {
   PhoneIcon,
 } from "lucide-react";
 import * as React from "react";
-import { Eyebrow, Section } from "@/components/samansco/section";
+import { Section } from "@/components/samansco/section";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Dialog,
@@ -62,7 +62,7 @@ export function EnquiryCta() {
       enquiryTypes.find((type) => type.value === enquiryType)?.label ??
       "General enquiry";
 
-    const subject = `Industrial enquiry — ${organisation || fullName || "Samansco Industries"}`;
+    const subject = `Industrial enquiry: ${organisation || fullName || "Samansco Industries"}`;
     const body = [
       `Name: ${fullName}`,
       `Organisation: ${organisation}`,
@@ -86,20 +86,17 @@ export function EnquiryCta() {
       <div className="shell section-y">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
-            <Eyebrow className="text-white/60">
-              Direct Engineering Engagement
-            </Eyebrow>
-            <h2 className="type-headline-xl mt-3 max-w-2xl text-balance text-white">
+            <h2 className="type-headline-xl max-w-2xl text-balance text-white">
               Initiate an EPC Project or Technical Equipment Enquiry
             </h2>
-            <p className="type-body-lg mt-4 max-w-2xl leading-relaxed text-white/70">
+            <p className="type-body-md mbs-4 max-w-[65ch] leading-relaxed text-white/80">
               Connect directly with our senior engineering team, certified
               system designers, and wholesale distribution specialists at our
               Harare headquarters.
             </p>
 
-            <address className="mt-8 flex flex-col gap-3 not-italic text-white/70 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
-              <span className="type-code flex items-center gap-2">
+            <address className="mbs-8 flex flex-col gap-3 not-italic text-white/80 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6">
+              <span className="type-body-sm flex items-center gap-2">
                 <MapPinIcon
                   aria-hidden="true"
                   className="size-4 shrink-0 text-brand-tint"
@@ -108,7 +105,7 @@ export function EnquiryCta() {
               </span>
               <a
                 href="tel:+263242442645"
-                className="type-code flex items-center gap-2 transition-colors hover:text-white"
+                className="type-body-sm flex items-center gap-2 transition-colors hover:text-white tabular-nums"
               >
                 <PhoneIcon
                   aria-hidden="true"
@@ -118,7 +115,7 @@ export function EnquiryCta() {
               </a>
               <a
                 href="mailto:industries@samansco.com"
-                className="type-code flex items-center gap-2 transition-colors hover:text-white"
+                className="type-body-sm flex items-center gap-2 transition-colors hover:text-white"
               >
                 <MailIcon
                   aria-hidden="true"
@@ -258,18 +255,18 @@ export function EnquiryCta() {
               </DialogContent>
             </Dialog>
 
-            <span className="type-code text-white/50">
-              Commercial &amp; Institutional RFPs welcome
+            <span className="type-body-sm text-white/75">
+              Commercial &amp; institutional RFPs welcome
             </span>
           </div>
         </div>
 
-        <div className="type-code mt-12 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/10 pt-5 text-white/50">
+        <div className="type-body-sm mbs-12 flex flex-wrap items-center gap-x-4 gap-y-2 border-t border-white/10 pbs-5 text-white/75">
           <span>ZERA ID: 0422/GEN</span>
-          <span aria-hidden="true" className="size-1 rounded-full bg-white/20" />
-          <span>ISO 9001 COMPLIANT</span>
-          <span aria-hidden="true" className="size-1 rounded-full bg-white/20" />
-          <span>SADC REGIONAL CLEARANCE</span>
+          <span aria-hidden="true" className="size-1 rounded-full bg-white/25" />
+          <span>ISO 9001 compliant</span>
+          <span aria-hidden="true" className="size-1 rounded-full bg-white/25" />
+          <span>SADC regional clearance</span>
         </div>
       </div>
     </Section>

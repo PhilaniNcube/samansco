@@ -59,7 +59,7 @@ export function SiteHeader() {
             height={254}
             priority
             className={cn(
-              "h-7 w-auto transition-[filter] duration-200 lg:h-8",
+              "h-8 w-auto transition-[filter] duration-200 lg:h-9",
               !isSolid && "brightness-0 invert",
             )}
           />
@@ -81,21 +81,21 @@ export function SiteHeader() {
                 href={item.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative rounded-[2px] px-3 py-2 font-mono text-xs font-medium tracking-[0.14em] uppercase transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2",
+                  "relative rounded-[2px] px-3.5 py-2 text-sm font-medium whitespace-nowrap transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2",
                   isSolid
                     ? active
                       ? "text-brand-deep focus-visible:outline-ink"
-                      : "text-muted-foreground hover:text-ink focus-visible:outline-ink"
+                      : "text-muted-foreground [@media(hover:hover)_and_(pointer:fine)]:hover:text-ink focus-visible:outline-ink"
                     : active
                       ? "text-white focus-visible:outline-white"
-                      : "text-white/75 hover:text-white focus-visible:outline-white",
+                      : "text-white/80 [@media(hover:hover)_and_(pointer:fine)]:hover:text-white focus-visible:outline-white",
                 )}
               >
                 {item.label}
                 {active ? (
                   <span
                     aria-hidden="true"
-                    className="absolute inset-x-3 inset-be-0.5 h-0.5 bg-brand"
+                    className="absolute inset-x-3.5 inset-be-0.5 h-0.5 bg-brand"
                   />
                 ) : null}
               </Link>
@@ -107,10 +107,10 @@ export function SiteHeader() {
           <Link
             href="/contact"
             className={cn(
-              "inline-flex items-center justify-center rounded-[2px] border px-4 py-2 font-mono text-xs font-medium tracking-[0.14em] uppercase active:scale-[0.97] motion-safe:transition-[transform,background-color,border-color,color] motion-safe:duration-150 focus-visible:outline-2 focus-visible:outline-offset-2",
+              "inline-flex items-center justify-center rounded-[2px] border px-4 py-2 text-sm font-medium active:scale-[0.97] motion-safe:transition-[transform,background-color,border-color,color] duration-150 ease-[var(--ease-out)] focus-visible:outline-2 focus-visible:outline-offset-2",
               isSolid
-                ? "border-brand-deep bg-brand-deep text-white hover:border-brand-strong hover:bg-brand-strong focus-visible:outline-ink"
-                : "border-white/75 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink focus-visible:outline-white",
+                ? "border-brand-deep bg-brand-deep text-white [@media(hover:hover)_and_(pointer:fine)]:hover:border-brand-strong [@media(hover:hover)_and_(pointer:fine)]:hover:bg-brand-strong focus-visible:outline-ink"
+                : "border-white/75 bg-transparent text-white [@media(hover:hover)_and_(pointer:fine)]:hover:border-white [@media(hover:hover)_and_(pointer:fine)]:hover:bg-white [@media(hover:hover)_and_(pointer:fine)]:hover:text-ink focus-visible:outline-white",
             )}
           >
             Contact

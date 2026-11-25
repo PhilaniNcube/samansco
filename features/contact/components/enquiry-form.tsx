@@ -61,15 +61,8 @@ const engagementNatures = [
   "Media & Governance",
 ];
 
-const trustMarkers = [
-  "ZERA LICENSE NO. 0422/GEN",
-  "SADC REGIONAL DESK",
-  "ISO 9001 / ISO 14001 COMPLIANT",
-];
-
 /**
- * Multi-line field on the UI SDK textarea primitive. There is no shared
- * wrapper for textarea yet, so the contact feature owns the token styling.
+ * Multi-line field on the UI SDK textarea primitive.
  */
 function FormTextarea({
   className,
@@ -78,9 +71,9 @@ function FormTextarea({
   return (
     <Textarea
       className={cn(
-        "min-h-28 w-full resize-y rounded-lg border border-input bg-surface-band px-4 py-3 text-base text-ink transition-colors outline-none",
+        "min-bs-28 w-full resize-y rounded-lg border border-input bg-surface-band px-4 py-3 text-base text-ink transition-colors",
         "placeholder:text-caption",
-        "focus-visible:border-charcoal",
+        "focus-visible:border-charcoal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-charcoal",
         "disabled:cursor-not-allowed disabled:opacity-50",
         "aria-invalid:border-destructive",
         className,
@@ -123,28 +116,24 @@ export function EnquiryForm() {
 
   return (
     <div className="flex h-full flex-col border border-hairline bg-card p-5 lg:p-8">
-      <div className="flex flex-col gap-4 border-b border-hairline/80 pb-5 sm:flex-row sm:items-start sm:justify-between">
-        <div className="max-w-xl">
-          <h2 className="type-headline-lg text-balance text-ink">
-            Initiate an Institutional Enquiry
-          </h2>
-          <p className="type-body-sm mt-1 leading-relaxed text-muted-foreground">
-            Directly routed to the relevant operating company executive desk
-            within 24 business hours.
-          </p>
-        </div>
-
-
+      <div className="border-b border-hairline/80 pbe-5">
+        <h2 className="type-headline-lg text-balance text-ink">
+          Initiate an Institutional Enquiry
+        </h2>
+        <p className="type-body-sm mbs-1.5 leading-relaxed text-muted-foreground">
+          Directly routed to the relevant operating company executive desk
+          within 24 business hours.
+        </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="mt-6">
+      <form onSubmit={handleSubmit} className="mbs-6">
         <FieldGroup>
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <Field name="name">
               <FieldLabel className="flex w-full items-center justify-between gap-3">
-                <span>Full Legal Name</span>
-                <span className="type-code font-normal text-caption">
-                  *Required
+                <span>Full legal name</span>
+                <span className="type-body-sm font-normal text-caption">
+                  Required
                 </span>
               </FieldLabel>
               <Input
@@ -162,9 +151,9 @@ export function EnquiryForm() {
 
             <Field name="organisation">
               <FieldLabel className="flex w-full items-center justify-between gap-3">
-                <span>Organization / Entity</span>
-                <span className="type-code font-normal text-caption">
-                  *Required
+                <span>Organization / entity</span>
+                <span className="type-body-sm font-normal text-caption">
+                  Required
                 </span>
               </FieldLabel>
               <Input
@@ -184,9 +173,9 @@ export function EnquiryForm() {
           <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
             <Field name="email">
               <FieldLabel className="flex w-full items-center justify-between gap-3">
-                <span>Corporate Email Address</span>
-                <span className="type-code font-normal text-caption">
-                  *Required
+                <span>Corporate email address</span>
+                <span className="type-body-sm font-normal text-caption">
+                  Required
                 </span>
               </FieldLabel>
               <Input
@@ -197,8 +186,8 @@ export function EnquiryForm() {
                 className="h-12 bg-surface-band text-base"
                 required
               />
-              <FieldDescription className="type-code text-caption">
-                *Official domain
+              <FieldDescription className="type-body-sm text-caption">
+                Official domain preferred
               </FieldDescription>
               <FieldError match="valueMissing">
                 Enter your corporate email address.
@@ -211,7 +200,7 @@ export function EnquiryForm() {
             <Field name="phone">
               <FieldLabel className="flex w-full items-center justify-between gap-3">
                 <span>Telephone / WhatsApp</span>
-                <span className="type-code font-normal text-caption">
+                <span className="type-body-sm font-normal text-caption">
                   With country code
                 </span>
               </FieldLabel>
@@ -230,7 +219,7 @@ export function EnquiryForm() {
           </div>
 
           <Field name="division">
-            <FieldLabel>Direct Enquiry To Operating Entity</FieldLabel>
+            <FieldLabel>Direct enquiry to operating entity</FieldLabel>
             <Select items={routingOptions} defaultValue="group">
               <SelectTrigger className="h-12 rounded-lg border-input bg-surface-band px-3.5 text-base text-ink shadow-none">
                 <SelectValue />
@@ -245,50 +234,40 @@ export function EnquiryForm() {
             </Select>
           </Field>
 
-          <div className="flex flex-col gap-2">
-            <span
-              id="nature-of-engagement-label"
-              className="type-label text-charcoal"
-            >
-              Nature of Engagement
-            </span>
-            <div
-              role="group"
-              aria-labelledby="nature-of-engagement-label"
-              className="flex flex-wrap gap-2"
-            >
-              {engagementNatures.map((nature) => {
-                const active = selectedNature === nature;
-
-                return (
-                  <Button
-                    key={nature}
-                    type="button"
-                    size="sm"
-                    variant={active ? "secondary" : "outline"}
-                    aria-pressed={active}
-                    onClick={() =>
-                      setSelectedNature(active ? null : nature)
-                    }
-                    className={cn(
-                      "h-auto rounded-lg px-3 py-1.5 text-sm font-medium",
-                      active
-                        ? "border border-charcoal bg-charcoal text-white hover:bg-ink"
-                        : "border-hairline bg-surface-band text-muted-foreground hover:bg-surface-sunken",
-                    )}
-                  >
-                    {nature}
-                  </Button>
-                );
-              })}
+          <fieldset className="flex flex-col gap-2">
+            <legend className="type-label mbe-1 text-charcoal">
+              Nature of engagement
+            </legend>
+            <div className="grid grid-cols-1 gap-px overflow-clip rounded-lg border border-hairline bg-hairline sm:grid-cols-2">
+              {engagementNatures.map((nature) => (
+                <label key={nature} className="relative block cursor-pointer">
+                  <input
+                    type="radio"
+                    name="engagementNature"
+                    value={nature}
+                    checked={selectedNature === nature}
+                    onChange={() => setSelectedNature(nature)}
+                    className="peer sr-only"
+                  />
+                  <span className="flex items-center gap-2.5 bg-surface-band px-3.5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-surface-sunken peer-checked:bg-charcoal peer-checked:text-white peer-focus-visible:outline-2 peer-focus-visible:outline-offset-[-2px] peer-focus-visible:outline-brand [&_.radio-dot]:opacity-0 peer-checked:[&_.radio-dot]:opacity-100">
+                    <span
+                      aria-hidden="true"
+                      className="grid size-3.5 shrink-0 place-items-center rounded-full border border-current/45"
+                    >
+                      <span className="radio-dot size-1.5 rounded-full bg-current transition-opacity" />
+                    </span>
+                    <span>{nature}</span>
+                  </span>
+                </label>
+              ))}
             </div>
-          </div>
+          </fieldset>
 
           <Field name="message">
             <FieldLabel className="flex w-full items-center justify-between gap-3">
-              <span>Message / Project Scope Details</span>
-              <span className="type-code font-normal text-caption">
-                Capacity / Location / Specs
+              <span>Message / project scope details</span>
+              <span className="type-body-sm font-normal text-caption">
+                Capacity, location &amp; specs
               </span>
             </FieldLabel>
             <FormTextarea
@@ -314,7 +293,7 @@ export function EnquiryForm() {
                 if (next) setConfirmError(false);
               }}
               aria-required="true"
-              className="mt-0.5"
+              className="mbs-0.5"
             />
             <div className="flex min-w-0 flex-col gap-1">
               <FieldLabel className="type-body-sm leading-snug text-charcoal">
@@ -330,40 +309,40 @@ export function EnquiryForm() {
           </Field>
         </FieldGroup>
 
-        <div className="mt-6 flex flex-col gap-4 border-t border-hairline/80 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mbs-6 flex flex-col gap-4 border-t border-hairline/80 pbs-5 sm:flex-row sm:items-center sm:justify-between">
           <Button type="submit" size="lg" className="w-full sm:w-auto">
             Submit Corporate Enquiry
             <ArrowRightIcon aria-hidden="true" />
           </Button>
 
-          <p className="type-code flex items-center gap-1.5 text-caption">
+          <p className="type-body-sm flex items-center gap-1.5 text-muted-foreground">
             <LockIcon
               aria-hidden="true"
               className="size-3.5 shrink-0 text-emerald-600"
             />
-            Encrypted &amp; Confidential • Zero Spam
+            Encrypted and confidential
           </p>
         </div>
       </form>
 
-      <div className="mt-auto">
+      <div className="mbs-auto">
         <div aria-live="polite" aria-atomic="true" role="status">
           {reference ? (
-            <div className="mt-6 flex items-start gap-3 border border-hairline bg-surface-band p-4">
+            <div className="mbs-6 flex items-start gap-3 border border-hairline bg-surface-band p-4">
               <CircleCheckIcon
                 aria-hidden="true"
-                className="mt-0.5 size-5 shrink-0 text-emerald-600"
+                className="mbs-0.5 size-5 shrink-0 text-emerald-600"
               />
               <div>
                 <h3 className="type-headline-sm text-ink">
                   Corporate Enquiry Dispatched
                 </h3>
-                <p className="type-body-sm mt-1 leading-relaxed text-muted-foreground">
+                <p className="type-body-sm mbs-1 leading-relaxed text-muted-foreground">
                   Your institutional message has been routed to the relevant
                   Operating Company Liaison Desk. A senior representative will
                   review specifications and respond within 24 business hours.
                 </p>
-                <p className="type-code mt-2 text-brand-deep">
+                <p className="type-body-sm mbs-2 font-medium text-brand-deep tabular-nums">
                   Reference ID: {reference}
                 </p>
               </div>
@@ -371,13 +350,10 @@ export function EnquiryForm() {
           ) : null}
         </div>
 
-        <div className="type-code mt-6 flex flex-wrap items-center gap-x-4 gap-y-1 bg-surface-band px-3 py-2 text-caption">
-          {trustMarkers.map((marker) => (
-            <span key={marker} className="flex items-center gap-2">
-              {marker}
-            </span>
-          ))}
-        </div>
+        <p className="type-body-sm mbs-6 border-t border-hairline pbs-4 text-muted-foreground">
+          ZERA Licence No. 0422/GEN · SADC regional desk · ISO 9001 &amp; ISO
+          14001 compliant
+        </p>
       </div>
     </div>
   );

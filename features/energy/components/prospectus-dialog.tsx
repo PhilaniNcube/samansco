@@ -2,8 +2,6 @@
 
 import { ArrowRightIcon, FileDownIcon } from "lucide-react";
 import Link from "next/link";
-import { heroGhostActionClassName } from "@/components/samansco/page-hero";
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -16,30 +14,20 @@ import {
 } from "@/components/ui/dialog";
 
 const documentSpecs = [
-  { label: "File Format", value: "Secured PDF (14.2 MB)" },
+  { label: "File format", value: "Secured PDF (14.2 MB)" },
   { label: "Version", value: "v4.8 Institutional (Jan 2025)" },
 ];
 
 /**
- * Institutional PPA prospectus: the mobile design opens this brief as a
- * disclosure sheet, so the UI SDK Dialog supplies the modal behaviour.
+ * Institutional PPA prospectus: opens a disclosure sheet with document specs
+ * and a direct request path.
  */
-export function ProspectusDialog({
-  variant = "default",
-}: {
-  variant?: "default" | "hero";
-}) {
+export function ProspectusDialog() {
   return (
     <Dialog>
       <DialogTrigger
         aria-haspopup="dialog"
-        unstyled={variant === "hero"}
-        className={cn(
-          "whitespace-normal",
-          variant === "hero"
-            ? cn(heroGhostActionClassName, "cursor-pointer")
-            : "h-12 rounded-lg border-hairline px-5 text-base",
-        )}
+        className="h-11 rounded-lg border-hairline px-5 text-sm whitespace-normal"
       >
         Download PPA Prospectus
         <FileDownIcon aria-hidden="true" className="size-4" />
@@ -47,12 +35,11 @@ export function ProspectusDialog({
 
       <DialogContent className="rounded-lg border-hairline shadow-none">
         <DialogHeader className="gap-2">
-          <span className="type-eyebrow text-brand-deep">Document Brief</span>
-          <DialogTitle className="type-headline-sm text-ink">
+          <DialogTitle className="type-headline-md text-ink">
             Institutional PPA Prospectus 2025
           </DialogTitle>
           <DialogDescription className="type-body-sm leading-relaxed text-muted-foreground">
-            Comprehensive breakdown of Samansco Energy’s wheeling tariffs, grid intertie
+            Comprehensive breakdown of Samansco Energy&apos;s wheeling tariffs, grid intertie
             technical specifications, dispatch security, and SAPP market
             liquidity frameworks.
           </DialogDescription>
@@ -64,8 +51,10 @@ export function ProspectusDialog({
               key={spec.label}
               className="flex items-baseline justify-between gap-4 py-3"
             >
-              <dt className="type-code text-caption">{spec.label}</dt>
-              <dd className="type-code text-right text-ink">{spec.value}</dd>
+              <dt className="type-body-sm text-caption">{spec.label}</dt>
+              <dd className="type-body-sm text-right font-medium text-ink tabular-nums">
+                {spec.value}
+              </dd>
             </div>
           ))}
         </dl>

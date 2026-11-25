@@ -22,7 +22,7 @@ export function RegionalPresence() {
       scrim="deep"
       className="min-bs-[17rem] p-5 lg:p-6"
     >
-      <div className="flex items-start justify-between gap-3 border-b border-white/15 pbe-3">
+      <div className="flex items-center justify-between gap-3 border-b border-white/15 pbe-3">
         <div className="flex min-w-0 items-center gap-2">
           <Globe2Icon
             aria-hidden="true"
@@ -35,15 +35,11 @@ export function RegionalPresence() {
             Regional Presence (SADC)
           </h2>
         </div>
-        <span className="type-code shrink-0 text-white/75">ZIMBABWE</span>
       </div>
 
-      <ul className="mbs-auto grid grid-cols-1 gap-3 pbs-8">
+      <ul className="mbs-auto divide-y divide-white/15 border-t border-white/15 pbs-2">
         {regions.map((region) => (
-          <li
-            key={region.country}
-            className="border border-white/15 bg-ink/70 p-3.5 backdrop-blur-sm"
-          >
+          <li key={region.country} className="py-3">
             <h3 className="type-label flex items-center gap-1.5 font-semibold text-white">
               <FlagIcon
                 aria-hidden="true"
@@ -51,7 +47,7 @@ export function RegionalPresence() {
               />
               {region.country}
             </h3>
-            <p className="type-body-sm mbs-1 leading-snug text-white/80">
+            <p className="type-body-sm mbs-1 leading-snug text-white/85">
               {region.detail}
             </p>
           </li>

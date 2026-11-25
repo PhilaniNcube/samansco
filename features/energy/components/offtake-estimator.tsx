@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { Section, Eyebrow } from "@/components/samansco/section";
+import { Section } from "@/components/samansco/section";
 
 const numberFormat = new Intl.NumberFormat("en-US");
 
 /**
- * Interactive offtake estimator from the mobile design: baseline demand in
- * megawatts drives an indicative wheeling volume and annual CO2e offset.
+ * Interactive offtake estimator: baseline demand in megawatts drives an
+ * indicative wheeling volume and annual CO2e offset.
  */
 export function OfftakeEstimator() {
   const [demand, setDemand] = useState(5);
@@ -24,25 +24,24 @@ export function OfftakeEstimator() {
       <div className="shell section-y">
         <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-5">
-            <Eyebrow>Offtake Estimator</Eyebrow>
             <h2
               id="offtake-estimator-title"
-              className="type-headline-lg mt-3 text-balance text-ink"
+              className="type-headline-lg text-balance text-ink"
             >
               Estimate Wheeling &amp; Offset Capacity
             </h2>
-            <p className="type-body-md mt-3 max-w-md leading-relaxed text-muted-foreground">
+            <p className="type-body-md mbs-3 max-w-[44ch] leading-relaxed text-muted-foreground">
               Select baseline demand to simulate blended PPA tariff hedging.
             </p>
           </div>
 
           <div className="lg:col-span-7">
             <div className="border border-hairline bg-background">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline px-5 py-3">
-                <span className="type-code tracking-wider text-caption uppercase">
-                  Connected Demand
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-hairline px-5 py-3.5">
+                <span className="type-label text-muted-foreground">
+                  Connected demand
                 </span>
-                <span className="type-code font-semibold text-brand-deep">
+                <span className="type-label font-semibold text-brand-deep tabular-nums">
                   {demand.toFixed(1)} MW
                 </span>
               </div>
@@ -60,37 +59,37 @@ export function OfftakeEstimator() {
                   value={demand}
                   onChange={(event) => setDemand(Number(event.target.value))}
                   aria-valuetext={`${demand.toFixed(1)} megawatts`}
-                  className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-surface-sunken accent-brand focus-visible:ring-[3px] focus-visible:ring-ring/25 focus-visible:outline-none [&::-moz-range-thumb]:size-4 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-charcoal [&::-webkit-slider-thumb]:size-4 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-charcoal"
+                  className="h-1.5 w-full cursor-pointer appearance-none rounded-full bg-surface-sunken accent-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink [&::-moz-range-thumb]:size-4 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:bg-charcoal [&::-webkit-slider-thumb]:size-4 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-charcoal"
                 />
-                <div className="type-code mt-3 flex items-center justify-between text-caption">
+                <div className="type-body-sm mbs-3 flex items-center justify-between text-caption tabular-nums">
                   <span>1.0 MW</span>
                   <span>25.0 MW</span>
                 </div>
               </div>
 
               <dl className="grid grid-cols-1 gap-px border-t border-hairline bg-hairline sm:grid-cols-2">
-                <div className="bg-background px-5 py-4">
-                  <dt className="type-code text-[11px] tracking-wider text-caption uppercase">
-                    Est. Monthly Wheeling
+                <div className="bg-background px-5 py-5">
+                  <dt className="type-label text-muted-foreground">
+                    Estimated monthly wheeling
                   </dt>
-                  <dd className="type-headline-md mt-1.5 text-ink">
+                  <dd className="type-metric mbs-2 text-ink">
                     {numberFormat.format(monthlyWheeling)} MWh
                   </dd>
                 </div>
-                <div className="bg-background px-5 py-4">
-                  <dt className="type-code text-[11px] tracking-wider text-caption uppercase">
-                    CO2e Offset / Year
+                <div className="bg-background px-5 py-5">
+                  <dt className="type-label text-muted-foreground">
+                    Annual CO₂e offset
                   </dt>
-                  <dd className="type-headline-md mt-1.5 text-brand-deep">
+                  <dd className="type-metric mbs-2 text-brand-deep">
                     {numberFormat.format(annualOffset)} t
                   </dd>
                 </div>
               </dl>
             </div>
 
-            <p className="type-code mt-3 text-caption">
-              Institutional metric · Indicative blended PPA and wheeling
-              scenario.
+            <p className="type-body-sm mbs-3 text-muted-foreground">
+              Indicative blended PPA and wheeling scenario for institutional
+              offtakers.
             </p>
           </div>
         </div>

@@ -24,7 +24,6 @@ export function Section({
 }
 
 type SectionHeadingProps = {
-  eyebrow?: string;
   title: React.ReactNode;
   description?: React.ReactNode;
   actions?: React.ReactNode;
@@ -34,7 +33,6 @@ type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   description,
   actions,
@@ -45,39 +43,19 @@ export function SectionHeading({
   return (
     <div className={cn("flex flex-col gap-4", className)}>
       <div className="flex flex-col gap-3">
-        {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
         <Heading
           className={cn("type-headline-xl text-balance text-ink", titleClassName)}
         >
           {title}
         </Heading>
         {description ? (
-          <div className="type-body-md max-w-2xl leading-relaxed text-muted-foreground">
+          <div className="type-body-md max-w-[65ch] leading-relaxed text-muted-foreground">
             {description}
           </div>
         ) : null}
       </div>
       {actions ? <div className="flex flex-wrap items-center gap-3">{actions}</div> : null}
     </div>
-  );
-}
-
-export function Eyebrow({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) {
-  return (
-    <p
-      className={cn(
-        "type-eyebrow flex items-center gap-2 text-caption",
-        className,
-      )}
-    >
-      {children}
-    </p>
   );
 }
 

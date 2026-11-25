@@ -37,7 +37,7 @@ export function MobileNav({ transparent = false }: { transparent?: boolean }) {
 
       <DialogContent className="inset-y-0 right-0 left-auto m-0 h-dvh max-h-dvh w-[86%] max-w-sm rounded-none border-y-0 border-r-0 border-l border-hairline p-0">
         <div className="border-b border-hairline px-6 py-5">
-          <DialogTitle className="type-eyebrow text-caption">
+          <DialogTitle className="type-headline-sm text-ink">
             Samansco Group
           </DialogTitle>
           <DialogDescription className="sr-only">
@@ -66,7 +66,9 @@ export function MobileNav({ transparent = false }: { transparent?: boolean }) {
           >
             Contact Group HQ
           </Link>
-          <p className="type-code mbs-4 text-caption">SINCE 1982 · SOUTHERN AFRICA</p>
+          <p className="type-body-sm mbs-4 text-muted-foreground">
+            Operating across Southern Africa since 1982.
+          </p>
         </div>
       </DialogContent>
     </Dialog>

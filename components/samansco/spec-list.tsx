@@ -34,7 +34,9 @@ export function SpecRow({
       )}
     >
       <dt className="type-body-sm text-caption">{label}</dt>
-      <dd className="type-code text-right text-ink">{value}</dd>
+      <dd className="type-body-sm text-right font-medium text-ink tabular-nums">
+        {value}
+      </dd>
     </div>
   );
 }
@@ -61,10 +63,10 @@ export function ParameterPanel({
         className,
       )}
     >
-      <span className="type-eyebrow block text-caption">{label}</span>
-      <div className="type-headline-md mt-2 text-ink">{value}</div>
+      <span className="type-label block text-muted-foreground">{label}</span>
+      <div className="type-headline-md mbs-2 text-ink tabular-nums">{value}</div>
       {note ? (
-        <span className="type-body-sm mt-1 block text-muted-foreground">{note}</span>
+        <span className="type-body-sm mbs-1 block text-muted-foreground">{note}</span>
       ) : null}
     </div>
   );

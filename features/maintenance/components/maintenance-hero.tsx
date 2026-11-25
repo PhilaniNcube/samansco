@@ -1,14 +1,9 @@
-import { ArrowDownIcon, ArrowRightIcon } from "lucide-react";
-import {
-  HeroGhostAction,
-  HeroSplitAction,
-  PageHero,
-} from "@/components/samansco/page-hero";
-import { TelemetryConsole } from "./telemetry-console";
+import { ArrowRightIcon } from "lucide-react";
+import { HeroSplitAction, PageHero } from "@/components/samansco/page-hero";
 
 /**
- * Maintenance hero: golden-hour plant photography paired with the live
- * interactive SCADA telemetry console anchored in the lower-right column.
+ * Maintenance hero: golden-hour plant photography paired with concise mandate
+ * and single primary CTA.
  */
 export function MaintenanceHero() {
   return (
@@ -20,34 +15,20 @@ export function MaintenanceHero() {
       size="division"
       scrim="dusk"
       gridVariant="corridor"
-      layout="bottom-aside"
       titleScale="compact"
       breadcrumb={[
         { label: "Samansco Group", href: "/" },
         { label: "Samansco Maintenance" },
       ]}
-      statusPill="O&M LIVE · EST. 2013"
-      eyebrow="Operations & Asset Care"
       title={"Protecting Asset Uptime, Yield & Long\u2011Term Performance."}
-      description="Samansco Maintenance is a standalone Operations & Maintenance (O&M) company dedicated to caring for 20- to 25-year utility-scale and commercial & industrial solar and battery energy storage assets across Southern Africa."
+      description="Samansco Maintenance cares for 20- to 25-year utility and commercial solar and battery storage assets across Southern Africa."
       actions={
-        <>
-          <HeroSplitAction
-            href="/contact"
-            label="Request O&M Consultation"
-            icon={<ArrowRightIcon />}
-          />
-          <HeroGhostAction
-            href="#core-services"
-            icon={<ArrowDownIcon aria-hidden="true" />}
-          >
-            Explore O&amp;M Scope
-          </HeroGhostAction>
-        </>
+        <HeroSplitAction
+          href="/contact"
+          label="Request O&M consultation"
+          icon={<ArrowRightIcon />}
+        />
       }
-    // aside={
-    //   <TelemetryConsole className="rounded-[2px] border-white/15 bg-ink/85 backdrop-blur-md" />
-    // }
     />
   );
 }

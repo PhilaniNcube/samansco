@@ -32,35 +32,30 @@ export function CarbonYieldModel() {
     >
       <div className="shell section-y">
         <div className="border border-hairline bg-surface-band p-6 lg:p-8">
-          <div className="flex flex-wrap items-start justify-between gap-3">
-            <div>
-              <h2 id="carbon-yield-title" className="type-headline-md text-ink">
-                I-REC Yield Simulation
-              </h2>
-              <p
-                id={descriptionId}
-                className="type-body-sm mt-2 max-w-xl leading-relaxed text-muted-foreground"
-              >
-                Adjust solar plant nominal rating to preview annual certificate
-                issuance potential:
-              </p>
-            </div>
-            <span className="type-code rounded bg-brand-deep px-2 py-1 text-[11px] font-medium text-white">
-              {capacity.toFixed(1)} MWp Hub
-            </span>
+          <div>
+            <h2 id="carbon-yield-title" className="type-headline-lg text-ink">
+              I-REC Yield Simulation
+            </h2>
+            <p
+              id={descriptionId}
+              className="type-body-md mbs-2 max-w-[60ch] leading-relaxed text-muted-foreground"
+            >
+              Adjust solar plant nominal rating to preview annual certificate
+              issuance potential.
+            </p>
           </div>
 
-          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
-            <div className="lg:col-span-7">
-              <div className="type-code flex flex-wrap items-center justify-between gap-2 text-ink">
+          <div className="mbs-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-6">
+              <div className="type-body-sm flex flex-wrap items-center justify-between gap-2 text-ink tabular-nums">
                 <span>
                   Capacity:{" "}
-                  <strong className="font-bold text-brand-deep">
+                  <strong className="font-semibold text-brand-deep">
                     {capacity.toFixed(1)} MWp
                   </strong>
                 </span>
                 <span>
-                  Gen:{" "}
+                  Generation:{" "}
                   <strong className="font-semibold">
                     {numberFormat.format(annualMWh)} MWh/yr
                   </strong>
@@ -79,33 +74,39 @@ export function CarbonYieldModel() {
                 }
                 aria-label="Solar plant nominal rating in megawatt-peak"
                 aria-describedby={descriptionId}
-                className="mt-4 h-2 w-full cursor-pointer accent-brand"
+                className="mbs-4 h-2 w-full cursor-pointer accent-brand focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ink"
               />
 
-              <div className="type-code mt-1 flex items-center justify-between text-[10px] text-caption">
+              <div className="type-body-sm mbs-2 flex items-center justify-between text-caption tabular-nums">
                 <span>{CAPACITY_MIN.toFixed(1)} MWp</span>
                 <span>{CAPACITY_MAX.toFixed(1)} MWp</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 lg:col-span-5">
-              <div className="border border-hairline/70 bg-background p-4">
-                <span className="type-eyebrow block text-caption">
+            <dl className="grid grid-cols-2 divide-x divide-hairline border-t border-hairline pbs-6 lg:col-span-6 lg:border-t-0 lg:border-s lg:pbs-0 lg:pis-8">
+              <div className="pie-4">
+                <dt className="type-label text-muted-foreground">
                   Annual I-RECs
-                </span>
-                <span className="type-headline-sm mt-2 block text-ink">
-                  {numberFormat.format(annualMWh)} Units
-                </span>
+                </dt>
+                <dd className="type-metric mbs-2 text-ink">
+                  {numberFormat.format(annualMWh)}
+                </dd>
+                <dd className="type-body-sm mbs-1 text-muted-foreground">
+                  Verified units
+                </dd>
               </div>
-              <div className="border border-hairline/70 bg-background p-4">
-                <span className="type-eyebrow block text-caption">
-                  CO₂e Offset
-                </span>
-                <span className="type-headline-sm mt-2 block text-brand-deep">
-                  ~{numberFormat.format(avoidedTco2e)} tCO₂e
-                </span>
+              <div className="pis-6">
+                <dt className="type-label text-muted-foreground">
+                  CO₂e offset
+                </dt>
+                <dd className="type-metric mbs-2 text-brand-deep">
+                  ~{numberFormat.format(avoidedTco2e)} t
+                </dd>
+                <dd className="type-body-sm mbs-1 text-muted-foreground">
+                  Avoided annual emissions
+                </dd>
               </div>
-            </div>
+            </dl>
           </div>
         </div>
       </div>

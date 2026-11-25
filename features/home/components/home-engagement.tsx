@@ -9,7 +9,6 @@ export function HomeEngagement() {
     <Section tone="white" className="border-t border-hairline/60 py-12 lg:py-16">
       <div className="shell">
         <EngagementCta
-          eyebrow="Corporate & Institutional Engagement"
           title="Initiate a Strategic Partnership or PPA Consultation"
           description="Connect with Samansco Group executive leadership and technical division engineers."
           actionLabel="Contact Group Headquarters"

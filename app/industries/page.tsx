@@ -9,9 +9,9 @@ import { PartnerWall } from "@/features/industries/components/partner-wall";
 import { ProjectGallery } from "@/features/industries/components/project-gallery";
 
 export const metadata: Metadata = {
-  title: "Samansco Industries — EPC, Solar Supply & Water Systems",
+  title: "Samansco Industries · EPC, Solar Supply & Water Systems",
   description:
-    "Samansco Industries (Pvt) Ltd is the founding operating company behind the original Samansco solar brand—operating as an independent infrastructure entity focused on heavy EPC, technical distribution, and community water projects, separate from Samansco Energy, Maintenance, and Carbon.",
+    "Samansco Industries (Pvt) Ltd is the founding operating company behind the original Samansco solar brand, operating as an independent infrastructure entity focused on heavy EPC, technical distribution, and community water projects.",
 };
 
 export default function IndustriesPage() {

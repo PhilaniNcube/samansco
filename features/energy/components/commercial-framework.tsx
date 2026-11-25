@@ -10,13 +10,13 @@ import {
   CapabilityBlock,
   type CapabilityBlockProps,
 } from "@/features/energy/components/capability-block";
+import { ProspectusDialog } from "@/features/energy/components/prospectus-dialog";
 
 const capabilities: CapabilityBlockProps[] = [
   {
     icon: FileSignatureIcon,
-    scope: "SCOPE 01 // PPA",
     title: "Direct Electricity Retail & Long-Term PPAs",
-    subtitle: "Tier-1 Offtake Structuring for Mining & Industrial Baselines",
+    subtitle: "Tier-1 offtake structuring for mining and industrial baselines",
     description:
       "Tailored commercial and industrial (C&I) Power Purchase Agreements, multi-year fixed and indexed tariffs, corporate off-taker risk mitigation, and distributed rooftop/ground-mounted power sales.",
     capabilities: [
@@ -27,7 +27,7 @@ const capabilities: CapabilityBlockProps[] = [
     ],
     metaLabel: "Tenure",
     metaValue: "5 to 20 years",
-    status: "Tier-1 Offtake",
+    status: "Tier-1 offtake",
     statusIcon: TrendingUpIcon,
     image: "/images/home-hero-source.webp",
     imageAlt:
@@ -35,9 +35,8 @@ const capabilities: CapabilityBlockProps[] = [
   },
   {
     icon: ArrowLeftRightIcon,
-    scope: "SCOPE 02 // SAPP",
     title: "Wholesale Energy Trading & Grid Wheeling",
-    subtitle: "Southern African Power Pool (SAPP) Interconnection",
+    subtitle: "Southern African Power Pool (SAPP) interconnection",
     description:
       "Bilateral energy trading contracts and market participation across the Southern African Power Pool (SAPP) day-ahead and intra-day markets, coordinating directly with national transmission utilities.",
     capabilities: [
@@ -48,7 +47,7 @@ const capabilities: CapabilityBlockProps[] = [
     ],
     metaLabel: "Voltage",
     metaValue: "33kV to 400kV",
-    status: "SAPP Member",
+    status: "SAPP member",
     statusIcon: BadgeCheckIcon,
     image: "/images/energy-hero-substation.jpg",
     imageAlt:
@@ -56,9 +55,8 @@ const capabilities: CapabilityBlockProps[] = [
   },
   {
     icon: CpuIcon,
-    scope: "SCOPE 03 // VPP",
     title: "Virtual Power Plant & Asset Aggregation",
-    subtitle: "Automated Cloud Dispatch & Smart Reserve Balancing",
+    subtitle: "Automated cloud dispatch and smart reserve balancing",
     description:
       "Next-generation aggregation of decentralized solar PV, Battery Energy Storage Systems (BESS), hydro, and flexible commercial loads into a unified dispatchable digital utility fleet.",
     capabilities: [
@@ -69,7 +67,7 @@ const capabilities: CapabilityBlockProps[] = [
     ],
     metaLabel: "Intelligence",
     metaValue: "NeedEnergy",
-    status: "Digital Dispatch",
+    status: "Digital dispatch",
     statusIcon: CpuIcon,
     image: "/images/installation.webp",
     imageAlt:
@@ -89,22 +87,20 @@ export function CommercialFramework() {
       className="scroll-mt-20"
     >
       <div className="shell section-y">
-        <div className="mb-10 flex flex-col gap-6 border-b border-hairline/60 pb-8 md:flex-row md:items-end md:justify-between">
+        <div className="mbe-10 flex flex-col gap-6 border-b border-hairline/60 pbe-8 md:flex-row md:items-end md:justify-between">
           <SectionHeading
-            eyebrow="Commercial Utility Services"
-            title="Institutional Energy Operations."
-            className="max-w-xl"
+            title="Institutional Energy Operations"
+            description="De-risking corporate energy consumption and optimizing utility-scale generation through structured power contracts and software-defined dispatch."
+            className="max-w-2xl"
           />
-          <p className="type-body-md max-w-lg leading-relaxed text-muted-foreground">
-            De-risking corporate energy consumption and optimizing utility-scale
-            generation through sophisticated financial contracts and
-            software-defined dispatch.
-          </p>
+          <div className="shrink-0">
+            <ProspectusDialog />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {capabilities.map((capability) => (
-            <CapabilityBlock key={capability.scope} {...capability} />
+            <CapabilityBlock key={capability.title} {...capability} />
           ))}
         </div>
       </div>

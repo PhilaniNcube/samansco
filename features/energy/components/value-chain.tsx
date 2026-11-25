@@ -4,8 +4,7 @@ import { cn } from "@/lib/utils";
 
 type ChainStep = {
   index: string;
-  layer: string;
-  entity: string;
+  subtitle: string;
   title: string;
   description: string;
   metaLabel: string;
@@ -16,36 +15,33 @@ type ChainStep = {
 
 const steps: ChainStep[] = [
   {
-    index: "01",
-    layer: "Physical Layer",
-    entity: "Samansco Industries",
+    index: "1",
+    subtitle: "Samansco Industries · Physical layer",
     title: "Physical Infrastructure Delivery",
     description:
       "Turnkey solar EPC, microgrids, high-voltage substations, and industrial BESS built to rigorous utility engineering standards. Robust generation foundations engineered for 25+ years of active duty.",
     metaLabel: "Output",
-    metaValue: "Grid-Connected Hardware & Substation Assets",
+    metaValue: "Grid-connected hardware & substation assets",
     icon: SunMediumIcon,
   },
   {
-    index: "02",
-    layer: "Telemetry & O&M",
-    entity: "Samansco Maintenance",
+    index: "2",
+    subtitle: "Samansco Maintenance · Telemetry and O&M",
     title: "24/7 Availability & Asset Telemetry",
     description:
-      "High-precision SCADA monitoring, thermographic imaging, and preventive servicing keeping generation yield at >99.4%. Live field data feeds directly into the Samansco Energy dispatch desk for real-time load forecasting.",
-    metaLabel: "SLA Yield",
-    metaValue: ">99.4% Availability Uptime",
+      "High-precision SCADA monitoring, thermographic imaging, and preventive servicing keeping generation yield above 99.4%. Live field data feeds directly into the Samansco Energy dispatch desk for real-time load forecasting.",
+    metaLabel: "SLA yield",
+    metaValue: ">99.4% availability uptime",
     icon: ActivityIcon,
   },
   {
-    index: "03",
-    layer: "Active Utility Engine",
-    entity: "Samansco Energy & Carbon",
+    index: "3",
+    subtitle: "Samansco Energy & Carbon · Active utility engine",
     title: "Commercial Dispatch & Environmental Monetization",
     description:
       "Clean kWh aggregated and wheeled to high-demand corporate off-takers via Samansco Energy trading, while Samansco Carbon audits, issues, and monetizes certified I-RECs on regional environmental exchanges.",
     metaLabel: "Realization",
-    metaValue: "Firm Power Delivery + Verifiable I-RECs",
+    metaValue: "Firm power delivery + verifiable I-RECs",
     icon: CpuIcon,
     active: true,
   },
@@ -53,22 +49,20 @@ const steps: ChainStep[] = [
 
 /**
  * Group value chain: how engineering, O&M and Samansco Energy's commercial desk
- * hand off
- * to one another around a single generation asset.
+ * hand off to one another around a single generation asset.
  */
 export function ValueChain() {
   return (
     <Section tone="none" className="bg-surface-sunken">
       <div className="shell section-y">
-        <div className="mb-10 max-w-3xl">
+        <div className="mbe-10 max-w-3xl">
           <SectionHeading
-            eyebrow="Vertically Integrated Architecture"
-            title="How Samansco Energy Integrates Across Samansco Group."
-            description="A seamless operational cycle that bridges physical engineering execution, mission-critical operations, commercial electricity sales, and certified environmental asset trading."
+            title="How Samansco Energy Integrates Across Samansco Group"
+            description="An integrated operational cycle bridging physical engineering execution, mission-critical operations, commercial electricity sales, and certified environmental asset trading."
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-px overflow-hidden border border-hairline bg-hairline lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-px overflow-clip border border-hairline bg-hairline lg:grid-cols-3">
           {steps.map((step) => {
             const Icon = step.icon;
 
@@ -78,52 +72,37 @@ export function ValueChain() {
                 className="flex flex-col bg-background"
               >
                 <div className="flex flex-1 flex-col p-6 lg:p-8">
-                  <div className="mb-6 flex items-start justify-between gap-3">
-                    <span
-                      className={cn(
-                        "type-headline-xl leading-none font-bold",
-                        step.active ? "text-brand-deep" : "text-caption",
-                      )}
-                    >
-                      {step.index}
-                    </span>
-                    <span
-                      className={cn(
-                        "type-code rounded px-2 py-1 uppercase",
-                        step.active
-                          ? "bg-brand-deep text-white"
-                          : "border border-hairline bg-surface-page text-caption",
-                      )}
-                    >
-                      {step.layer}
-                    </span>
-                  </div>
+                  <span
+                    className={cn(
+                      "type-metric mbe-5 leading-none",
+                      step.active ? "text-brand-deep" : "text-caption",
+                    )}
+                  >
+                    {step.index}
+                  </span>
 
-                  <div className="flex items-center gap-2">
-                    <span className="type-eyebrow text-caption">
-                      {step.entity}
-                    </span>
-                  </div>
-
-                  <h3 className="type-headline-md mt-2 text-balance text-ink">
+                  <h3 className="type-headline-md text-balance text-ink">
                     {step.title}
                   </h3>
-                  <p className="type-body-sm mt-3 leading-relaxed text-muted-foreground">
+                  <p className="type-body-sm mbs-1.5 font-medium text-brand-deep">
+                    {step.subtitle}
+                  </p>
+                  <p className="type-body-md mbs-3 leading-relaxed text-muted-foreground">
                     {step.description}
                   </p>
                 </div>
 
                 <div
                   className={cn(
-                    "type-code flex flex-col gap-1 border-t border-hairline bg-surface-page px-6 py-3.5 sm:flex-row sm:items-center sm:justify-between lg:px-8",
+                    "type-body-sm flex flex-col gap-1 border-t border-hairline bg-surface-page px-6 py-3.5 sm:flex-row sm:items-center sm:justify-between lg:px-8",
                     step.active ? "text-brand-deep" : "text-ink",
                   )}
                 >
-                  <span className="flex items-center gap-1.5 text-caption uppercase">
-                    <Icon aria-hidden="true" className="size-3.5" />
+                  <span className="flex items-center gap-1.5 text-caption">
+                    <Icon aria-hidden="true" className="size-4" />
                     {step.metaLabel}:
                   </span>
-                  <span className="font-medium">{step.metaValue}</span>
+                  <span className="font-medium tabular-nums">{step.metaValue}</span>
                 </div>
               </article>
             );

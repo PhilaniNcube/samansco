@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 
 export type CapabilityBlockProps = {
   icon: LucideIcon;
-  scope: string;
   title: string;
   subtitle: string;
   description: string;
@@ -20,13 +19,11 @@ export type CapabilityBlockProps = {
 };
 
 /**
- * One commercial utility capability: scope tag, service definition, operating
- * checklist and a technical footer strip. Supports an optional full-background
- * photographic mode.
+ * One commercial utility capability: service definition, operating checklist,
+ * and a hairline-separated technical footer strip.
  */
 export function CapabilityBlock({
   icon: Icon,
-  scope,
   title,
   subtitle,
   description,
@@ -51,18 +48,17 @@ export function CapabilityBlock({
         className={cn("min-bs-[29rem]", className)}
       >
         <div className="flex flex-1 flex-col p-6 lg:p-8">
-          <div className="mbe-6 flex items-start justify-between gap-3">
+          <div className="mbe-6 flex items-center justify-end">
             <span className="grid size-11 place-items-center border border-white/20 bg-ink/60 text-brand-soft backdrop-blur-sm">
               <Icon aria-hidden="true" className="size-5" />
-            </span>
-            <span className="type-code rounded border border-white/20 bg-ink/60 px-2 py-1 text-white/85 backdrop-blur-sm">
-              {scope}
             </span>
           </div>
 
           <h3 className="type-headline-md text-balance text-white">{title}</h3>
-          <p className="type-code mbs-2 text-brand-soft">{subtitle}</p>
-          <p className="type-body-sm mbs-4 leading-relaxed text-white/80">
+          <p className="type-body-sm mbs-1.5 font-medium text-brand-soft">
+            {subtitle}
+          </p>
+          <p className="type-body-md mbs-4 leading-relaxed text-white/85">
             {description}
           </p>
 
@@ -70,26 +66,26 @@ export function CapabilityBlock({
             {capabilities.map((capability) => (
               <li
                 key={capability}
-                className="type-body-sm flex items-start gap-2.5 text-white/90"
+                className="type-body-md flex items-start gap-2.5 text-white/90"
               >
                 <CheckIcon
                   aria-hidden="true"
-                  className="mbs-0.5 size-4 shrink-0 text-brand-soft"
+                  className="mbs-1 size-4 shrink-0 text-brand-soft"
                 />
-                {capability}
+                <span>{capability}</span>
               </li>
             ))}
           </ul>
-        </div>
 
-        <div className="type-code mbs-auto flex flex-wrap items-center justify-between gap-2 border-t border-white/15 bg-ink/75 px-6 py-3.5 text-white/75 backdrop-blur-sm lg:px-8">
-          <span className="uppercase">
-            {metaLabel}: <span className="text-white">{metaValue}</span>
-          </span>
-          <span className="flex items-center gap-1.5 font-semibold text-brand-soft uppercase">
-            {status}
-            <StatusIcon aria-hidden="true" className="size-4" />
-          </span>
+          <div className="type-body-sm mbs-auto flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pbs-4 text-white/80">
+            <span className="tabular-nums">
+              {metaLabel}: <strong className="font-semibold text-white">{metaValue}</strong>
+            </span>
+            <span className="flex items-center gap-1.5 font-medium text-brand-soft">
+              {status}
+              <StatusIcon aria-hidden="true" className="size-4" />
+            </span>
+          </div>
         </div>
       </ImageBackdropCard>
     );
@@ -103,18 +99,17 @@ export function CapabilityBlock({
       )}
     >
       <div className="flex flex-1 flex-col p-6 lg:p-8">
-        <div className="mbe-6 flex items-start justify-between gap-3">
+        <div className="mbe-6 flex items-center justify-end">
           <span className="grid size-11 place-items-center border border-hairline bg-surface-page text-brand-deep">
             <Icon aria-hidden="true" className="size-5" />
-          </span>
-          <span className="type-code rounded border border-hairline bg-surface-page px-2 py-1 text-caption">
-            {scope}
           </span>
         </div>
 
         <h3 className="type-headline-md text-balance text-ink">{title}</h3>
-        <p className="type-code mbs-2 text-brand-deep">{subtitle}</p>
-        <p className="type-body-sm mbs-4 leading-relaxed text-muted-foreground">
+        <p className="type-body-sm mbs-1.5 font-medium text-brand-deep">
+          {subtitle}
+        </p>
+        <p className="type-body-md mbs-4 leading-relaxed text-muted-foreground">
           {description}
         </p>
 
@@ -122,23 +117,23 @@ export function CapabilityBlock({
           {capabilities.map((capability) => (
             <li
               key={capability}
-              className="type-body-sm flex items-start gap-2.5 text-ink"
+              className="type-body-md flex items-start gap-2.5 text-ink"
             >
               <CheckIcon
                 aria-hidden="true"
-                className="mbs-0.5 size-4 shrink-0 text-brand"
+                className="mbs-1 size-4 shrink-0 text-brand"
               />
-              {capability}
+              <span>{capability}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="type-code flex flex-wrap items-center justify-between gap-2 border-t border-hairline bg-surface-band px-6 py-3.5 text-caption lg:px-8">
-        <span className="uppercase">
-          {metaLabel}: <span className="text-ink">{metaValue}</span>
+      <div className="type-body-sm flex flex-wrap items-center justify-between gap-2 border-t border-hairline bg-surface-band px-6 py-3.5 text-caption lg:px-8">
+        <span className="tabular-nums">
+          {metaLabel}: <strong className="font-semibold text-ink">{metaValue}</strong>
         </span>
-        <span className="flex items-center gap-1.5 font-semibold text-brand-deep uppercase">
+        <span className="flex items-center gap-1.5 font-semibold text-brand-deep">
           {status}
           <StatusIcon aria-hidden="true" className="size-4" />
         </span>

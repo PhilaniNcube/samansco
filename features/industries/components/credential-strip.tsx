@@ -46,7 +46,7 @@ export function CredentialStrip() {
             return (
               <li
                 key={credential.title}
-                className="flex items-center gap-4 py-5 md:px-6 md:first:pl-0 md:last:pr-0"
+                className="flex items-center gap-4 py-5 md:px-6 md:first:pis-0 md:last:pie-0"
               >
                 <span className="grid size-10 shrink-0 place-items-center rounded bg-surface-sunken text-brand-deep">
                   <Icon aria-hidden="true" className="size-[22px]" />

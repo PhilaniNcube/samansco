@@ -16,26 +16,26 @@ const marketBodies = [
 export function RegulatoryFramework() {
   return (
     <Section tone="white" className="border-t border-hairline/60">
-      <div className="shell py-12 lg:py-14">
-        <div className="mb-6 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <h2 className="type-eyebrow text-caption">
+      <div className="shell py-12 lg:py-16">
+        <div className="mbe-6 flex flex-col gap-2 sm:flex-row sm:items-baseline sm:justify-between">
+          <h2 className="type-headline-lg text-ink">
             Regulatory Compliance &amp; Market Clearing Framework
           </h2>
-          <span className="type-code tracking-wider text-brand-deep uppercase">
-            Interconnected Utility Ecosystem
+          <span className="type-body-sm font-medium text-brand-deep">
+            Interconnected utility ecosystem
           </span>
         </div>
 
-        <ul className="grid grid-cols-2 gap-px overflow-hidden border border-hairline bg-hairline md:grid-cols-3 lg:grid-cols-6">
+        <ul className="grid grid-cols-2 gap-px overflow-clip border border-hairline bg-hairline md:grid-cols-3 lg:grid-cols-6">
           {marketBodies.map((body) => (
             <li
               key={body.short}
-              className="flex min-h-24 flex-col items-center justify-center gap-1.5 bg-surface-page px-3 py-5 text-center"
+              className="flex min-bs-24 flex-col items-center justify-center gap-1.5 bg-surface-page px-3 py-5 text-center"
             >
               <span className="type-headline-sm font-bold text-ink">
                 {body.short}
               </span>
-              <span className="type-code text-[11px] leading-snug text-caption uppercase">
+              <span className="type-body-sm leading-snug text-muted-foreground">
                 {body.name}
               </span>
             </li>

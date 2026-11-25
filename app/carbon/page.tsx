@@ -8,7 +8,7 @@ import { CarbonValueChain } from "@/features/carbon/components/carbon-value-chai
 import { CarbonYieldModel } from "@/features/carbon/components/carbon-yield-model";
 
 export const metadata: Metadata = {
-  title: "Carbon — I-RECs, Verified Carbon Credits & ESG Advisory",
+  title: "Carbon · I-RECs, Verified Carbon Credits & ESG Advisory",
   description:
     "Samansco Carbon originates, certifies, and monetizes high-integrity I-RECs and verified carbon credits from African clean energy infrastructure.",
 };

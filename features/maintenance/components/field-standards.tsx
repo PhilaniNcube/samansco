@@ -6,15 +6,13 @@ import {
   ShieldCheckIcon,
 } from "lucide-react";
 import Image from "next/image";
-import { DivisionChip } from "@/components/samansco/badges";
-import { Eyebrow, Section } from "@/components/samansco/section";
+import { Section } from "@/components/samansco/section";
 import {
   Accordion,
   AccordionSection,
   AccordionSectionContent,
   AccordionSectionTrigger,
 } from "@/components/ui/accordion";
-import { Card } from "@/components/ui/card";
 
 type Standard = {
   title: string;
@@ -64,7 +62,7 @@ const standards: Standard[] = [
 ];
 
 /**
- * Field governance band: the formal health and safety standards, the policy
+ * Field governance band: formal health and safety standards, policy
  * disclosure, and photography of the field crews the policy governs.
  */
 export function FieldStandards() {
@@ -77,67 +75,57 @@ export function FieldStandards() {
       <div className="shell section-y">
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-6">
-            <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
-              <DivisionChip>ZERO HARM COMMITMENT</DivisionChip>
-              <Eyebrow className="text-brand-deep">
-                02 / Field Governance
-              </Eyebrow>
-            </div>
-
             <h2
               id="maintenance-hse-title"
-              className="type-headline-xl mt-4 text-balance text-ink"
+              className="type-headline-xl text-balance text-ink"
             >
               Health, Safety &amp; Field Standards
             </h2>
-            <p className="type-body-lg mt-4 max-w-xl leading-relaxed text-muted-foreground">
+            <p className="type-body-md mbs-4 max-w-[65ch] leading-relaxed text-muted-foreground">
               Every field intervention is governed by Samansco Group&rsquo;s
-              formal Health and Safety Policy&mdash;enforcing strict legal
+              formal Health and Safety Policy, enforcing strict legal
               compliance, proactive hazard elimination, and zero-compromise site
               discipline.
             </p>
 
-            <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="mbs-8 grid grid-cols-1 gap-x-8 gap-y-6 border-t border-hairline pbs-6 sm:grid-cols-2">
               {standards.map((standard) => {
                 const Icon = standard.icon;
 
                 return (
-                  <Card
-                    key={standard.title}
-                    className="gap-0 border-hairline bg-card p-5 shadow-none"
-                  >
+                  <div key={standard.title} className="flex flex-col">
                     <Icon
                       aria-hidden="true"
                       className="size-5 text-brand-deep"
                     />
-                    <h3 className="type-label mt-3 font-semibold text-ink">
+                    <h3 className="type-headline-sm mbs-3 text-ink">
                       {standard.title}
                     </h3>
-                    <p className="type-body-sm mt-1.5 leading-relaxed text-muted-foreground">
+                    <p className="type-body-sm mbs-1.5 leading-relaxed text-muted-foreground">
                       {standard.summary}
                     </p>
-                  </Card>
+                  </div>
                 );
               })}
             </div>
 
-            <div className="mt-6 border border-hairline bg-card">
+            <div className="mbs-8 border border-hairline bg-card">
               <Accordion>
                 <AccordionSection value="policy" className="border-0">
                   <AccordionSectionTrigger className="type-label px-5 py-4 font-semibold text-ink">
                     Review Formal Health &amp; Safety Policy
                   </AccordionSectionTrigger>
                   <AccordionSectionContent className="px-5">
-                    <ul className="space-y-4 pt-1">
+                    <ul className="space-y-4 pbs-1">
                       {standards.map((standard) => (
                         <li
                           key={standard.detailTitle}
-                          className="border-t border-hairline/60 pt-3 first:border-t-0 first:pt-0"
+                          className="border-t border-hairline/60 pbs-3 first:border-t-0 first:pbs-0"
                         >
                           <h4 className="type-label font-semibold text-ink">
                             {standard.detailTitle}
                           </h4>
-                          <p className="type-body-sm mt-1 leading-relaxed text-muted-foreground">
+                          <p className="type-body-sm mbs-1 leading-relaxed text-muted-foreground">
                             {standard.detail}
                           </p>
                         </li>
@@ -149,7 +137,7 @@ export function FieldStandards() {
             </div>
           </div>
 
-          <figure className="relative min-h-[360px] overflow-hidden border border-hairline bg-surface-sunken sm:min-h-[420px] lg:col-span-6 lg:h-full lg:min-h-[560px]">
+          <figure className="relative min-bs-[360px] overflow-clip border border-hairline bg-surface-sunken sm:min-bs-[420px] lg:col-span-6 lg:bs-full lg:min-bs-[560px]">
             <Image
               src="/images/maintenance.jpg"
               alt="Two certified solar field technicians in high-visibility vests, hard hats, and insulated gloves inspecting a commercial solar array and inverter combiner box."
@@ -161,11 +149,8 @@ export function FieldStandards() {
               aria-hidden="true"
               className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent"
             />
-            <figcaption className="absolute inset-x-0 bottom-0 p-6 text-white lg:p-8">
-              <span className="type-eyebrow text-white/70">
-                Field Integrity
-              </span>
-              <p className="type-headline-sm mt-2 max-w-md text-white">
+            <figcaption className="absolute inset-x-0 inset-be-0 p-6 text-white lg:p-8">
+              <p className="type-headline-sm max-w-md text-white">
                 Rapid Intervention Crews on Standby across Harare, Bulawayo
                 &amp; Regional Corridors.
               </p>

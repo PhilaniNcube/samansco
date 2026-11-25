@@ -1,7 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 import { ArrowRightIcon, BadgeCheckIcon } from "lucide-react";
 import Link from "next/link";
-import { DivisionChip } from "@/components/samansco/badges";
 import { ImageBackdropCard } from "@/components/samansco/image-backdrop-card";
 import { Card } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
@@ -21,9 +20,7 @@ const accentPhotoText: Record<Accent, string> = {
 };
 
 export type DivisionCardProps = {
-  index: string;
-  established?: string;
-  chipLabel: string;
+  subtitle: string;
   accent?: Accent;
   name: string;
   description: string;
@@ -38,14 +35,11 @@ export type DivisionCardProps = {
 };
 
 /**
- * Structural entity card for one operating company: eyebrow, status chip,
- * division name, scope summary and the two capability lines from the design.
- * Supports an optional full-background photographic mode.
+ * Structural entity card for one operating company: division name, plain
+ * founding metadata, scope summary, and operating capability checklist.
  */
 export function DivisionCard({
-  index,
-  established = "EST. 1982",
-  chipLabel,
+  subtitle,
   accent = "brand",
   name,
   description,
@@ -73,20 +67,12 @@ export function DivisionCard({
         )}
       >
         <div className="flex flex-1 flex-col p-6 lg:p-8">
-          <div className="type-code mbe-4 flex flex-wrap items-center justify-between gap-2 text-white/75 uppercase">
-            <span>
-              DIVISION {index} · {established}
-            </span>
-            <DivisionChip className="border border-white/20 bg-ink/60 text-white backdrop-blur-sm">
-              {chipLabel}
-            </DivisionChip>
-          </div>
-
-          <div className="mbs-auto pbs-10 lg:pbs-14">
-            <h3 className="type-headline-md text-white motion-safe:transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-brand-soft">
+          <div className="mbs-auto pbs-16 lg:pbs-20">
+            <h3 className="type-headline-lg text-white motion-safe:transition-colors [@media(hover:hover)_and_(pointer:fine)]:group-hover:text-brand-soft">
               {name}
             </h3>
-            <p className="type-body-md mbs-2 leading-relaxed text-white/80">
+            <p className="type-body-sm mbs-1.5 text-white/75">{subtitle}</p>
+            <p className="type-body-md mbs-3 max-w-[55ch] leading-relaxed text-white/85">
               {description}
             </p>
 
@@ -94,16 +80,16 @@ export function DivisionCard({
               {capabilities.map((capability) => (
                 <li
                   key={capability}
-                  className="type-label flex items-start gap-2 text-white/90"
+                  className="type-body-md flex items-start gap-2.5 text-white/90"
                 >
                   <Icon
                     aria-hidden="true"
                     className={cn(
-                      "mbs-0.5 size-[18px] shrink-0",
+                      "mbs-1 size-[18px] shrink-0",
                       accentPhotoText[accent],
                     )}
                   />
-                  {capability}
+                  <span>{capability}</span>
                 </li>
               ))}
             </ul>
@@ -131,17 +117,11 @@ export function DivisionCard({
         className,
       )}
     >
-      <div className="type-code mbe-4 flex flex-wrap items-center justify-between gap-2 text-caption uppercase">
-        <span>
-          DIVISION {index} · {established}
-        </span>
-        <DivisionChip>{chipLabel}</DivisionChip>
-      </div>
-
-      <h3 className="type-headline-md text-ink transition-colors group-hover:text-brand">
+      <h3 className="type-headline-lg text-ink transition-colors group-hover:text-brand">
         {name}
       </h3>
-      <p className="type-body-md mbs-2 leading-relaxed text-muted-foreground">
+      <p className="type-body-sm mbs-1.5 text-muted-foreground">{subtitle}</p>
+      <p className="type-body-md mbs-3 max-w-[55ch] leading-relaxed text-muted-foreground">
         {description}
       </p>
 
@@ -149,13 +129,13 @@ export function DivisionCard({
         {capabilities.map((capability) => (
           <li
             key={capability}
-            className="type-label flex items-start gap-2 text-ink"
+            className="type-body-md flex items-start gap-2.5 text-ink"
           >
             <Icon
               aria-hidden="true"
-              className={cn("mbs-0.5 size-[18px] shrink-0", accentText[accent])}
+              className={cn("mbs-1 size-[18px] shrink-0", accentText[accent])}
             />
-            {capability}
+            <span>{capability}</span>
           </li>
         ))}
       </ul>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Section } from "@/components/samansco/section";
+import { Section, SectionHeading } from "@/components/samansco/section";
 
 type ProjectCase = {
   title: string;
@@ -10,13 +10,10 @@ type Project = {
   image: string;
   imageAlt: string;
   imageClassName?: string;
-  badge: string;
-  category: string;
+  impactSummary: string;
   title: string;
   description: string;
   cases: ProjectCase[];
-  statusLabel: string;
-  statusValue: string;
 };
 
 const projects: Project[] = [
@@ -25,8 +22,7 @@ const projects: Project[] = [
     imageAlt:
       "Utility-scale ground-mounted solar photovoltaic array across Southern African savanna.",
     imageClassName: "object-top",
-    badge: "500,000+ People Reached",
-    category: "Piped Water & Irrigation Schemes",
+    impactSummary: "500,000+ people reached · Operating continuously",
     title: "Clean Water & Food Security Infrastructure",
     description:
       "Extensive deep-borehole water supply networks built in partnership with multilateral humanitarian agencies and community trusts.",
@@ -47,15 +43,12 @@ const projects: Project[] = [
           "Chikwakwa Village and Chayamiti community solar water distribution nodes ensuring uninterrupted local access.",
       },
     ],
-    statusLabel: "Status",
-    statusValue: "Operating Continuously",
   },
   {
     image: "/images/livotek-installation.jpeg",
     imageAlt:
       "Commercial hybrid inverter bank and lithium battery storage wall installed for continuous facility backup power.",
-    badge: "30+ District Hospitals",
-    category: "Critical Medical Continuity",
+    impactSummary: "30+ district hospitals · 99.8% uptime recorded",
     title: "Healthcare & Clinic Power Infrastructure",
     description:
       "Engineered autonomous microgrids keeping laboratory diagnostics, surgical theaters, and cold chains fully energized during grid failures.",
@@ -76,15 +69,12 @@ const projects: Project[] = [
           "Zero-failure vaccine refrigeration solar power systems across 22 isolated regional mission healthcare clinics.",
       },
     ],
-    statusLabel: "Uptime SLA",
-    statusValue: "99.8% Recorded",
   },
   {
     image: "/images/varsity.webp",
     imageAlt:
       "Varsity Heights student housing complex with Samansco field service vans parked outside.",
-    badge: "Utility & Commercial",
-    category: "Urban & Institutional Scale",
+    impactSummary: "35+ MW regionally · Utility and commercial",
     title: "Civic & Commercial Infrastructure",
     description:
       "Delivering high-visibility urban illumination, institutional hybrid architectures, and diplomatic estate microgrid installations.",
@@ -105,14 +95,12 @@ const projects: Project[] = [
           "CAMFED nationwide educational hybrid plants, Embassy of the Republic of Korea, and Forest Hills Resort microgrid.",
       },
     ],
-    statusLabel: "Total Commissioned",
-    statusValue: "35+ MW Regionally",
   },
 ];
 
 /**
- * Engineering track record: water, healthcare and civic deployments as three
- * technical case files with photography and verified programme details.
+ * Engineering track record: water, healthcare and civic deployments presented as
+ * stacked 12-column editorial rows.
  */
 export function ProjectGallery() {
   return (
@@ -122,84 +110,57 @@ export function ProjectGallery() {
       className="scroll-mt-24 border-b border-hairline/60"
     >
       <div className="shell section-y">
-        <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between lg:mb-12">
-          <div>
-            <p className="type-eyebrow flex items-center gap-2 text-brand-deep">
-              Engineering Track Record
-            </p>
-            <h2 className="type-headline-xl mt-3 text-balance text-ink">
-              Proven Delivery Across Southern Africa
-            </h2>
-          </div>
-          <span className="type-code text-caption uppercase">
-            Over 4 Decades of Operational Deployments
-          </span>
+        <div className="mbe-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between lg:mbe-12">
+          <SectionHeading title="Proven Delivery Across Southern Africa" />
+          <p className="type-body-sm text-muted-foreground">
+            Over four decades of operational deployments
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="divide-y divide-hairline border-b border-hairline">
           {projects.map((project) => (
             <article
               key={project.title}
-              className="flex flex-col overflow-clip border border-hairline bg-surface-band"
+              className="grid grid-cols-1 items-start gap-8 border-t border-hairline py-10 lg:grid-cols-12 lg:gap-12 lg:py-12"
             >
-              <div className="relative aspect-[16/10] is-full overflow-clip bg-ink">
+              <div className="relative aspect-[16/10] is-full overflow-clip border border-hairline bg-ink lg:col-span-5">
                 <Image
                   src={project.image}
                   alt={project.imageAlt}
                   fill
-                  sizes="(min-width: 1024px) 33vw, 100vw"
+                  sizes="(min-width: 1024px) 40vw, 100vw"
                   className={
                     project.imageClassName
                       ? `object-cover ${project.imageClassName}`
                       : "object-cover"
                   }
                 />
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_top,oklch(0.14_0.025_264/0.55)_0%,transparent_55%)]"
-                />
-                <span className="type-eyebrow absolute inset-bs-4 inset-is-4 rounded bg-ink/90 px-2.5 py-1 text-white backdrop-blur-sm">
-                  {project.badge}
-                </span>
               </div>
 
-              <div className="flex flex-1 flex-col p-6 lg:p-7">
-                <p className="type-eyebrow text-brand-deep">
-                  {project.category}
+              <div className="flex flex-col lg:col-span-7">
+                <h3 className="type-headline-lg text-ink">{project.title}</h3>
+                <p className="type-body-sm mbs-2 font-medium text-brand-deep tabular-nums">
+                  {project.impactSummary}
                 </p>
-                <h3 className="type-headline-md mt-2 text-ink">
-                  {project.title}
-                </h3>
-                <p className="type-body-sm mt-2 leading-relaxed text-muted-foreground">
+                <p className="type-body-md mbs-3 max-w-[65ch] leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
 
-                <ul className="mt-5 space-y-2">
+                <ul className="mbs-6 divide-y divide-hairline border-y border-hairline">
                   {project.cases.map((projectCase) => (
                     <li
                       key={projectCase.title}
-                      className="border border-hairline/60 bg-background p-4"
+                      className="grid grid-cols-1 gap-1.5 py-4 sm:grid-cols-12 sm:gap-6"
                     >
-                      <p className="type-label font-semibold text-ink">
+                      <span className="type-label font-semibold text-ink sm:col-span-4">
                         {projectCase.title}
-                      </p>
-                      <p className="type-body-sm mt-1 leading-relaxed text-muted-foreground">
+                      </span>
+                      <span className="type-body-md leading-relaxed text-muted-foreground sm:col-span-8">
                         {projectCase.detail}
-                      </p>
+                      </span>
                     </li>
                   ))}
                 </ul>
-
-                <div className="mt-auto pt-5">
-                  <div className="flex items-center justify-between gap-3 border-t border-hairline/80 pt-4">
-                    <span className="type-code text-caption">
-                      {project.statusLabel}:
-                    </span>
-                    <span className="type-code text-right text-ink">
-                      {project.statusValue}
-                    </span>
-                  </div>
-                </div>
               </div>
             </article>
           ))}

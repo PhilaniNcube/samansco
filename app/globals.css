@@ -53,7 +53,7 @@
 
   --font-sans: var(--font-inter);
   --font-display: var(--font-space-grotesk);
-  --font-mono: var(--font-jetbrains-mono);
+  --font-mono: var(--font-inter);
   --font-heading: var(--font-space-grotesk);
 
   --radius-sm: calc(var(--radius) * 0.6);
@@ -116,7 +116,12 @@
 
   --radius: 0.5rem;
   --header-height: 4rem;
-  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Strict 3-size body scale (hero H1 and navbar wordmark exempt) */
+  --text-heading: clamp(1.625rem, 1.25rem + 1.35vw, 2.25rem);
+  --text-body: 1rem;
+  --text-sm: 0.875rem;
 }
 
 @layer base {
@@ -147,183 +152,124 @@
 }
 
 /*
- * Type scale from the design system. Mobile values are the Stitch mobile
- * tokens; each steps up to the desktop token at the target breakpoint.
+ * Type scale: hero display scales boldly above the fold; body sections obey
+ * the strict 3-size scale (--text-heading, --text-body, --text-sm).
  */
 @layer components {
   .type-display {
     font-family: var(--font-display);
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-    font-weight: 700;
-    letter-spacing: -0.02em;
+    font-size: var(--text-heading);
+    line-height: 1.15;
+    font-weight: 600;
+    letter-spacing: -0.025em;
   }
 
   .type-hero-display {
     font-family: var(--font-display);
-    font-size: clamp(2.375rem, 1.35rem + 3.4vw, 4.5rem);
-    line-height: 1.04;
-    font-weight: 500;
-    letter-spacing: -0.03em;
+    font-size: clamp(3.25rem, 1.5rem + 4.8vw, 6.25rem);
+    line-height: 0.96;
+    font-weight: 600;
+    letter-spacing: -0.04em;
   }
 
   .type-hero-display-compact {
     font-family: var(--font-display);
-    font-size: clamp(2.125rem, 1.35rem + 2.3vw, 3.625rem);
-    line-height: 1.08;
-    font-weight: 500;
+    font-size: clamp(2.5rem, 1.4rem + 3.4vw, 4.75rem);
+    line-height: 0.98;
+    font-weight: 600;
+    letter-spacing: -0.035em;
+  }
+
+  .type-headline-xl,
+  .type-headline-lg {
+    font-family: var(--font-display);
+    font-size: var(--text-heading);
+    line-height: 1.15;
+    font-weight: 600;
     letter-spacing: -0.025em;
   }
 
-  .type-headline-xl {
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    line-height: 2.25rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .type-headline-lg {
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    line-height: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-  }
-
-  .type-headline-md {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-    font-weight: 600;
-  }
-
+  .type-headline-md,
   .type-headline-sm {
     font-family: var(--font-display);
-    font-size: 1.125rem;
-    line-height: 1.625rem;
-    font-weight: 500;
+    font-size: var(--text-body);
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: -0.015em;
   }
 
-  .type-body-lg {
-    font-family: var(--font-inter);
-    font-size: 1.0625rem;
-    line-height: 1.625rem;
-    font-weight: 400;
-  }
-
+  .type-body-lg,
   .type-body-md {
-    font-family: var(--font-inter);
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: 1.6;
     font-weight: 400;
   }
 
-  .type-body-sm {
-    font-family: var(--font-inter);
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+  .type-body-sm,
+  .type-code {
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 1.45;
     font-weight: 400;
+    font-variant-numeric: tabular-nums;
   }
 
   .type-label {
-    font-family: var(--font-inter);
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    line-height: 1.45;
     font-weight: 500;
-  }
-
-  .type-code {
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    line-height: 1.125rem;
-    font-weight: 400;
-    letter-spacing: 0.02em;
-  }
-
-  .type-eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    line-height: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
   }
 
   .type-metric {
     font-family: var(--font-display);
-    font-size: 2.25rem;
-    line-height: 2.5rem;
+    font-size: var(--text-heading);
+    line-height: 1.05;
     font-weight: 700;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
   }
 
-  /* Bounded 12-column page shell: 20px / 32px / 48px margins. */
+  /* Bounded 12-column page shell with fluid inline padding */
   .shell {
     margin-inline: auto;
     width: 100%;
     max-width: var(--container-content);
-    padding-inline: 1.25rem;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
   }
 
   .section-y {
-    padding-block: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .shell {
-      padding-inline: 2rem;
-    }
+    padding-block: clamp(4rem, 7vw, 6.5rem);
   }
 
   @media (min-width: 1024px) {
     :root {
       --header-height: 4.5rem;
     }
+  }
 
-    .type-display {
-      font-size: 3.5rem;
-      line-height: 4.5rem;
-      letter-spacing: -0.03em;
+  @keyframes hero-enter {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
     }
-
-    .type-headline-xl {
-      font-size: 2.5rem;
-      line-height: 3rem;
-      letter-spacing: -0.02em;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    .type-headline-lg {
-      font-size: 2rem;
-      line-height: 2.5rem;
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-reveal {
+      animation: hero-enter 420ms var(--ease-out) both;
     }
-
-    .type-headline-md {
-      font-size: 1.5rem;
-      line-height: 2rem;
+    .hero-reveal-delay-1 {
+      animation: hero-enter 420ms var(--ease-out) 70ms both;
     }
-
-    .type-headline-sm {
-      font-size: 1.25rem;
-      line-height: 1.75rem;
-    }
-
-    .type-body-lg {
-      font-size: 1.125rem;
-      line-height: 1.75rem;
-    }
-
-    .type-metric {
-      font-size: 3rem;
-      line-height: 3.25rem;
-    }
-
-    .shell {
-      padding-inline: 3rem;
-    }
-
-    .section-y {
-      padding-block: 6rem;
+    .hero-reveal-delay-2 {
+      animation: hero-enter 420ms var(--ease-out) 140ms both;
     }
   }
 }

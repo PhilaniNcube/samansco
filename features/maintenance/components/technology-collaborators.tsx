@@ -1,32 +1,26 @@
-import { SpecChip } from "@/components/samansco/badges";
-import { Eyebrow, Section } from "@/components/samansco/section";
+import { Section } from "@/components/samansco/section";
 
 type Collaborator = {
-  monogram: string;
   name: string;
   role: string;
 };
 
 const collaborators: Collaborator[] = [
   {
-    monogram: "H",
     name: "Huawei Solar",
-    role: "CSP Certified Partner",
+    role: "CSP certified partner",
   },
   {
-    monogram: "S",
     name: "Sigenergy",
-    role: "Service Center (BESS)",
+    role: "Service center (BESS)",
   },
   {
-    monogram: "E",
     name: "Elum Energy",
     role: "SCADA / ePowerControl",
   },
   {
-    monogram: "N",
     name: "NeedEnergy",
-    role: "Telemetry Architecture",
+    role: "Telemetry architecture",
   },
 ];
 
@@ -42,46 +36,29 @@ export function TechnologyCollaborators() {
       aria-labelledby="maintenance-partners-title"
     >
       <div className="shell section-y">
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <Eyebrow className="text-brand-deep">
-              Authorized Technical Ecosystem
-            </Eyebrow>
-            <h2
-              id="maintenance-partners-title"
-              className="type-headline-lg mt-3 text-ink"
-            >
-              Technology Collaborators
-            </h2>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="type-code text-caption">
-              OEM Certifications &amp; Telemetry Partners
-            </span>
-            <SpecChip>TIER-1 AUDITED</SpecChip>
-          </div>
+        <div className="flex flex-col gap-4 md:flex-row md:items-baseline md:justify-between">
+          <h2
+            id="maintenance-partners-title"
+            className="type-headline-lg text-ink"
+          >
+            Technology Collaborators
+          </h2>
+          <p className="type-body-sm text-muted-foreground">
+            OEM certifications &amp; telemetry partners
+          </p>
         </div>
 
-        <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="mbs-8 grid grid-cols-1 gap-px border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
           {collaborators.map((collaborator) => (
             <li
               key={collaborator.name}
-              className="flex items-center gap-3 border border-hairline bg-surface-page/60 p-4"
+              className="flex flex-col gap-1 bg-surface-page/70 p-5"
             >
-              <span
-                aria-hidden="true"
-                className="type-headline-sm grid size-10 shrink-0 place-items-center rounded-full bg-brand/10 font-bold text-brand-deep"
-              >
-                {collaborator.monogram}
+              <span className="type-headline-sm text-ink">
+                {collaborator.name}
               </span>
-              <span className="min-w-0">
-                <span className="type-label block truncate font-semibold text-ink">
-                  {collaborator.name}
-                </span>
-                <span className="type-code block truncate text-caption">
-                  {collaborator.role}
-                </span>
+              <span className="type-body-sm text-muted-foreground">
+                {collaborator.role}
               </span>
             </li>
           ))}

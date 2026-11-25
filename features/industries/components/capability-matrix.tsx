@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 type Capability = {
   value: "supply" | "epc" | "water";
   tab: string;
-  division: string;
   title: string;
   description: string;
   bullets: string[];
@@ -31,7 +30,6 @@ const capabilities: Capability[] = [
   {
     value: "supply",
     tab: "Supply",
-    division: "Division 01 // Supply",
     title: "Solar Equipment Supply & Technical Distribution",
     description:
       "Wholesale distribution and direct factory warranty coordination across Southern Africa for top-tier international manufacturers.",
@@ -41,7 +39,7 @@ const capabilities: Capability[] = [
       "Certified balance of system (BOS) switchgear, surge suppression, and structural racking.",
       "Harare central warehousing with regional SADC logistics clearing capabilities.",
     ],
-    assurance: "Tier-1 Supply Chain Assurance",
+    assurance: "Tier-1 supply chain assurance",
     icon: PackageIcon,
     accent: "brand",
     image: "/images/installation.webp",
@@ -51,7 +49,6 @@ const capabilities: Capability[] = [
   {
     value: "epc",
     tab: "EPC",
-    division: "Division 02 // EPC",
     title: "EPC & Turnkey Project Delivery",
     description:
       "Complete electrical, structural, and civil engineering delivery for mission-critical installations requiring rigorous compliance.",
@@ -61,7 +58,7 @@ const capabilities: Capability[] = [
       "End-to-end design, structural wind load analysis, SCADA sync, and commissioning.",
       "High-efficiency municipal solar street lighting with smart dusk-to-dawn controls.",
     ],
-    assurance: "Engineered to IEC & ZWS Standards",
+    assurance: "Engineered to IEC & ZWS standards",
     icon: FactoryIcon,
     accent: "charcoal",
     image: "/images/home-hero-source.webp",
@@ -71,7 +68,6 @@ const capabilities: Capability[] = [
   {
     value: "water",
     tab: "Water",
-    division: "Division 03 // Water",
     title: 'NGO & Solar Water Solutions ("Water Is Life")',
     description:
       "Official LORENTZ Distribution Partner delivering high-durability solar pumping systems engineered for rugged remote deployment.",
@@ -81,7 +77,7 @@ const capabilities: Capability[] = [
       "High-yield agricultural drip irrigation networks for cooperative and commercial farming.",
       "Fuel-free operational longevity engineered for extreme heat and variable water tables.",
     ],
-    assurance: "Official LORENTZ Distribution Partner",
+    assurance: "Official LORENTZ distribution partner",
     icon: DropletsIcon,
     accent: "brand",
     image: "/images/carbon-hero-landscape.jpg",
@@ -103,10 +99,7 @@ function CapabilityCard({ capability }: { capability: Capability }) {
       scrim="deep"
       className="bs-full min-bs-[28rem] p-6 lg:p-8"
     >
-      <div className="mbe-5 flex items-center justify-between gap-3">
-        <span className="type-code text-white/75 uppercase">
-          {capability.division}
-        </span>
+      <div className="mbe-5 flex items-center justify-end">
         <span className="grid size-10 shrink-0 place-items-center border border-white/20 bg-ink/60 backdrop-blur-sm">
           <Icon
             aria-hidden="true"
@@ -119,7 +112,7 @@ function CapabilityCard({ capability }: { capability: Capability }) {
       </div>
 
       <h3 className="type-headline-md text-white">{capability.title}</h3>
-      <p className="type-body-md mbs-3 leading-relaxed text-white/80">
+      <p className="type-body-md mbs-3 leading-relaxed text-white/85">
         {capability.description}
       </p>
 
@@ -127,11 +120,11 @@ function CapabilityCard({ capability }: { capability: Capability }) {
         {capability.bullets.map((bullet) => (
           <li
             key={bullet}
-            className="type-body-sm flex items-start gap-2 text-white/90"
+            className="type-body-md flex items-start gap-2.5 text-white/90"
           >
             <CheckCircle2Icon
               aria-hidden="true"
-              className="mbs-0.5 size-4 shrink-0 text-brand-soft"
+              className="mbs-1 size-4 shrink-0 text-brand-soft"
             />
             <span>{bullet}</span>
           </li>
@@ -139,7 +132,7 @@ function CapabilityCard({ capability }: { capability: Capability }) {
       </ul>
 
       <div className="mbs-auto border-t border-white/15 pbs-4">
-        <span className="type-eyebrow text-white/75">
+        <span className="type-body-sm text-white/80">
           {capability.assurance}
         </span>
       </div>
@@ -156,16 +149,14 @@ export function CapabilityMatrix() {
   return (
     <Section tone="white">
       <div className="shell section-y">
-        <div className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between lg:mb-12">
+        <div className="mbe-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between lg:mbe-12">
           <SectionHeading
-            eyebrow="Core Industrial Capabilities"
             title="Integrated Turnkey Energy & Water Systems"
             className="max-w-2xl"
           />
-          <p className="type-body-md max-w-md leading-relaxed text-muted-foreground">
-            Providing specialized infrastructure execution for institutional
-            developers, international NGOs, municipal agencies, and heavy
-            commerce.
+          <p className="type-body-md max-w-[42ch] leading-relaxed text-muted-foreground">
+            Specialized infrastructure execution for institutional developers,
+            international NGOs, municipal agencies, and heavy commerce.
           </p>
         </div>
 
@@ -179,7 +170,7 @@ export function CapabilityMatrix() {
                 <TabsTrigger
                   key={capability.value}
                   value={capability.value}
-                  className="type-code tracking-wide"
+                  className="type-label"
                 >
                   {capability.tab}
                 </TabsTrigger>
@@ -190,7 +181,7 @@ export function CapabilityMatrix() {
               <TabsContent
                 key={capability.value}
                 value={capability.value}
-                className="mt-4"
+                className="mbs-4"
               >
                 <CapabilityCard capability={capability} />
               </TabsContent>

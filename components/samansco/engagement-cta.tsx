@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Eyebrow } from "@/components/samansco/section";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export type EngagementCtaProps = {
-  eyebrow: string;
   title: string;
   description: string;
   actionLabel: string;
@@ -18,11 +16,10 @@ export type EngagementCtaProps = {
 };
 
 /**
- * Executive engagement banner used at the foot of every division page: one
+ * Executive engagement banner used at the foot of division pages: one
  * statement of intent and a single institutional action.
  */
 export function EngagementCta({
-  eyebrow,
   title,
   description,
   actionLabel,
@@ -53,10 +50,9 @@ export function EngagementCta({
           className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,oklch(0.14_0.025_264/0.94)_0%,oklch(0.16_0.025_264/0.82)_55%,oklch(0.16_0.025_264/0.62)_100%)]"
         />
 
-        <div className="relative z-10 flex max-w-2xl flex-col gap-2">
-          <Eyebrow className="text-brand-soft">{eyebrow}</Eyebrow>
-          <h3 className="type-headline-md text-white">{title}</h3>
-          <p className="type-body-sm text-white/80">{description}</p>
+        <div className="relative z-10 flex max-w-[60ch] flex-col gap-2">
+          <h2 className="type-headline-lg text-balance text-white">{title}</h2>
+          <p className="type-body-md text-white/80">{description}</p>
         </div>
 
         <Button
@@ -83,15 +79,19 @@ export function EngagementCta({
         className,
       )}
     >
-      <div className="flex max-w-2xl flex-col gap-2">
-        <Eyebrow className={dark ? "text-white/60" : undefined}>{eyebrow}</Eyebrow>
-        <h3 className={cn("type-headline-md", dark ? "text-white" : "text-ink")}>
+      <div className="flex max-w-[60ch] flex-col gap-2">
+        <h2
+          className={cn(
+            "type-headline-lg text-balance",
+            dark ? "text-white" : "text-ink",
+          )}
+        >
           {title}
-        </h3>
+        </h2>
         <p
           className={cn(
-            "type-body-sm",
-            dark ? "text-white/70" : "text-muted-foreground",
+            "type-body-md",
+            dark ? "text-white/75" : "text-muted-foreground",
           )}
         >
           {description}

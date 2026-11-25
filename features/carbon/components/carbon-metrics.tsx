@@ -33,7 +33,7 @@ const metrics: EnvironmentalMetric[] = [
     icon: LayersIcon,
   },
   {
-    label: "Paris Alignment",
+    label: "Paris alignment",
     value: "Article 6",
     title: "Cross-Border Trading",
     description:
@@ -41,7 +41,7 @@ const metrics: EnvironmentalMetric[] = [
     icon: Globe2Icon,
   },
   {
-    label: "Volume Scope",
+    label: "Volume scope",
     value: "Multi-MWh",
     title: "Certified Clean Power",
     description:
@@ -51,7 +51,7 @@ const metrics: EnvironmentalMetric[] = [
 ];
 
 /**
- * Four-column environmental metrics band: the desk's integrity, accounting,
+ * Four-column environmental metrics matrix: integrity, accounting,
  * Paris-alignment and volume proof points.
  */
 export function CarbonMetrics() {
@@ -62,25 +62,25 @@ export function CarbonMetrics() {
       className="border-b border-hairline/60 py-10 lg:py-12"
     >
       <div className="shell">
-        <dl className="grid grid-cols-2 gap-3 lg:grid-cols-4 lg:gap-6">
+        <dl className="grid grid-cols-1 gap-px overflow-clip border border-hairline bg-hairline sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map(({ label, value, title, description, icon: Icon }) => (
             <div
               key={label}
-              className="flex flex-col justify-between border border-hairline/70 bg-background p-4 lg:p-6"
+              className="flex flex-col justify-between bg-background p-6"
             >
               <dt className="flex items-start justify-between gap-2">
-                <span className="type-eyebrow text-caption">{label}</span>
+                <span className="type-label text-muted-foreground">{label}</span>
                 <Icon
                   aria-hidden="true"
                   className="size-5 shrink-0 text-brand"
                 />
               </dt>
-              <dd className="mt-6">
+              <dd className="mbs-6">
                 <span className="type-metric block text-ink">{value}</span>
-                <span className="type-headline-sm mt-2 block text-ink">
+                <span className="type-headline-sm mbs-2 block text-ink">
                   {title}
                 </span>
-                <span className="type-body-sm mt-2 block leading-relaxed text-muted-foreground">
+                <span className="type-body-md mbs-2 block leading-relaxed text-muted-foreground">
                   {description}
                 </span>
               </dd>

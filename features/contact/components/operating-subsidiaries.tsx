@@ -30,7 +30,7 @@ export function OperatingSubsidiaries() {
       aria-labelledby="operating-subsidiaries-title"
       className="border border-hairline bg-card p-5 lg:p-6"
     >
-      <div className="flex items-start justify-between gap-3 border-b border-hairline/80 pb-3">
+      <div className="flex items-center justify-between gap-3 border-b border-hairline/80 pbe-3">
         <div className="flex min-w-0 items-center gap-2">
           <NetworkIcon
             aria-hidden="true"
@@ -43,10 +43,12 @@ export function OperatingSubsidiaries() {
             Operating Subsidiaries
           </h2>
         </div>
-        <span className="type-code shrink-0 text-caption">DIRECT ROUTING</span>
+        <span className="type-body-sm shrink-0 text-muted-foreground">
+          Direct routing
+        </span>
       </div>
 
-      <ul className="mt-4 flex flex-col gap-2">
+      <ul className="mbs-2 divide-y divide-hairline">
         {divisions.map((division, index) => {
           const channel = subsidiaryChannels[index];
           if (!channel) return null;
@@ -55,22 +57,19 @@ export function OperatingSubsidiaries() {
             <li key={division.href}>
               <a
                 href={`mailto:${channel.email}`}
-                className="group flex flex-col gap-2 bg-surface-band p-3.5 transition-colors hover:bg-surface-sunken sm:flex-row sm:items-center sm:justify-between sm:gap-4"
+                className="group flex flex-col gap-2 py-3.5 transition-colors hover:text-brand-deep sm:flex-row sm:items-center sm:justify-between sm:gap-4"
               >
                 <div className="flex min-w-0 flex-col gap-1">
-                  <div className="flex items-center gap-2">
-
-                    <h3 className="type-headline-sm text-ink transition-colors group-hover:text-brand-deep">
-                      {division.name}
-                    </h3>
-                  </div>
+                  <h3 className="type-headline-sm text-ink transition-colors group-hover:text-brand-deep">
+                    {division.name}
+                  </h3>
                   <span className="type-body-sm leading-snug text-muted-foreground">
                     {channel.scope}
                   </span>
                 </div>
 
                 <span className="flex items-center gap-2 sm:shrink-0 sm:flex-col sm:items-end sm:gap-1">
-                  <span className="type-code break-all text-brand-deep">
+                  <span className="type-body-sm font-medium break-all text-brand-deep">
                     {channel.email}
                   </span>
                   <ArrowRightIcon

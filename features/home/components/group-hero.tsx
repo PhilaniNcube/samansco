@@ -1,9 +1,5 @@
-import { ArrowDownIcon, ArrowRightIcon } from "lucide-react";
-import {
-  HeroGhostAction,
-  HeroSplitAction,
-  PageHero,
-} from "@/components/samansco/page-hero";
+import { ArrowDownIcon } from "lucide-react";
+import { HeroSplitAction, PageHero } from "@/components/samansco/page-hero";
 
 export function GroupHero() {
   return (
@@ -14,21 +10,14 @@ export function GroupHero() {
       size="cinematic"
       scrim="cinematic"
       gridVariant="vooma"
-      layout="bottom-split"
-      statusPill="ESTABLISHED 1982 · SOUTHERN AFRICA"
       title="The Future of Power, Delivered."
-      description="A vertically integrated energy and electricity group shaping Africa's clean energy future through heavy infrastructure execution, commercial power trading, and enduring operational stewardship."
+      description="Vertically integrated solar engineering, commercial power trading, asset stewardship, and verified carbon markets across Southern Africa."
       actions={
-        <>
-          <HeroSplitAction
-            href="#operating-companies"
-            label="Explore Companies"
-            icon={<ArrowDownIcon />}
-          />
-          <HeroGhostAction href="/contact" icon={<ArrowRightIcon aria-hidden="true" />}>
-            Contact Group HQ
-          </HeroGhostAction>
-        </>
+        <HeroSplitAction
+          href="#operating-companies"
+          label="Explore operating companies"
+          icon={<ArrowDownIcon />}
+        />
       }
     />
   );
