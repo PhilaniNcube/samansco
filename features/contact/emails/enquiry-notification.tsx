@@ -11,7 +11,7 @@ import {
 import type { EnquiryInput } from "../enquiry-schema";
 import { destinationFor, divisionLabel } from "../enquiry-options";
 
-export type EnquiryNotificationProps = EnquiryInput & {
+export type EnquiryNotificationProps = Omit<EnquiryInput, "confirmation"> & {
   reference: string;
   submittedAt: string;
 };
@@ -22,7 +22,9 @@ const harareTime = new Intl.DateTimeFormat("en-GB", {
   timeZone: "Africa/Harare",
 });
 
-export function enquiryNotificationSubject(input: EnquiryInput): string {
+export function enquiryNotificationSubject(
+  input: Omit<EnquiryInput, "confirmation">,
+): string {
   const organisation = input.organisation.replace(/[\r\n]+/g, " ").trim();
 
   return `New enquiry · ${destinationFor(input.division).company} · ${organisation}`;
@@ -119,7 +121,6 @@ const previewProps: EnquiryNotificationProps = {
   engagementNature: "Commercial RFP / Tender",
   message:
     "We are tendering a 4.2 MW rooftop and ground-mount hybrid at our Unki mine offices. Please advise on EPC scope, transformer sizing and a delivery schedule for Q3.",
-  confirmation: "on",
 };
 
 EnquiryNotificationEmail.PreviewProps = previewProps;

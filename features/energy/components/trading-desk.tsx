@@ -1,16 +1,24 @@
 "use client";
 
+import { valibotResolver } from "@hookform/resolvers/valibot";
 import {
   CheckCircle2Icon,
+  CircleAlertIcon,
   LoaderCircleIcon,
   MailIcon,
   PhoneIcon,
   SendIcon,
 } from "lucide-react";
-import { useEffect, useRef, useState, type FormEvent } from "react";
+import * as React from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Section } from "@/components/samansco/section";
 import { Button } from "@/components/ui/button";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -19,13 +27,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-const baseloadOptions = [
-  { value: "1-5", label: "1.0 to 5.0 MW (Industrial PPA)" },
-  { value: "5-20", label: "5.0 to 20.0 MW (Mining & Smelting)" },
-  { value: "20-plus", label: "> 20.0 MW (Cross-Border SAPP Wheeling)" },
-  { value: "vpp", label: "Distributed VPP Asset Aggregation" },
-];
+import { submitTradingEnquiry } from "../trading-enquiry-actions";
+import { baseloadOptions } from "../trading-enquiry-options";
+import {
+  type TradingEnquiryField,
+  type TradingEnquiryInput,
+  tradingEnquirySchema,
+} from "../trading-enquiry-schema";
+import { initialTradingEnquiryState } from "../trading-enquiry-state";
 
 const contactChannels = [
   {
@@ -42,36 +51,62 @@ const contactChannels = [
   },
 ];
 
+const defaultValues: TradingEnquiryInput = {
+  entity: "",
+  email: "",
+  baseload: "1-5",
+};
+
 /**
  * Direct desk engagement: contact matrix beside a structured offtake enquiry
- * form using the shared Field, Select and Button wrappers.
+ * form using `<form action>`, `react-hook-form`, Valibot, `useActionState`, and
+ * Shadcn `Field` wrappers.
  */
 export function TradingDesk() {
-  const [pending, setPending] = useState(false);
-  const [logged, setLogged] = useState(false);
-  const dispatchTimer = useRef<number | null>(null);
-
-  useEffect(
-    () => () => {
-      if (dispatchTimer.current !== null) {
-        window.clearTimeout(dispatchTimer.current);
-      }
-    },
-    [],
+  const [state, formAction, pending] = React.useActionState(
+    submitTradingEnquiry,
+    initialTradingEnquiryState,
   );
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const form = event.currentTarget;
+  const { control, trigger, getValues, setError, reset } =
+    useForm<TradingEnquiryInput>({
+      resolver: valibotResolver(tradingEnquirySchema),
+      defaultValues,
+    });
 
-    setPending(true);
-    setLogged(false);
+  React.useEffect(() => {
+    if (state.status === "success") {
+      reset(defaultValues);
+      return;
+    }
 
-    dispatchTimer.current = window.setTimeout(() => {
-      setPending(false);
-      setLogged(true);
-      form.reset();
-    }, 900);
+    if (state.status === "error" && state.fieldErrors) {
+      for (const [field, messages] of Object.entries(state.fieldErrors)) {
+        const message = messages?.[0];
+        if (message) {
+          setError(field as TradingEnquiryField, {
+            type: "server",
+            message,
+          });
+        }
+      }
+    }
+  }, [state, reset, setError]);
+
+  async function handleFormAction(formData: FormData) {
+    const isValid = await trigger(undefined, { shouldFocus: true });
+    if (!isValid) {
+      return;
+    }
+
+    const values = getValues();
+    formData.set("entity", values.entity);
+    formData.set("email", values.email);
+    formData.set("baseload", values.baseload);
+
+    React.startTransition(() => {
+      formAction(formData);
+    });
   }
 
   return (
@@ -131,41 +166,135 @@ export function TradingDesk() {
           </div>
 
           <div className="flex flex-col justify-between gap-6 border-t border-hairline p-6 lg:col-span-7 lg:border-t-0 lg:border-s lg:p-8">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-              <FieldGroup className="gap-5">
-                <Field name="entity">
-                  <FieldLabel className="type-label text-ink">
-                    Institutional offtaker entity
-                  </FieldLabel>
-                  <Input
-                    name="entity"
-                    placeholder="e.g. Zimplats Mining / Dairibord"
-                    autoComplete="organization"
-                    required
-                  />
-                </Field>
+            <form
+              action={handleFormAction}
+              noValidate
+              className="flex flex-col gap-5"
+            >
+              <div aria-hidden="true" className="hidden">
+                <label htmlFor="energy-companyWebsite">Company website</label>
+                <input
+                  id="energy-companyWebsite"
+                  name="companyWebsite"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
 
-                <Field name="baseload">
-                  <FieldLabel className="type-label text-ink">
-                    Target baseload requirement
-                  </FieldLabel>
-                  <Select
-                    items={baseloadOptions}
-                    defaultValue="1-5"
-                    name="baseload"
-                  >
-                    <SelectTrigger className="h-11 w-full rounded-lg border-input bg-background px-4 text-sm text-ink shadow-none">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      {baseloadOptions.map((option) => (
-                        <SelectItem key={option.value} value={option.value}>
-                          {option.label}
-                        </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </Field>
+              <FieldGroup className="gap-5">
+                <Controller
+                  name="entity"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field
+                      name={field.name}
+                      invalid={fieldState.invalid || undefined}
+                    >
+                      <FieldLabel className="type-label text-ink">
+                        Institutional offtaker entity
+                      </FieldLabel>
+                      <Input
+                        ref={field.ref}
+                        name={field.name}
+                        placeholder="e.g. Zimplats Mining / Dairibord"
+                        autoComplete="organization"
+                        maxLength={160}
+                        value={field.value}
+                        onBlur={field.onBlur}
+                        onValueChange={(value, details) => {
+                          if (details.reason === "reset") {
+                            details.cancel();
+                            return;
+                          }
+                          field.onChange(value);
+                        }}
+                      />
+                      {fieldState.error?.message ? (
+                        <FieldError match>{fieldState.error.message}</FieldError>
+                      ) : null}
+                    </Field>
+                  )}
+                />
+
+                <Controller
+                  name="email"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field
+                      name={field.name}
+                      invalid={fieldState.invalid || undefined}
+                    >
+                      <FieldLabel className="type-label text-ink">
+                        Corporate email address
+                      </FieldLabel>
+                      <Input
+                        ref={field.ref}
+                        name={field.name}
+                        type="email"
+                        placeholder="power@organization.com"
+                        autoComplete="email"
+                        maxLength={200}
+                        value={field.value}
+                        onBlur={field.onBlur}
+                        onValueChange={(value, details) => {
+                          if (details.reason === "reset") {
+                            details.cancel();
+                            return;
+                          }
+                          field.onChange(value);
+                        }}
+                      />
+                      {fieldState.error?.message ? (
+                        <FieldError match>{fieldState.error.message}</FieldError>
+                      ) : null}
+                    </Field>
+                  )}
+                />
+
+                <Controller
+                  name="baseload"
+                  control={control}
+                  render={({ field, fieldState }) => (
+                    <Field
+                      name={field.name}
+                      invalid={fieldState.invalid || undefined}
+                    >
+                      <FieldLabel className="type-label text-ink">
+                        Target baseload requirement
+                      </FieldLabel>
+                      <Select
+                        name={field.name}
+                        items={[...baseloadOptions]}
+                        value={field.value}
+                        onValueChange={(value, details) => {
+                          if (details.reason === "reset") {
+                            details.cancel();
+                            return;
+                          }
+                          field.onChange(value ?? "1-5");
+                        }}
+                      >
+                        <SelectTrigger
+                          ref={field.ref}
+                          className="h-11 w-full rounded-lg border-input bg-background px-4 text-sm text-ink shadow-none"
+                        >
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {baseloadOptions.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      {fieldState.error?.message ? (
+                        <FieldError match>{fieldState.error.message}</FieldError>
+                      ) : null}
+                    </Field>
+                  )}
+                />
 
                 <Button
                   type="submit"
@@ -186,18 +315,34 @@ export function TradingDesk() {
                 </Button>
               </FieldGroup>
 
-              <p
+              {state.status === "error" ? (
+                <div
+                  role="alert"
+                  className="flex items-start gap-3 border border-destructive/30 bg-destructive/5 p-3.5"
+                >
+                  <CircleAlertIcon
+                    aria-hidden="true"
+                    className="mbs-0.5 size-4 shrink-0 text-destructive"
+                  />
+                  <p className="type-body-sm leading-relaxed text-destructive">
+                    {state.message}
+                  </p>
+                </div>
+              ) : null}
+
+              <div
                 role="status"
                 aria-live="polite"
-                className="type-body-sm flex min-bs-5 items-center gap-2 font-medium text-brand-deep"
+                aria-atomic="true"
+                className="min-bs-5"
               >
-                {logged ? (
-                  <>
+                {state.status === "success" ? (
+                  <p className="type-body-sm flex items-center gap-2 font-medium text-brand-deep tabular-nums">
                     <CheckCircle2Icon aria-hidden="true" className="size-4" />
-                    Priority ticket logged
-                  </>
+                    Priority ticket logged ({state.reference}). Confirmation emailed.
+                  </p>
                 ) : null}
-              </p>
+              </div>
             </form>
 
             <div className="type-body-sm flex flex-wrap items-center justify-between gap-2 border-t border-hairline pbs-4 text-muted-foreground">

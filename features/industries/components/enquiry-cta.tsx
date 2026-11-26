@@ -1,12 +1,17 @@
 "use client";
 
+import { valibotResolver } from "@hookform/resolvers/valibot";
 import {
   ArrowRightIcon,
+  CircleAlertIcon,
+  CircleCheckIcon,
+  LoaderCircleIcon,
   MailIcon,
   MapPinIcon,
   PhoneIcon,
 } from "lucide-react";
 import * as React from "react";
+import { Controller, useForm } from "react-hook-form";
 import { Section } from "@/components/samansco/section";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -19,7 +24,12 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+} from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -29,52 +39,75 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
+import { submitIndustriesEnquiry } from "../industries-enquiry-actions";
+import { industriesEnquiryTypes } from "../industries-enquiry-options";
+import {
+  type IndustriesEnquiryField,
+  type IndustriesEnquiryInput,
+  industriesEnquirySchema,
+} from "../industries-enquiry-schema";
+import { initialIndustriesEnquiryState } from "../industries-enquiry-state";
 
-const enquiryTypes = [
-  { value: "epc", label: "EPC & turnkey project delivery" },
-  { value: "supply", label: "Solar equipment & technical distribution" },
-  { value: "water", label: "Water pumping & irrigation systems" },
-  { value: "institutional", label: "Institutional or municipal infrastructure" },
-];
+const defaultValues: IndustriesEnquiryInput = {
+  fullName: "",
+  organisation: "",
+  email: "",
+  enquiryType: "epc",
+  site: "",
+};
 
 /**
  * Engineering desk CTA: dark enquiry band with direct contact lines and a
- * dialog-hosted project brief form that prepares a real mailto payload.
+ * dialog-hosted project brief form using `<form action>`, `react-hook-form`,
+ * Valibot, `useActionState`, and Shadcn `Field` wrappers.
  */
 export function EnquiryCta() {
-  const [enquiryType, setEnquiryType] = React.useState("epc");
-  const [submitted, setSubmitted] = React.useState(false);
-  const [mailtoHref, setMailtoHref] = React.useState(
-    "mailto:industries@samansco.com",
+  const [state, formAction, pending] = React.useActionState(
+    submitIndustriesEnquiry,
+    initialIndustriesEnquiryState,
   );
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
+  const { control, trigger, getValues, setError, reset } =
+    useForm<IndustriesEnquiryInput>({
+      resolver: valibotResolver(industriesEnquirySchema),
+      defaultValues,
+    });
 
-    const data = new FormData(event.currentTarget);
-    const read = (key: string) => String(data.get(key) ?? "").trim();
+  React.useEffect(() => {
+    if (state.status === "success") {
+      reset(defaultValues);
+      return;
+    }
 
-    const fullName = read("fullName");
-    const organisation = read("organisation");
-    const email = read("email");
-    const site = read("site");
-    const enquiryLabel =
-      enquiryTypes.find((type) => type.value === enquiryType)?.label ??
-      "General enquiry";
+    if (state.status === "error" && state.fieldErrors) {
+      for (const [field, messages] of Object.entries(state.fieldErrors)) {
+        const message = messages?.[0];
+        if (message) {
+          setError(field as IndustriesEnquiryField, {
+            type: "server",
+            message,
+          });
+        }
+      }
+    }
+  }, [state, reset, setError]);
 
-    const subject = `Industrial enquiry: ${organisation || fullName || "Samansco Industries"}`;
-    const body = [
-      `Name: ${fullName}`,
-      `Organisation: ${organisation}`,
-      `Email: ${email}`,
-      `Enquiry type: ${enquiryLabel}`,
-      `Site location: ${site || "Not specified"}`,
-    ].join("\n");
+  async function handleFormAction(formData: FormData) {
+    const isValid = await trigger(undefined, { shouldFocus: true });
+    if (!isValid) {
+      return;
+    }
 
-    setMailtoHref(
-      `mailto:industries@samansco.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`,
-    );
-    setSubmitted(true);
+    const values = getValues();
+    formData.set("fullName", values.fullName);
+    formData.set("organisation", values.organisation);
+    formData.set("email", values.email);
+    formData.set("enquiryType", values.enquiryType);
+    formData.set("site", values.site);
+
+    React.startTransition(() => {
+      formAction(formData);
+    });
   }
 
   return (
@@ -144,112 +177,266 @@ export function EnquiryCta() {
                     Direct Inquiry
                   </DialogTitle>
                   <DialogDescription>
-                    Connect immediately with the Engineering Desk at our Harare
-                    Central Logistics facility. Complete the brief and we will
-                    prepare it for industries@samansco.com.
+                    Submit your brief directly to the Engineering Desk at our
+                    Harare Central Logistics facility.
                   </DialogDescription>
                 </DialogHeader>
 
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+                <form
+                  action={handleFormAction}
+                  noValidate
+                  className="flex flex-col gap-5"
+                >
+                  <div aria-hidden="true" className="hidden">
+                    <label htmlFor="industries-companyWebsite">
+                      Company website
+                    </label>
+                    <input
+                      id="industries-companyWebsite"
+                      name="companyWebsite"
+                      type="text"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <FieldGroup>
-                    <Field>
-                      <FieldLabel>Full name</FieldLabel>
-                      <Input
-                        name="fullName"
-                        autoComplete="name"
-                        placeholder="Your full name"
-                        required
-                        autoFocus
-                      />
-                    </Field>
+                    <Controller
+                      name="fullName"
+                      control={control}
+                      render={({ field, fieldState }) => (
+                        <Field
+                          name={field.name}
+                          invalid={fieldState.invalid || undefined}
+                        >
+                          <FieldLabel>Full name</FieldLabel>
+                          <Input
+                            ref={field.ref}
+                            name={field.name}
+                            autoComplete="name"
+                            placeholder="Your full name"
+                            maxLength={120}
+                            autoFocus
+                            value={field.value}
+                            onBlur={field.onBlur}
+                            onValueChange={(value, details) => {
+                              if (details.reason === "reset") {
+                                details.cancel();
+                                return;
+                              }
+                              field.onChange(value);
+                            }}
+                          />
+                          {fieldState.error?.message ? (
+                            <FieldError match>
+                              {fieldState.error.message}
+                            </FieldError>
+                          ) : null}
+                        </Field>
+                      )}
+                    />
 
-                    <Field>
-                      <FieldLabel>Organisation</FieldLabel>
-                      <Input
-                        name="organisation"
-                        autoComplete="organization"
-                        placeholder="Institution or company"
-                        required
-                      />
-                    </Field>
+                    <Controller
+                      name="organisation"
+                      control={control}
+                      render={({ field, fieldState }) => (
+                        <Field
+                          name={field.name}
+                          invalid={fieldState.invalid || undefined}
+                        >
+                          <FieldLabel>Organisation</FieldLabel>
+                          <Input
+                            ref={field.ref}
+                            name={field.name}
+                            autoComplete="organization"
+                            placeholder="Institution or company"
+                            maxLength={160}
+                            value={field.value}
+                            onBlur={field.onBlur}
+                            onValueChange={(value, details) => {
+                              if (details.reason === "reset") {
+                                details.cancel();
+                                return;
+                              }
+                              field.onChange(value);
+                            }}
+                          />
+                          {fieldState.error?.message ? (
+                            <FieldError match>
+                              {fieldState.error.message}
+                            </FieldError>
+                          ) : null}
+                        </Field>
+                      )}
+                    />
 
-                    <Field>
-                      <FieldLabel>Work email</FieldLabel>
-                      <Input
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        placeholder="name@organisation.com"
-                        required
-                      />
-                    </Field>
+                    <Controller
+                      name="email"
+                      control={control}
+                      render={({ field, fieldState }) => (
+                        <Field
+                          name={field.name}
+                          invalid={fieldState.invalid || undefined}
+                        >
+                          <FieldLabel>Work email</FieldLabel>
+                          <Input
+                            ref={field.ref}
+                            name={field.name}
+                            type="email"
+                            autoComplete="email"
+                            placeholder="name@organisation.com"
+                            maxLength={200}
+                            value={field.value}
+                            onBlur={field.onBlur}
+                            onValueChange={(value, details) => {
+                              if (details.reason === "reset") {
+                                details.cancel();
+                                return;
+                              }
+                              field.onChange(value);
+                            }}
+                          />
+                          {fieldState.error?.message ? (
+                            <FieldError match>
+                              {fieldState.error.message}
+                            </FieldError>
+                          ) : null}
+                        </Field>
+                      )}
+                    />
 
-                    <Field>
-                      <FieldLabel>Enquiry type</FieldLabel>
-                      <Select
-                        items={enquiryTypes}
-                        value={enquiryType}
-                        onValueChange={(value) =>
-                          setEnquiryType(value ?? "epc")
-                        }
-                      >
-                        <SelectTrigger className="h-11 bg-background">
-                          <SelectValue />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {enquiryTypes.map((type) => (
-                            <SelectItem key={type.value} value={type.value}>
-                              {type.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    </Field>
+                    <Controller
+                      name="enquiryType"
+                      control={control}
+                      render={({ field, fieldState }) => (
+                        <Field
+                          name={field.name}
+                          invalid={fieldState.invalid || undefined}
+                        >
+                          <FieldLabel>Enquiry type</FieldLabel>
+                          <Select
+                            name={field.name}
+                            items={[...industriesEnquiryTypes]}
+                            value={field.value}
+                            onValueChange={(value, details) => {
+                              if (details.reason === "reset") {
+                                details.cancel();
+                                return;
+                              }
+                              field.onChange(value ?? "epc");
+                            }}
+                          >
+                            <SelectTrigger
+                              ref={field.ref}
+                              className="h-11 bg-background"
+                            >
+                              <SelectValue />
+                            </SelectTrigger>
+                            <SelectContent>
+                              {industriesEnquiryTypes.map((type) => (
+                                <SelectItem key={type.value} value={type.value}>
+                                  {type.label}
+                                </SelectItem>
+                              ))}
+                            </SelectContent>
+                          </Select>
+                          {fieldState.error?.message ? (
+                            <FieldError match>
+                              {fieldState.error.message}
+                            </FieldError>
+                          ) : null}
+                        </Field>
+                      )}
+                    />
 
-                    <Field>
-                      <FieldLabel>Site location</FieldLabel>
-                      <Input
-                        name="site"
-                        autoComplete="address-level2"
-                        placeholder="City or district, country"
-                      />
-                    </Field>
+                    <Controller
+                      name="site"
+                      control={control}
+                      render={({ field, fieldState }) => (
+                        <Field
+                          name={field.name}
+                          invalid={fieldState.invalid || undefined}
+                        >
+                          <FieldLabel>Site location</FieldLabel>
+                          <Input
+                            ref={field.ref}
+                            name={field.name}
+                            autoComplete="address-level2"
+                            placeholder="City or district, country"
+                            maxLength={160}
+                            value={field.value}
+                            onBlur={field.onBlur}
+                            onValueChange={(value, details) => {
+                              if (details.reason === "reset") {
+                                details.cancel();
+                                return;
+                              }
+                              field.onChange(value);
+                            }}
+                          />
+                          {fieldState.error?.message ? (
+                            <FieldError match>
+                              {fieldState.error.message}
+                            </FieldError>
+                          ) : null}
+                        </Field>
+                      )}
+                    />
                   </FieldGroup>
 
-                  {submitted ? (
+                  {state.status === "error" ? (
                     <div
-                      role="status"
-                      aria-live="polite"
-                      className="border border-hairline bg-surface-band p-4"
+                      role="alert"
+                      className="flex items-start gap-3 border border-destructive/30 bg-destructive/5 p-3.5"
                     >
-                      <p className="type-label font-semibold text-ink">
-                        Enquiry brief prepared
+                      <CircleAlertIcon
+                        aria-hidden="true"
+                        className="mbs-0.5 size-4 shrink-0 text-destructive"
+                      />
+                      <p className="type-body-sm leading-relaxed text-destructive">
+                        {state.message}
                       </p>
-                      <p className="type-body-sm mt-1 leading-relaxed text-muted-foreground">
-                        Open the brief in your email client, or write directly
-                        to{" "}
-                        <a
-                          href="mailto:industries@samansco.com"
-                          className="font-medium text-brand-deep underline-offset-4 hover:underline"
-                        >
-                          industries@samansco.com
-                        </a>
-                        .
-                      </p>
-                      <Button
-                        size="sm"
-                        className="mt-3"
-                        render={<a href={mailtoHref} />}
-                      >
-                        <MailIcon aria-hidden="true" />
-                        Open email brief
-                      </Button>
                     </div>
                   ) : null}
 
+                  <div aria-live="polite" aria-atomic="true" role="status">
+                    {state.status === "success" ? (
+                      <div className="flex items-start gap-3 border border-hairline bg-surface-band p-4">
+                        <CircleCheckIcon
+                          aria-hidden="true"
+                          className="mbs-0.5 size-5 shrink-0 text-emerald-600"
+                        />
+                        <div>
+                          <p className="type-label font-semibold text-ink">
+                            Industrial brief dispatched
+                          </p>
+                          <p className="type-body-sm mbs-1 leading-relaxed text-muted-foreground">
+                            Your brief has been routed to Samansco Industries
+                            and a confirmation copy emailed to you.
+                          </p>
+                          <p className="type-body-sm mbs-2 font-medium text-brand-deep tabular-nums">
+                            Reference ID: {state.reference}
+                          </p>
+                        </div>
+                      </div>
+                    ) : null}
+                  </div>
+
                   <DialogFooter>
                     <DialogClose type="button">Cancel</DialogClose>
-                    <Button type="submit">Prepare enquiry</Button>
+                    <Button
+                      type="submit"
+                      disabled={pending}
+                      aria-busy={pending}
+                    >
+                      {pending ? (
+                        <LoaderCircleIcon
+                          aria-hidden="true"
+                          className="animate-spin"
+                        />
+                      ) : null}
+                      {pending ? "Submitting enquiry…" : "Submit enquiry"}
+                    </Button>
                   </DialogFooter>
                 </form>
               </DialogContent>

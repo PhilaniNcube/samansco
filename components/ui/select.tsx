@@ -24,6 +24,7 @@ function SelectTrigger({
         "data-[placeholder]:text-muted-foreground",
         "focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
         "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+        "data-[invalid]:border-destructive",
         "[&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
         className,
       )}

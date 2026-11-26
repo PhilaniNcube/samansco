@@ -15,7 +15,7 @@ function Input({ className, ...props }: InputProps) {
         "selection:bg-primary/15 selection:text-ink",
         "focus-visible:border-charcoal",
         "disabled:cursor-not-allowed disabled:opacity-50",
-        "aria-invalid:border-destructive",
+        "aria-invalid:border-destructive data-[invalid]:border-destructive",
         className,
       )}
       {...props}
