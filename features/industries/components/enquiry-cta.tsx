@@ -104,14 +104,14 @@ export function EnquiryCta() {
                 331 Samora Machel Avenue, Eastlea, Harare
               </span>
               <a
-                href="tel:+263242442645"
+                href="tel:+263242480484"
                 className="type-body-sm flex items-center gap-2 transition-colors hover:text-white tabular-nums"
               >
                 <PhoneIcon
                   aria-hidden="true"
                   className="size-4 shrink-0 text-brand-tint"
                 />
-                +263 242 442645-7
+                +263 242 480484
               </a>
               <a
                 href="mailto:industries@samansco.com"

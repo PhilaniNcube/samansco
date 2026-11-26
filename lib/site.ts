@@ -46,6 +46,6 @@ export const headOffice = {
   street: "331 Samora Machel Avenue",
   suburb: "Eastlea, Harare",
   country: "Zimbabwe",
-  phone: "+263 242 442645-7",
+  phone: "+263 242 480484",
   email: "info@samansco.com",
 };

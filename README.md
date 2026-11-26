@@ -29,6 +29,7 @@ npm run build      # prerender check: every route must produce a shell
 npm run start      # serve the production build
 npm run lint
 npm run typecheck
+npm run email:dev  # React Email preview for transactional mail (port 3001)
 ```
 
 ## What to look at first

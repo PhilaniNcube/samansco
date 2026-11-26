@@ -30,8 +30,8 @@ const baseloadOptions = [
 const contactChannels = [
   {
     label: "Direct utility desk",
-    value: "+263 242 442645-7",
-    href: "tel:+263242442645",
+    value: "+263 242 480484",
+    href: "tel:+263242480484",
     icon: PhoneIcon,
   },
   {

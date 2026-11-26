@@ -16,8 +16,8 @@ import {
 const contacts = [
   {
     label: "Direct trading line",
-    value: "+263 242 442645-7",
-    href: "tel:+263242442645",
+    value: "+263 242 480484",
+    href: "tel:+263242480484",
     icon: PhoneIcon,
   },
   {

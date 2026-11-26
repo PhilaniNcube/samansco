@@ -42,7 +42,7 @@ export function MaintenanceCta() {
 
               <div className="mbs-4 divide-y divide-white/10 border-y border-white/10">
                 <a
-                  href="tel:+263242442645"
+                  href="tel:+263242480484"
                   className="flex items-center justify-between gap-3 py-3 transition-colors hover:text-white"
                 >
                   <span className="flex min-w-0 items-center gap-2.5">
@@ -51,7 +51,7 @@ export function MaintenanceCta() {
                       className="size-4 shrink-0 text-brand-tint"
                     />
                     <span className="type-body-sm truncate text-white tabular-nums">
-                      +263 242 442645 / 7
+                      +263 242 480484
                     </span>
                   </span>
                   <span className="type-body-sm text-white/75">
